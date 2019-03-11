@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/io/aosc/DeployKit">
+    <file compressed="true" preprocess="xml-stripblanks">ui/dk-variantrow.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks">ui/dk-mirrorrow.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks">ui/dk-destinationrow.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks">ui/dk-extracomponentrow.ui</file>
+  </gresource>
+</gresources>
