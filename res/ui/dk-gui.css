@@ -1,0 +1,4 @@
+/* Remove background color for GtkListBox */
+.dk-listbox {
+  background-color: rgba(0, 0, 0, 0);
+}
