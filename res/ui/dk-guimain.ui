@@ -34,7 +34,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
   <!-- interface-description AOSC OS Installer and Rescue Toolbox -->
   <!-- interface-copyright 2019 Anthon Open Source Community -->
   <!-- interface-authors Junde Yhi <lmy441900@aosc.xyz> -->
-  <object class="GtkApplicationWindow" id="dk-gui-main">
+  <object class="GtkApplicationWindow" id="dk_gui_main">
     <property name="can_focus">False</property>
     <property name="resizable">False</property>
     <property name="icon_name">system-os-installer</property>
