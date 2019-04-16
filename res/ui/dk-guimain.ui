@@ -39,6 +39,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
     <property name="resizable">False</property>
     <property name="icon_name">system-os-installer</property>
     <property name="gravity">center</property>
+    <signal name="destroy" handler="gtk_main_quit" swapped="no"/>
     <child type="titlebar">
       <object class="GtkHeaderBar" id="titlebar_main">
         <property name="visible">True</property>
