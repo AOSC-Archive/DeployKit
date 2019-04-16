@@ -51,12 +51,14 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
             <property name="label" translatable="yes">Expert</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
+            <property name="no_show_all">True</property>
           </object>
         </child>
         <child>
           <object class="GtkButton">
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
+            <property name="no_show_all">True</property>
             <child>
               <object class="GtkImage">
                 <property name="visible">True</property>
@@ -75,6 +77,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
           <object class="GtkButton">
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
+            <property name="no_show_all">True</property>
             <child>
               <object class="GtkImage">
                 <property name="visible">True</property>
