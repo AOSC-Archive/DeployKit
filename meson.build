@@ -11,6 +11,7 @@ sources = [
   'src/dk-destinationrow.vala',
   'src/dk-mirrorrow.vala',
   'src/dk-extracomponentrow.vala',
+  'src/dk-networkconfig.vala',
   'src/dk-guimain.vala',
   'src/dk-app.vala',
   'src/main.vala',
