@@ -18,4 +18,4 @@ sources += import('gnome').compile_resources(
 )
 
 # Final executable
-executable('dk', sources, dependencies: dependencies)
+executable('aosc-dk', sources, dependencies: dependencies)
