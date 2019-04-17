@@ -2,3 +2,6 @@
 
 # Glade stuff
 \#*\#
+
+# Build directory
+build/
