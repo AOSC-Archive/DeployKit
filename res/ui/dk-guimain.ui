@@ -34,21 +34,20 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
   <!-- interface-description AOSC OS Installer and Rescue Toolbox -->
   <!-- interface-copyright 2019 Anthon Open Source Community -->
   <!-- interface-authors Junde Yhi <lmy441900@aosc.xyz> -->
-  <object class="GtkApplicationWindow" id="dk_gui_main">
+  <template class="DkGuiMain" parent="GtkApplicationWindow">
     <property name="can_focus">False</property>
     <property name="resizable">False</property>
     <property name="icon_name">system-os-installer</property>
     <property name="gravity">center</property>
-    <signal name="destroy" handler="gtk_main_quit" swapped="no"/>
     <child type="titlebar">
-      <object class="GtkHeaderBar" id="titlebar_main">
+      <object class="GtkHeaderBar" id="headerbar_main">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="subtitle" translatable="yes">AOSC OS DeployKit</property>
         <property name="show_close_button">True</property>
         <property name="decoration_layout">:minimize,close</property>
         <child>
-          <object class="GtkToggleButton">
+          <object class="GtkToggleButton" id="togglebtn_expert">
             <property name="label" translatable="yes">Expert</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
@@ -56,7 +55,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
           </object>
         </child>
         <child>
-          <object class="GtkButton">
+          <object class="GtkButton" id="btn_ok">
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="no_show_all">True</property>
@@ -75,7 +74,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
           </packing>
         </child>
         <child>
-          <object class="GtkButton">
+          <object class="GtkButton" id="btn_network">
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="no_show_all">True</property>
@@ -109,7 +108,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
             <property name="transition_type">crossfade</property>
             <property name="interpolate_size">True</property>
             <child>
-              <object class="GtkBox">
+              <object class="GtkBox" id="box_prepare">
                 <property name="width_request">564</property>
                 <property name="height_request">240</property>
                 <property name="visible">True</property>
@@ -162,7 +161,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
               </packing>
             </child>
             <child>
-              <object class="GtkBox">
+              <object class="GtkBox" id="box_recipe_general">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="orientation">vertical</property>
@@ -795,7 +794,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
               </packing>
             </child>
             <child>
-              <object class="GtkBox">
+              <object class="GtkBox" id="box_recipe_expert">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="orientation">vertical</property>
@@ -1425,7 +1424,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
               </packing>
             </child>
             <child>
-              <object class="GtkBox">
+              <object class="GtkBox" id="box_install">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="orientation">vertical</property>
@@ -1575,7 +1574,7 @@ During installation, you may want to go around and get a feeling for AOSC OS!</p
               </packing>
             </child>
             <child>
-              <object class="GtkBox">
+              <object class="GtkBox" id="box_done">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="orientation">vertical</property>
@@ -1654,5 +1653,5 @@ During installation, you may want to go around and get a feeling for AOSC OS!</p
         </child>
       </object>
     </child>
-  </object>
+  </template>
 </interface>

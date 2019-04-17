@@ -7,6 +7,12 @@ dependencies = [
 
 # Source files
 sources = [
+  'src/dk-variantrow.vala',
+  'src/dk-destinationrow.vala',
+  'src/dk-mirrorrow.vala',
+  'src/dk-extracomponentrow.vala',
+  'src/dk-guimain.vala',
+  'src/dk-app.vala',
   'src/main.vala',
 ]
 
