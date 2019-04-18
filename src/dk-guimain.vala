@@ -109,6 +109,12 @@ namespace Dk {
 
       // Save the application for destruction
       this.app = app;
+
+      // Load CSS from resource to override styles of some widgets
+      var css_provider = new Gtk.CssProvider();
+      var style_context = this.get_style_context();
+      css_provider.load_from_resource("/io/aosc/DeployKit/ui/dk-gui.css");
+      style_context.add_provider_for_screen(Gdk.Screen.get_default(), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
     }
 
     ~GuiMain() {
