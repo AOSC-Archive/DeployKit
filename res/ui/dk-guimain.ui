@@ -109,7 +109,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
             <property name="interpolate_size">True</property>
             <child>
               <object class="GtkBox" id="box_prepare">
-                <property name="width_request">564</property>
+                <property name="width_request">600</property>
                 <property name="height_request">240</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
@@ -163,6 +163,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
             </child>
             <child>
               <object class="GtkBox" id="box_recipe_general">
+                <property name="width_request">600</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="orientation">vertical</property>
@@ -797,6 +798,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
             </child>
             <child>
               <object class="GtkBox" id="box_recipe_expert">
+                <property name="width_request">600</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="orientation">vertical</property>
@@ -1579,6 +1581,7 @@ During installation, you may want to go around and get a feeling for AOSC OS!</p
             </child>
             <child>
               <object class="GtkBox" id="box_done">
+                <property name="width_request">600</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="orientation">vertical</property>
@@ -1593,8 +1596,6 @@ During installation, you may want to go around and get a feeling for AOSC OS!</p
                     <property name="spacing">12</property>
                     <child>
                       <object class="GtkLabel">
-                        <property name="width_request">564</property>
-                        <property name="height_request">180</property>
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <property name="label" translatable="yes">All done!</property>
