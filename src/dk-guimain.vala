@@ -161,5 +161,42 @@ namespace Dk {
       this.btn_network.set_visible(false);
       this.btn_ok.set_visible(false);
     }
+
+    [GtkCallback]
+    private void togglebtn_expert_toggled_cb() {
+      if (this.togglebtn_expert.get_active())
+        this.stack_main.set_visible_child(this.box_recipe_expert);
+      else
+        this.stack_main.set_visible_child(this.box_recipe_general);
+    }
+
+    [GtkCallback]
+    private void btn_ok_clicked_cb() {
+      var visible_child = this.stack_main.get_visible_child();
+      if (visible_child == this.box_recipe_general ||
+          visible_child == this.box_recipe_expert)
+      {
+        // TODO: Proceed with installation
+        // 1. Store configuration into config store
+        // 2. Switch to installation page
+        // 3. Spawn IR generator to create config for the backend
+        // 4. Spawn the backend, bind status RPC messages to widgets
+        this.label_installation_step_curr.set_text("1");
+        this.label_installation_step_max.set_text("8");
+        this.label_installation_step_desc.set_text("Preparing for installation");
+        this.stack_main.set_visible_child(this.box_install);
+      } else {
+        // The button is unexpectedly clicked when it should not be shown
+      }
+    }
+
+    [GtkCallback]
+    private void btn_network_clicked_cb() {
+      var network_config_dialog = new Dk.NetworkConfig();
+
+      // Set modal dialog transient for the main window
+      network_config_dialog.set_transient_for(this);
+      network_config_dialog.show_all();
+    }
   }
 }

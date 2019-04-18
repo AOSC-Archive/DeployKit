@@ -52,6 +52,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="no_show_all">True</property>
+            <signal name="toggled" handler="togglebtn_expert_toggled_cb" swapped="no"/>
           </object>
         </child>
         <child>
@@ -59,6 +60,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="no_show_all">True</property>
+            <signal name="clicked" handler="btn_ok_clicked_cb" swapped="no"/>
             <child>
               <object class="GtkImage">
                 <property name="visible">True</property>
@@ -78,6 +80,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
             <property name="no_show_all">True</property>
+            <signal name="clicked" handler="btn_network_clicked_cb" swapped="no"/>
             <child>
               <object class="GtkImage">
                 <property name="visible">True</property>
