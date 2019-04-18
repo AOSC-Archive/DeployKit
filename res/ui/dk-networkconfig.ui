@@ -35,6 +35,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
   <!-- interface-authors Junde Yhi <lmy441900@aosc.xyz> -->
   <template class="DkNetworkConfig" parent="GtkWindow">
     <property name="can_focus">False</property>
+    <property name="modal">True</property>
     <property name="default_width">400</property>
     <property name="type_hint">dialog</property>
     <property name="skip_taskbar_hint">True</property>
