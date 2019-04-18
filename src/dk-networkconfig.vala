@@ -4,7 +4,7 @@ namespace Dk {
     [GtkChild (name = "btn_done")]
     private Gtk.Button done;
     [GtkChild (name = "combobox_type")]
-    private Gtk.ComboBoxText type;
+    private Gtk.ComboBoxText proxy_type;
     [GtkChild (name = "entry_addr")]
     private Gtk.Entry address;
     [GtkChild (name = "entry_port")]
