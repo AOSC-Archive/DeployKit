@@ -24,5 +24,14 @@ sources += import('gnome').compile_resources(
   source_dir: 'res',
 )
 
+# Config files for versioning, etc
+conf_data = configuration_data()
+conf_data.set('VERSION', meson.project_version())
+sources += configure_file(
+  input: 'src/dk-version.vala.in',
+  output: 'dk-version.vala',
+  configuration : conf_data,
+)
+
 # Final executable
 executable('aosc-dk', sources, dependencies: dependencies)

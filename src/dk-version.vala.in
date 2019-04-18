@@ -1,0 +1,12 @@
+namespace Dk {
+  /**
+   * Get DeployKit version.
+   *
+   * The string returned is expected to be replaced by the build system.
+   *
+   * @return Version string of DeployKit.
+   */
+  public static string get_version() {
+    return "@VERSION@";
+  }
+}
