@@ -105,9 +105,8 @@ namespace Dk {
     private Gtk.Box box_done;
 
     public GuiMain(Gtk.Application app) {
-      new Gtk.ApplicationWindow(app);
-
       // Save the application for destruction
+      app.hold();
       this.app = app;
 
       // Load CSS from resource to override styles of some widgets
