@@ -6,6 +6,8 @@ namespace Dk {
 
     /* Widgets in Header Bar */
     [GtkChild]
+    private Gtk.HeaderBar headerbar_main;
+    [GtkChild]
     private Gtk.ToggleButton togglebtn_expert;
     [GtkChild]
     private Gtk.Button btn_ok;
