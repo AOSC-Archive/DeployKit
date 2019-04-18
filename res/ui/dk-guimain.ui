@@ -114,6 +114,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="orientation">vertical</property>
+                <signal name="map" handler="box_prepare_map_cb" swapped="no"/>
                 <child>
                   <object class="GtkBox">
                     <property name="visible">True</property>
@@ -165,6 +166,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="orientation">vertical</property>
+                <signal name="map" handler="box_recipe_general_map_cb" swapped="no"/>
                 <child>
                   <object class="GtkScrolledWindow">
                     <property name="visible">True</property>
@@ -798,6 +800,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="orientation">vertical</property>
+                <signal name="map" handler="box_recipe_expert_map_cb" swapped="no"/>
                 <child>
                   <object class="GtkScrolledWindow">
                     <property name="visible">True</property>
@@ -1428,6 +1431,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="orientation">vertical</property>
+                <signal name="map" handler="box_install_map_cb" swapped="no"/>
                 <child>
                   <object class="GtkBox">
                     <property name="visible">True</property>
@@ -1578,6 +1582,7 @@ During installation, you may want to go around and get a feeling for AOSC OS!</p
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="orientation">vertical</property>
+                <signal name="map" handler="box_done_map_cb" swapped="no"/>
                 <child>
                   <object class="GtkBox">
                     <property name="visible">True</property>

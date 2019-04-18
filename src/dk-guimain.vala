@@ -115,5 +115,45 @@ namespace Dk {
       // Quit the program when window is closed
       this.app.release();
     }
+
+    [GtkCallback]
+    private void box_prepare_map_cb() {
+      this.headerbar_main.set_title("Preparing");
+      this.togglebtn_expert.set_visible(false);
+      this.btn_network.set_visible(true);
+      this.btn_ok.set_visible(false);
+    }
+
+    [GtkCallback]
+    private void box_recipe_general_map_cb() {
+      this.headerbar_main.set_title("Recipe");
+      this.togglebtn_expert.set_visible(true);
+      this.btn_network.set_visible(true);
+      this.btn_ok.set_visible(true);
+    }
+
+    [GtkCallback]
+    private void box_recipe_expert_map_cb() {
+      this.headerbar_main.set_title("Recipe");
+      this.togglebtn_expert.set_visible(true);
+      this.btn_network.set_visible(true);
+      this.btn_ok.set_visible(true);
+    }
+
+    [GtkCallback]
+    private void box_install_map_cb() {
+      this.headerbar_main.set_title("Installing");
+      this.togglebtn_expert.set_visible(false);
+      this.btn_network.set_visible(false);
+      this.btn_ok.set_visible(false);
+    }
+
+    [GtkCallback]
+    private void box_done_map_cb() {
+      this.headerbar_main.set_title("Done");
+      this.togglebtn_expert.set_visible(false);
+      this.btn_network.set_visible(false);
+      this.btn_ok.set_visible(false);
+    }
   }
 }
