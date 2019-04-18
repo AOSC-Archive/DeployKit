@@ -106,7 +106,6 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
             <property name="hhomogeneous">False</property>
             <property name="vhomogeneous">False</property>
             <property name="transition_type">crossfade</property>
-            <property name="interpolate_size">True</property>
             <child>
               <object class="GtkBox" id="box_prepare">
                 <property name="width_request">600</property>
