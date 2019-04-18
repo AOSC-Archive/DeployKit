@@ -1617,6 +1617,9 @@ During installation, you may want to go around and get a feeling for AOSC OS!</p
                         <property name="can_focus">True</property>
                         <property name="receives_default">True</property>
                         <property name="halign">center</property>
+                        <style>
+                          <class name="suggested-action"/>
+                        </style>
                       </object>
                       <packing>
                         <property name="expand">False</property>
