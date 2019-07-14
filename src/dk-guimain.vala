@@ -1,9 +1,6 @@
 namespace Dk {
   [GtkTemplate (ui = "/io/aosc/DeployKit/ui/dk-guimain.ui")]
   public class GuiMain : Gtk.ApplicationWindow {
-    /* The application */
-    private Gtk.Application app;
-
     /* Widgets in Header Bar */
     [GtkChild]
     private Gtk.HeaderBar headerbar_main;
@@ -104,9 +101,7 @@ namespace Dk {
     [GtkChild]
     private Gtk.Box box_done;
 
-    public GuiMain(Gtk.Application app) {
-      this.app = app;
-
+    public GuiMain() {
       // Load CSS from resource to override styles of some widgets
       var css_provider = new Gtk.CssProvider();
       css_provider.load_from_resource("/io/aosc/DeployKit/ui/dk-gui.css");

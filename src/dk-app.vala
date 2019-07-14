@@ -5,7 +5,7 @@ namespace Dk {
     }
 
     protected override void activate() {
-      var guimain = new Dk.GuiMain(this);
+      var guimain = new Dk.GuiMain();
       this.add_window(guimain);
       guimain.show_all();
     }
