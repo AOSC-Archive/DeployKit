@@ -105,19 +105,12 @@ namespace Dk {
     private Gtk.Box box_done;
 
     public GuiMain(Gtk.Application app) {
-      // Save the application for destruction
-      app.hold();
       this.app = app;
 
       // Load CSS from resource to override styles of some widgets
       var css_provider = new Gtk.CssProvider();
       css_provider.load_from_resource("/io/aosc/DeployKit/ui/dk-gui.css");
       Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
-    }
-
-    ~GuiMain() {
-      // Quit the program when window is closed
-      this.app.release();
     }
 
     [GtkCallback]
