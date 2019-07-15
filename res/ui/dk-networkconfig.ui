@@ -53,6 +53,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
+            <signal name="clicked" handler="btn_done_clicked_cb" swapped="no"/>
           </object>
           <packing>
             <property name="pack_type">end</property>

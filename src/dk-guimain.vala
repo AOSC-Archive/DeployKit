@@ -101,6 +101,13 @@ namespace Dk {
     [GtkChild]
     private Gtk.Box box_done;
 
+    /* Variables to use */
+    private string proxy_type;
+    private string proxy_address;
+    private string proxy_port;
+    private string proxy_username;
+    private string proxy_password;
+
     public GuiMain() {
       // Load CSS from resource to override styles of some widgets
       var css_provider = new Gtk.CssProvider();
@@ -178,7 +185,46 @@ namespace Dk {
 
     [GtkCallback]
     private void btn_network_clicked_cb() {
-      var network_config_dialog = new Dk.NetworkConfig();
+      var network_config_dialog = new Dk.NetworkConfig((type, addr, port, username, password) => {
+        if (type == null)
+          this.proxy_type = "Disable";
+        else
+          this.proxy_type = type;
+
+        if (addr == "")
+          this.proxy_address = null;
+        else
+          this.proxy_address = addr;
+
+        if (port == "")
+          this.proxy_port = null;
+        else
+          this.proxy_port = port;
+
+        if (username == "")
+          this.proxy_username = null;
+        else
+          this.proxy_username = username;
+
+        if (password == "")
+          this.proxy_password = null;
+        else
+          this.proxy_password = password;
+
+        var ctx = this.btn_network.get_style_context();
+
+        if (this.proxy_type != null && this.proxy_type != "Disable" &&
+            this.proxy_address != null &&
+            this.proxy_port != null)
+        {
+          // Highlight the button to indicate that the proxy has been set
+          ctx.add_class("suggested-action");
+        } else {
+          if (ctx.has_class("suggested-action")) {
+            ctx.remove_class("suggested-action");
+          }
+        }
+      });
 
       // Set modal dialog transient for the main window
       network_config_dialog.set_transient_for(this);
