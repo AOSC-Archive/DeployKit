@@ -1584,6 +1584,7 @@ During installation, you may want to go around and get a feeling for AOSC OS!</p
             <child>
               <object class="GtkBox" id="box_done">
                 <property name="width_request">600</property>
+                <property name="height_request">240</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="orientation">vertical</property>
@@ -1643,7 +1644,7 @@ During installation, you may want to go around and get a feeling for AOSC OS!</p
                     </child>
                   </object>
                   <packing>
-                    <property name="expand">False</property>
+                    <property name="expand">True</property>
                     <property name="fill">True</property>
                     <property name="position">0</property>
                   </packing>
