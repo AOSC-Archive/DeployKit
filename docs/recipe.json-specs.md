@@ -2,9 +2,27 @@
 
 This document specifies the structure and fields of `recipe.json`, which is a configuration file stored on AOSC repository server ([repo.aosc.io][repo]) for the installer to fetch and display.
 
-Document version: 0.1
-
 [repo]: https://repo.aosc.io
+
+Document version: 0.2 (Unstable)
+
+## File Location
+
+`recipe.json` is designed to be fetched by a DeployKit client, so its position should be fixed for easier implementation. The file should be located in:
+
+```
+<root_url>/aosc-os/recipe.json
+```
+
+... where
+
+- `<root_url>` is the unified resource locator (URL) to AOSC OS repository. Normally, this should be `repo.aosc.io`. Example:
+
+```
+https://repo.aosc.io/aosc-os/recipe.json
+```
+
+The client is advised not to hard-code the root URL.
 
 ## Definition
 
@@ -12,7 +30,7 @@ A full example of `recipe.json`:
 
 ```json
 {
-  "version": 1,
+  "version": 0,
   "bulletin": {
     "empty": false,
     "type": "info",
@@ -21,34 +39,34 @@ A full example of `recipe.json`:
   },
   "variants": [
     {
-      "arch": "amd64",
+      "name": "GNOME",
       "tarballs": [
         {
-          "name": "GNOME",
+          "arch": "amd64",
           "date": "20181225",
           "downloadSize": 114514,
           "instSize": 1919810,
           "path": "/os-amd64/gnome/aosc-os_gnome_20181225_amd64.tar.xz"
         },
         {
-          "name": "KDE",
+          "arch": "armel",
           "date": "20181225",
-          "downloadSize": 2860286264,
-          "instSize": -1,
-          "path": "/os-amd64/kde/aosc-os_kde_20181225_amd64.tar.xz"
+          "downloadSize": 114514,
+          "instSize": 1919810,
+          "path": "/os-armel/gnome/aosc-os_gnome_20181225_armel.tar.xz"
         }
       ]
     },
     {
-      "arch": "armel",
+      "name": "i3 Window Manager",
+      "name@zh-cn": "i3 窗口管理器",
       "tarballs": [
         {
-          "name": "i3 Window Manager",
-          "name@zh-cn": "i3 窗口管理器",
+          "arch": "riscv64",
           "date": "20181016",
           "downloadSize": 1102870672,
           "instSize": -1,
-          "path": "/os-armel/i3wm/aosc-os_i3wm_20181225_armel.tar.xz"
+          "path": "/os-riscv64/i3wm/aosc-os_i3wm_20181225_riscv64.tar.xz"
         }
       ]
     }
@@ -72,31 +90,33 @@ A full example of `recipe.json`:
 }
 ```
 
+Note that a valid JSON does not require indentation, nor a sequence of attributes.
+
 ### The `Version` Attribute
 
-This attributes represents the API version used in `recipe.json`.
+This attribute represents the API version used in `recipe.json`.
 
 ```json
-"version": 1
+"version": 0
 ```
 
-`"version"` should increase when a breaking change involves (i.e. version of this documentation has its major version increased).
+`"version"` should increase when a breaking change involves (i.e. version of this documentation has its major version increased). Normally, this should be identical to the major version of this document.
+  - A version of `0` represents an implementation of a not-yet-stablized specification, which means the API may break some day. Clients should not support a version 0 recipe once the specification version gets increased to `1`.
 
 ### The `Bulletin` Object
 
-This object represents a bulletin message that the development team want to tell users when they are about to install AOSC OS.
+A `Bulletin` object represents a bulletin message that the development team want to tell users when they are about to install AOSC OS.
 
 ```json
 {
-  "empty": false,
   "type": "info",
   "title": "Hi!",
   "body": "Thank you for choosing AOSC OS!"
 }
 ```
 
-- `"empty"`: A bool value, acting as a status flag indicating whether there is a bulletin message or not. Used to quickly figure out whether bulletin should be shown or not by the client (installer). If this is `true`, then `"type"`, `"title"`, and `"body"` must exist.
 - `"type"`: A string value, indicating the type of bulletin. There can be the following possible values:
+  - `"none"`: No message. In this case, `"title"` and `"body"` should be ignored.
   - `"info"`: Informative message, can be used for asking for feedback survey.
   - `"warning"`: Warning message, used in cases like potential problem in current tarballs.
   - `"fatal"`: Fatal error message, used in cases like serious problem in anything the user may be using. In this case, the client (installer) should stop its installation process.
@@ -105,48 +125,48 @@ This object represents a bulletin message that the development team want to tell
 
 ### The `Variants` Array
 
-This array represents a series of variants (tarball favors) that AOSC OS provides. It contains a list of `variants` object (see below).
+This array represents a series of variants (tarball favors) that AOSC OS provides. It contains a list of `Variant` object(s) (see below).
 
 ### The `Mirrors` Array
 
-This array represents a series of mirrors for users to choose in order to boost their download speed. It contains a list of `mirror` object (see below).
+This array represents a series of mirrors for users to choose in order to boost their download speed. It contains a list of `Mirror` object(s) (see below).
 
-### The `Variants` Object
+### The `Variant` Object
 
-A `variants` object represents all variants under a specific processor architecture.
+A `Variant` object represents a favor of installation (e.g. image(s) with a desktop environment pre-installed).
 
 ```json
 {
-  "arch": "amd64",
+  "name": "GNOME",
   "tarballs": [
     {
-      "name": "GNOME",
+      "arch": "amd64",
       "date": "20181225",
       "downloadSize": 114514,
       "instSize": 1919810,
       "path": "/os-amd64/gnome/aosc-os_gnome_20181225_amd64.tar.xz"
     },
     {
-      "name": "KDE",
+      "arch": "armel",
       "date": "20181225",
       "downloadSize": 2860286264,
       "instSize": -1,
-      "path": "/os-amd64/kde/aosc-os_kde_20181225_amd64.tar.xz"
+      "path": "/os-armel/kde/aosc-os_kde_20181225_armel.tar.xz"
     }
   ]
 }
 ```
 
-- `"arch"`: A string value, indicating target processor architecture of the tarballs listed in `"tarballs"`.
-- `"tarballs"`: An array, containing a list of tarball objects (see below) ready for the client (installer) to display and download.
+- `"name"`: A string value, describing the name of tarball. Usually this is the name of desktop enviromnent shipped with the distribution, or "Base" for AOSC OS distribution without graphical user interface.
+- `"tarballs"`: An array, containing a list of `Tarball` object(s) (see below) ready for the client (installer) to display and download.
 
 ### The `Tarball` Object
 
-A `tarball` object represents a compressed distribution of a specific favor of AOSC OS (namely tarball), containing metadata about it.
+A `Tarball` object represents a compressed distribution of a specific favor of AOSC OS (namely tarball) in a specific processor architecture (e.g. AMD64).
 
 ```json
 {
-  "name": "GNOME",
+  "arch": "amd64",
   "date": "20181225",
   "downloadSize": 114514,
   "instSize": 1919810,
@@ -154,7 +174,7 @@ A `tarball` object represents a compressed distribution of a specific favor of A
 }
 ```
 
-- `"name"`: A string value, describing the name of tarball. Usually this is the name of desktop enviromnent shipped with the distribution, or "Base" for AOSC OS distribution without graphical user interface.
+- `"arch"`: A string value, indicating target processor architecture of the tarball.
 - `"date"`: A string value, describing the latest update date of the tarball. Note that this string follows the basic format of [ISO 8601 Data elements and interchange formats](https://en.wikipedia.org/wiki/ISO_8601), namely in the form `YYYYMMDD`, where `Y`, `M`, `D` are respectively year, month, and day.
   - The client (installer) may also implement the expanded year representation, with `+` prefixed in the date string, avoiding [year 10000 problem](https://en.wikipedia.org/wiki/Year_10,000_problem).
 - `"downloadSize"`: An integer value, indicating the size for download, in bytes. This field can contain `-1` indicating an unknown download size. In this case the client (installer) may try to figure it out via HTTP `HEAD` request.
@@ -202,4 +222,4 @@ ISO 639 has several parts. In this specification, only ISO 639-1 is used; using 
 
 ---
 
-End of documentation.
+End of document.
