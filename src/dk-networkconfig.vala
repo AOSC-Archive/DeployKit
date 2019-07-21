@@ -27,7 +27,7 @@ namespace Dk {
    * @param proxy_username Username for the proxy.
    * @param proxy_password Password for the proxy.
    */
-  public delegate void NetworkConfigCallback(ProxyType? proxy_type, string? proxy_address, string? proxy_port, string? proxy_username, string? proxy_password);
+  public delegate void NetworkConfigSaveCb(ProxyType? proxy_type, string? proxy_address, string? proxy_port, string? proxy_username, string? proxy_password);
 
   /**
    * A network configuration dialog.
@@ -75,9 +75,9 @@ namespace Dk {
     private Gtk.Entry password;
 
     /**
-     * Dk.NetworkConfigCallback for saving the form.
+     * Dk.NetworkConfigSaveCb for saving the form.
      */
-    private NetworkConfigCallback callback_save;
+    private NetworkConfigSaveCb callback_save;
 
     /**
      * Constructor for Dk.NetworkConfig.
@@ -91,7 +91,7 @@ namespace Dk {
      * @param username Username for the proxy.
      * @param password Password for the proxy.
      */
-    public NetworkConfig(ProxyType? type, string? addr, string? port, string? username, string? password, NetworkConfigCallback cb) {
+    public NetworkConfig(ProxyType? type, string? addr, string? port, string? username, string? password, NetworkConfigSaveCb cb) {
       if (type != null)
         this.proxy_type.set_active(type);
       if (addr != null)
@@ -135,7 +135,7 @@ namespace Dk {
      * Callback on ``clicked`` event of button ``done``.
      *
      * The function retrieves data from the form, converts them into data types
-     * defined in delegate NetworkConfigCallback, and calls it to "save" the
+     * defined in delegate NetworkConfigSaveCb, and calls it to "save" the
      * network settings.
      */
     [GtkCallback]
