@@ -1,17 +1,48 @@
 namespace Dk {
+  /**
+   * Template widget for use in the "Variants" section of recipe.
+   */
   [GtkTemplate (ui = "/io/aosc/DeployKit/ui/dk-variantrow.ui")]
   public class VariantRow: Gtk.Box {
+    /**
+     * Icon identifying the variant.
+     */
     [GtkChild]
     private Gtk.Image icon;
+
+    /**
+     * Name of the variant.
+     */
     [GtkChild (name = "name")]
     private Gtk.Label variant_name;
+
+    /**
+     * Release date of the variant.
+     */
     [GtkChild]
     private Gtk.Label release_date;
+
+    /**
+     * Download size of the variant.
+     */
     [GtkChild]
     private Gtk.Label download_size;
+
+    /**
+     * Installation size of the variant.
+     */
     [GtkChild]
     private Gtk.Label installation_size;
 
+    /**
+     * Constructor for ``Dk.VariantRow``.
+     *
+     * @param icon_name         Name of the icon to display.
+     * @param variant_name      Name of the variant (e.g. "GNOME").
+     * @param release_date      Date of variant release in string.
+     * @param download_size     Size of the compressed file for user to download.
+     * @param installation_size Size of the installed root (/).
+     */
     public VariantRow(string icon_name, string variant_name, string release_date, uint64 download_size, uint64 installation_size) {
       this.icon.set_from_icon_name(icon_name, Gtk.IconSize.DIALOG); // 48px
       this.variant_name.set_text(variant_name);

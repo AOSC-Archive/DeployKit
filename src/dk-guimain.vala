@@ -1,4 +1,7 @@
 namespace Dk {
+  /**
+   * The main application window of DeployKit.
+   */
   [GtkTemplate (ui = "/io/aosc/DeployKit/ui/dk-guimain.ui")]
   public class GuiMain : Gtk.ApplicationWindow {
     /* Widgets in Header Bar */
@@ -108,6 +111,9 @@ namespace Dk {
     private string? proxy_username;
     private string? proxy_password;
 
+    /**
+     * Constructor for ``Dk.GuiMain``.
+     */
     public GuiMain() {
       // Load CSS from resource to override styles of some widgets
       var css_provider = new Gtk.CssProvider();
@@ -115,6 +121,12 @@ namespace Dk {
       Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
     }
 
+    /**
+     * Callback on ``map`` event of ``Gtk.Box`` "Prepareing".
+     *
+     * This function is called as the box shows up, so as to switch the content
+     * in the header bar correspondingly.
+     */
     [GtkCallback]
     private void box_prepare_map_cb() {
       this.headerbar_main.set_title("Preparing");
@@ -123,6 +135,12 @@ namespace Dk {
       this.btn_ok.set_visible(false);
     }
 
+    /**
+     * Callback on ``map`` event of ``Gtk.Box`` "Recipe (General)".
+     *
+     * This function is called as the box shows up, so as to switch the content
+     * in the header bar correspondingly.
+     */
     [GtkCallback]
     private void box_recipe_general_map_cb() {
       this.headerbar_main.set_title("Recipe");
@@ -131,6 +149,12 @@ namespace Dk {
       this.btn_ok.set_visible(true);
     }
 
+    /**
+     * Callback on ``map`` event of ``Gtk.Box`` "Recipe (Expert)".
+     *
+     * This function is called as the box shows up, so as to switch the content
+     * in the header bar correspondingly.
+     */
     [GtkCallback]
     private void box_recipe_expert_map_cb() {
       this.headerbar_main.set_title("Recipe");
@@ -139,6 +163,12 @@ namespace Dk {
       this.btn_ok.set_visible(true);
     }
 
+    /**
+     * Callback on ``map`` event of ``Gtk.Box`` "Installing".
+     *
+     * This function is called as the box shows up, so as to switch the content
+     * in the header bar correspondingly.
+     */
     [GtkCallback]
     private void box_install_map_cb() {
       this.headerbar_main.set_title("Installing");
@@ -147,6 +177,12 @@ namespace Dk {
       this.btn_ok.set_visible(false);
     }
 
+    /**
+     * Callback on ``map`` event of ``Gtk.Box`` "Done".
+     *
+     * This function is called as the box shows up, so as to switch the content
+     * in the header bar correspondingly.
+     */
     [GtkCallback]
     private void box_done_map_cb() {
       this.headerbar_main.set_title("Done");
@@ -155,6 +191,12 @@ namespace Dk {
       this.btn_ok.set_visible(false);
     }
 
+    /**
+     * Callback on ``toggled`` event of the toggle-button "Expert".
+     *
+     * When the button is toggled, the interface should switch to the "expert"
+     * recipe for the user to perform advanced installation.
+     */
     [GtkCallback]
     private void togglebtn_expert_toggled_cb() {
       if (this.togglebtn_expert.get_active())
@@ -163,6 +205,12 @@ namespace Dk {
         this.stack_main.set_visible_child(this.box_recipe_general);
     }
 
+    /**
+     * Callback on ``clicked`` event of the button "OK".
+     *
+     * When the button is clicked, installation should take place according to
+     * what the user selects in the recipe.
+     */
     [GtkCallback]
     private void btn_ok_clicked_cb() {
       var visible_child = this.stack_main.get_visible_child();
@@ -183,6 +231,13 @@ namespace Dk {
       }
     }
 
+    /**
+     * Callback on ``clicked`` event of button "Network Config".
+     *
+     * When the button is clicked, a network configuation dialog should show up
+     * for the user to configure their suitable network setup, e.g. proxies, or
+     * offline.
+     */
     [GtkCallback]
     private void btn_network_clicked_cb() {
       var network_config_dialog = new Dk.NetworkConfig(
