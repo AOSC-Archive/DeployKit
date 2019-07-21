@@ -17,14 +17,7 @@ sources = [
   'src/main.vala',
 ]
 
-# Resources files
-sources += import('gnome').compile_resources(
-  'dk-resources',
-  'res/dk-resources.gresource.xml',
-  source_dir: 'res',
-)
-
-# Config files for versioning, etc
+# Add configuration files for versioning, etc
 conf_data = configuration_data()
 conf_data.set('VERSION', meson.project_version())
 sources += configure_file(
@@ -33,5 +26,12 @@ sources += configure_file(
   configuration : conf_data,
 )
 
+# Add resource files
+resources = import('gnome').compile_resources(
+  'dk-resources',
+  'res/dk-resources.gresource.xml',
+  source_dir: 'res',
+)
+
 # Final executable
-executable('aosc-dk', sources, dependencies: dependencies)
+executable('aosc-dk', sources + resources, dependencies: dependencies)
