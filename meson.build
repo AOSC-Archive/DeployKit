@@ -35,3 +35,35 @@ resources = import('gnome').compile_resources(
 
 # Final executable
 executable('aosc-dk', sources + resources, dependencies: dependencies)
+
+# Set up documentation target to generate one from valadoc
+if get_option('build_documentation')
+  valadoc = find_program('valadoc')
+
+  # Generate the package import options for valadoc
+  pkgs_valac = []
+  foreach d : dependencies
+    pkgs_valac += '--pkg'
+    pkgs_valac += d.name()
+  endforeach
+
+  custom_target(
+    'docs',
+    build_by_default: true,
+    input: sources,
+    output: 'docs',
+    command: [
+      valadoc,
+      pkgs_valac,
+      '--package-name', meson.project_name(),
+      '--package-version', meson.project_version(),
+      '--internal',
+      '--private',
+      '--use-svg-images',
+      '--force',
+      '--basedir', meson.current_source_dir(),
+      '--directory', '@OUTPUT@',
+      '@INPUT@'
+    ]
+  )
+endif
