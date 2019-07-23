@@ -32,7 +32,6 @@ A full example of `recipe.json`:
 {
   "version": 0,
   "bulletin": {
-    "empty": false,
     "type": "info",
     "title": "Thank you for choosing AOSC OS!",
     "body": "We Care about You, Your Development Boards, Your Mysterious CPUs, and Your Pre-historic Antiques."
