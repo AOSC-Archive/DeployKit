@@ -2,11 +2,18 @@ project('DeployKit', 'vala', 'c', license: 'MIT', version: '0.1')
 
 # GTK depends on GObject, GLib, and GIO
 dependencies = [
-  dependency('gtk+-3.0')
+  dependency('gtk+-3.0'),
+  dependency('gee-0.8'),
+  dependency('json-glib-1.0')
 ]
 
 # Source files
 sources = [
+  'src/recipe/recipe.vala',
+  'src/recipe/bulletin.vala',
+  'src/recipe/variant.vala',
+  'src/recipe/tarball.vala',
+  'src/recipe/mirror.vala',
   'src/dk-variantrow.vala',
   'src/dk-destinationrow.vala',
   'src/dk-mirrorrow.vala',
