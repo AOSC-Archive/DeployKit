@@ -122,7 +122,7 @@ namespace Dk {
     }
 
     /**
-     * Callback on ``map`` event of ``Gtk.Box`` "Prepareing".
+     * Callback on ``map`` event of ``Gtk.Box`` "Preparing".
      *
      * This function is called as the box shows up, so as to switch the content
      * in the header bar correspondingly.
