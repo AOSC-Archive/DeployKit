@@ -311,8 +311,8 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkButton" id="btn_recipe_general_dest_refresh">
-                                        <property name="label">gtk-refresh</property>
+                                      <object class="GtkButton" id="btn_recipe_general_dest_clear">
+                                        <property name="label">gtk-clear</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
@@ -323,12 +323,12 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                         <property name="expand">False</property>
                                         <property name="fill">True</property>
                                         <property name="pack_type">end</property>
-                                        <property name="position">2</property>
+                                        <property name="position">1</property>
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkButton" id="btn_recipe_general_dest_clear">
-                                        <property name="label">gtk-clear</property>
+                                      <object class="GtkButton" id="btn_recipe_general_dest_refresh">
+                                        <property name="label">gtk-refresh</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
