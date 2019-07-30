@@ -18,59 +18,107 @@ namespace Dk {
     [GtkChild]
     private Gtk.Stack stack_main;
 
-    /* Widgets in Page 1 (Prepare) */
+    /* ========== Widgets in Page 1 (Prepare) ========== */
     [GtkChild]
     private Gtk.Box box_prepare;
 
-    /* Widgets in Page 2 (Recipe (General)) */
+    /* ========== Widgets in Page 2 (Recipe (General)) ========== */
     [GtkChild]
-    private Gtk.Box     box_recipe_general;
+    private Gtk.Box box_recipe_general;
+
+    /* Variant */
     [GtkChild]
-    private Gtk.ListBox listbox_recipe_general_variants;
+    private Gtk.Button  btn_recipe_general_variant_clear;
+    [GtkChild]
+    private Gtk.ListBox listbox_recipe_general_variant;
+
+    /* Destination */
+    [GtkChild]
+    private Gtk.Button  btn_recipe_general_dest_refresh;
+    [GtkChild]
+    private Gtk.Button  btn_recipe_general_dest_clear;
     [GtkChild]
     private Gtk.ListBox listbox_recipe_general_dest;
     [GtkChild]
-    private Gtk.ListBox listbox_recipe_general_repo;
-    [GtkChild]
-    private Gtk.ListBox listbox_recipe_general_extra_components;
-    [GtkChild]
-    private Gtk.Entry   entry_recipe_general_hostname;
-    [GtkChild]
-    private Gtk.Entry   entry_recipe_general_locale;
-    [GtkChild]
-    private Gtk.Entry   entry_recipe_general_root_password;
-    [GtkChild]
-    private Gtk.Entry   entry_recipe_general_admin_username;
-    [GtkChild]
-    private Gtk.Entry   entry_recipe_general_admin_password;
-    [GtkChild]
-    private Gtk.Entry   entry_recipe_general_admin_password_retype;
+    private Gtk.Button  btn_recipe_general_dest_partition;
 
-    /* Widgets in Page 3 (Recipe (Expert)) */
+    /* Mirror */
+    [GtkChild]
+    private Gtk.Button  btn_recipe_general_mirror_clear;
+    [GtkChild]
+    private Gtk.ListBox listbox_recipe_general_mirror;
+
+    /* Extra Components */
+    [GtkChild]
+    private Gtk.Button  btn_recipe_general_xcomps_clear;
+    [GtkChild]
+    private Gtk.ListBox listbox_recipe_general_xcomps;
+
+    /* System Configuration */
+    [GtkChild]
+    private Gtk.Entry entry_recipe_general_hostname;
+    [GtkChild]
+    private Gtk.Entry entry_recipe_general_locale;
+    [GtkChild]
+    private Gtk.Entry entry_recipe_general_root_password;
+    [GtkChild]
+    private Gtk.Entry entry_recipe_general_admin_username;
+    [GtkChild]
+    private Gtk.Entry entry_recipe_general_admin_password;
+    [GtkChild]
+    private Gtk.Entry entry_recipe_general_admin_password_retype;
+
+    /* ========== Widgets in Page 3 (Recipe (Expert)) ========== */
     [GtkChild]
     private Gtk.Box     box_recipe_expert;
+
+    /* Build-It-Yourself */
+    [GtkChild]
+    private Gtk.Button  btn_recipe_expert_biy_clear;
+    [GtkChild]
+    private Gtk.Button  btn_recipe_expert_biy_add;
     [GtkChild]
     private Gtk.ListBox listbox_recipe_expert_biy;
+
+    /* Extra Components */
+    [GtkChild]
+    private Gtk.Button  btn_recipe_expert_xcomps_clear;
+    [GtkChild]
+    private Gtk.ListBox listbox_recipe_expert_xcomps;
+
+    /* Destination */
+    [GtkChild]
+    private Gtk.Button  btn_recipe_expert_dest_clear;
+    [GtkChild]
+    private Gtk.Button  btn_recipe_expert_dest_refresh;
     [GtkChild]
     private Gtk.ListBox listbox_recipe_expert_dest;
     [GtkChild]
-    private Gtk.ListBox listbox_recipe_expert_repo;
-    [GtkChild]
-    private Gtk.ListBox listbox_recipe_expert_extra_components;
-    [GtkChild]
-    private Gtk.Entry   entry_recipe_expert_hostname;
-    [GtkChild]
-    private Gtk.Entry   entry_recipe_expert_locale;
-    [GtkChild]
-    private Gtk.Entry   entry_recipe_expert_root_password;
-    [GtkChild]
-    private Gtk.Entry   entry_recipe_expert_admin_username;
-    [GtkChild]
-    private Gtk.Entry   entry_recipe_expert_admin_password;
-    [GtkChild]
-    private Gtk.Entry   entry_recipe_expert_admin_password_retype;
+    private Gtk.Button  btn_recipe_expert_dest_partition;
 
-    /* Widgets in Page 4 (Installation) */
+    /* Mirror */
+    [GtkChild]
+    private Gtk.Button  btn_recipe_expert_mirror_clear;
+    [GtkChild]
+    private Gtk.Button  btn_recipe_expert_mirror_add;
+    [GtkChild]
+    private Gtk.ListBox listbox_recipe_expert_mirror;
+
+    /* System Configuration */
+    [GtkChild]
+    private Gtk.Entry entry_recipe_expert_hostname;
+    [GtkChild]
+    private Gtk.Entry entry_recipe_expert_locale;
+    [GtkChild]
+    private Gtk.Entry entry_recipe_expert_root_password;
+    [GtkChild]
+    private Gtk.Entry entry_recipe_expert_admin_username;
+    [GtkChild]
+    private Gtk.Entry entry_recipe_expert_admin_password;
+    [GtkChild]
+    private Gtk.Entry entry_recipe_expert_admin_password_retype;
+
+    /* ========== Widgets in Page 4 (Installation) ========== */
     [GtkChild]
     private Gtk.Box   box_install;
     [GtkChild]
@@ -84,11 +132,11 @@ namespace Dk {
     [GtkChild]
     private Gtk.ProgressBar progressbar_installation;
 
-    /* Widgets in Page 5 (Done) */
+    /* ========== Widgets in Page 5 (Done) ========== */
     [GtkChild]
     private Gtk.Box box_done;
 
-    /* Variables to use */
+    /* ========== Variables to Use ========== */
     private ProxyType? proxy_type;
     private string? proxy_address;
     private string? proxy_port;

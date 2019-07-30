@@ -214,7 +214,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkButton">
+                                      <object class="GtkButton" id="btn_recipe_general_variant_clear">
                                         <property name="label">gtk-clear</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
@@ -257,7 +257,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkListBox" id="listbox_recipe_general_variants">
+                                      <object class="GtkListBox" id="listbox_recipe_general_variant">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <style>
@@ -311,8 +311,8 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkButton">
-                                        <property name="label">gtk-clear</property>
+                                      <object class="GtkButton" id="btn_recipe_general_dest_refresh">
+                                        <property name="label">gtk-refresh</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
@@ -323,12 +323,12 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                         <property name="expand">False</property>
                                         <property name="fill">True</property>
                                         <property name="pack_type">end</property>
-                                        <property name="position">1</property>
+                                        <property name="position">2</property>
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkButton">
-                                        <property name="label">gtk-refresh</property>
+                                      <object class="GtkButton" id="btn_recipe_general_dest_clear">
+                                        <property name="label">gtk-clear</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
@@ -450,7 +450,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkButton">
+                                      <object class="GtkButton" id="btn_recipe_general_mirror_clear">
                                         <property name="label">gtk-clear</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
@@ -493,7 +493,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkListBox" id="listbox_recipe_general_repo">
+                                      <object class="GtkListBox" id="listbox_recipe_general_mirror">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <style>
@@ -547,7 +547,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkButton">
+                                      <object class="GtkButton" id="btn_recipe_general_xcomps_clear">
                                         <property name="label">gtk-clear</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
@@ -590,7 +590,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkListBox" id="listbox_recipe_general_extra_components">
+                                      <object class="GtkListBox" id="listbox_recipe_general_xcomps">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <style>
@@ -904,7 +904,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkButton">
+                                      <object class="GtkButton" id="btn_recipe_expert_biy_clear">
                                         <property name="label">gtk-clear</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
@@ -920,7 +920,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkButton">
+                                      <object class="GtkButton" id="btn_recipe_expert_biy_add">
                                         <property name="label">gtk-add</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
@@ -1016,7 +1016,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkButton">
+                                      <object class="GtkButton" id="btn_recipe_expert_xcomps_clear">
                                         <property name="label">gtk-clear</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
@@ -1059,7 +1059,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkListBox" id="listbox_recipe_expert_extra_components">
+                                      <object class="GtkListBox" id="listbox_recipe_expert_xcomps">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <style>
@@ -1113,7 +1113,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkButton">
+                                      <object class="GtkButton" id="btn_recipe_expert_dest_clear">
                                         <property name="label">gtk-clear</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
@@ -1129,7 +1129,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkButton">
+                                      <object class="GtkButton" id="btn_recipe_expert_dest_refresh">
                                         <property name="label">gtk-refresh</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
@@ -1252,7 +1252,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkButton">
+                                      <object class="GtkButton" id="btn_recipe_expert_mirror_clear">
                                         <property name="label">gtk-clear</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
@@ -1268,7 +1268,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkButton">
+                                      <object class="GtkButton" id="btn_recipe_expert_mirror_add">
                                         <property name="label">gtk-add</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
@@ -1311,7 +1311,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkListBox" id="listbox_recipe_expert_repo">
+                                      <object class="GtkListBox" id="listbox_recipe_expert_mirror">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <style>
