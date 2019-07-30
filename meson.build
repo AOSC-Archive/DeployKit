@@ -4,7 +4,8 @@ project('DeployKit', 'vala', 'c', license: 'MIT', version: '0.1')
 dependencies = [
   dependency('gtk+-3.0'),
   dependency('gee-0.8'),
-  dependency('json-glib-1.0')
+  dependency('json-glib-1.0'),
+  dependency('libsoup-2.4')
 ]
 
 # Source files

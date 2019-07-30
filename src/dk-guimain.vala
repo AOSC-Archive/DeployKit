@@ -1,4 +1,9 @@
 namespace Dk {
+  private errordomain LoadRecipeError {
+    PARSE_ERROR,
+    UNKNOWN_VERSION,
+  }
+
   /**
    * The main application window of DeployKit.
    */
@@ -168,6 +173,134 @@ namespace Dk {
       this.togglebtn_expert.set_visible(false);
       this.btn_network.set_visible(true);
       this.btn_ok.set_visible(false);
+
+      /*
+       * If a recipe.json is given, use that file and do not fetch from the
+       * Internet. This is useful for debugging.
+       */
+      if (this.local_recipe != null) {
+        GLib.message("You are using a local recipe. This is only for debugging and advanced users' use; DO NOT USE IT if you don't know what you are doing!");
+
+        uint8[] file_content;
+        try {
+          this.local_recipe.load_contents(null, out file_content, null);
+        } catch (Error e) {
+          var dlg = new Gtk.MessageDialog(
+            this,
+            DESTROY_WITH_PARENT | MODAL,
+            ERROR,
+            OK,
+            "%s.\n\nPlease check again if the file is accessible.",
+            e.message
+          );
+          dlg.run();
+          dlg.destroy();
+
+          GLib.Process.exit(2);
+        }
+
+        /*
+         * Load recipe from the specified file.
+         */
+        try {
+          this.load_recipe((string)file_content);
+        } catch (LoadRecipeError e) {
+          var dlg = new Gtk.MessageDialog(
+            this,
+            DESTROY_WITH_PARENT | MODAL,
+            ERROR,
+            OK,
+            "Failed to load the specified recipe at %s: %s.\n\nPlease check again if the content of file is valid.",
+            this.local_recipe.get_parse_name(),
+            e.message
+          );
+          dlg.run();
+          dlg.destroy();
+
+          GLib.Process.exit(1);
+        }
+
+        /* Switch to the recipe (general) page. */
+        this.stack_main.set_visible_child(this.box_recipe_general);
+
+        return;
+      }
+
+      /*
+       * If no local recipe is given, fetch one online.
+       *
+       * After the thread below is created, the signal handler returns. When
+       * data arrives the thread will tell GLib to call a lambda function in the
+       * main thread to update GUI (to switch to the recipe page).
+       */
+      new GLib.Thread<bool>("fetch_recipe", () => {
+        var session = new Soup.Session();
+        var baseuri = new Soup.URI(this.root_url);
+        var httpuri = new Soup.URI.with_base(baseuri, "/aosc-os/recipe.json");
+        var httpmsg = new Soup.Message.from_uri("GET", httpuri);
+
+        var status = session.send_message(httpmsg);
+
+        if (status != Soup.Status.OK) {
+          GLib.Idle.add(() => {
+            /* TODO: Service unavailable, switch to offline mode */
+
+            /* Switch to the recipe (general) page. */
+            this.stack_main.set_visible_child(this.box_recipe_general);
+
+            /* Give a message to the user about what happened */
+            var dlg = new Gtk.MessageDialog(
+              this,
+              DESTROY_WITH_PARENT | MODAL,
+              ERROR,
+              OK,
+              "You are now in offline mode because it looks like the service is temporary unavailable (error code %u).\n\nPlease check your network connection. If necessary, use the provided network settings, and try again. If you believe that your network connection has nothing wrong, then we might get something wrong. Please report to us.",
+              status
+            );
+            dlg.run();
+            dlg.destroy();
+
+            return false;
+          });
+
+          /* Don't continue execution */
+          return false;
+        }
+
+        /* Parse the returned content to a recipe */
+        var http_content = (string)httpmsg.response_body.data;
+
+        // Once fetched, go back to the main thread to refresh GUI
+        GLib.Idle.add(() => {
+          /*
+           * All processes above successfully finished, enter online mode.
+           */
+          try {
+            this.load_recipe(http_content);
+          } catch (LoadRecipeError e) {
+            var dlg = new Gtk.MessageDialog(
+              this,
+              DESTROY_WITH_PARENT | MODAL,
+              ERROR,
+              OK,
+              "Failed to load the fetched recipe: %s.\n\nPlease report this incident to us.",
+              e.message
+            );
+            dlg.run();
+            dlg.destroy();
+
+            GLib.Process.exit(1);
+          }
+
+          /* Switch to the recipe (general) page. */
+          this.stack_main.set_visible_child(this.box_recipe_general);
+
+          /* Tell GLib not to call the function again. */
+          return false;
+        });
+
+        return true;
+      });
     }
 
     /**
@@ -307,6 +440,74 @@ namespace Dk {
       // Set modal dialog transient for the main window
       network_config_dialog.set_transient_for(this);
       network_config_dialog.show_all();
+    }
+
+    /**
+     * Load a recipe.json string into GUI.
+     *
+     * @param recipe_str A JSON string representing a recipe object.
+     */
+    private void load_recipe(string recipe_str) throws LoadRecipeError {
+      var recipe = new Dk.Recipe.Recipe();
+      bool r = recipe.from_json_string(recipe_str);
+      if (!r)
+        throw new LoadRecipeError.PARSE_ERROR("The recipe is invalid and cannot be parsed");
+
+      /* NOTE: Parsing version 0 recipe. */
+      if (recipe.get_version() != 0)
+        throw new LoadRecipeError.UNKNOWN_VERSION("Recipe version %d is not supported", recipe.get_version());
+
+      /* TODO: Bulletin */
+      var bulletin = recipe.get_bulletin();
+
+      /* Variants */
+      recipe.get_variants().foreach((v) => {
+        /* XXX: Only the newest tarball is shown. Need to design a way to display all. */
+        var tarball_newest = v.get_tarball_newest();
+
+        this.listbox_recipe_general_variant.add(
+          new VariantRow(
+            "package-x-generic-symbolic",
+            v.get_name(),
+            tarball_newest.get_date().format("%x"),
+            tarball_newest.get_download_size(),
+            tarball_newest.get_installation_size()
+          )
+        );
+        this.listbox_recipe_expert_biy.add(
+          new VariantRow(
+            "package-x-generic-symbolic",
+            v.get_name(),
+            tarball_newest.get_date().format("%x"),
+            tarball_newest.get_download_size(),
+            tarball_newest.get_installation_size()
+          )
+        );
+
+        return true;
+      });
+
+      /* Mirrors */
+      recipe.get_mirrors().foreach((m) => {
+        this.listbox_recipe_general_mirror.add(
+          new MirrorRow(
+            "package-x-generic-symbolic",
+            m.get_name_l10n(Dk.Utils.get_lang()) ?? m.get_name(),
+            m.get_location_l10n(Dk.Utils.get_lang()) ?? m.get_location()
+          )
+        );
+        this.listbox_recipe_expert_mirror.add(
+          new MirrorRow(
+            "package-x-generic-symbolic",
+            m.get_name_l10n(Dk.Utils.get_lang()) ?? m.get_name(),
+            m.get_location_l10n(Dk.Utils.get_lang()) ?? m.get_location()
+          )
+        );
+
+        return true;
+      });
+
+      /* TODO: Extra Components */
     }
 
     public GLib.File get_local_recipe() {
