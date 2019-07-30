@@ -244,7 +244,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                     <property name="orientation">vertical</property>
                                     <property name="spacing">12</property>
                                     <child>
-                                      <object class="GtkLabel" id="label_recipe_general_variants_desc">
+                                      <object class="GtkLabel">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="wrap">True</property>
@@ -340,7 +340,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                     <property name="orientation">vertical</property>
                                     <property name="spacing">12</property>
                                     <child>
-                                      <object class="GtkLabel" id="label_recipe_general_dest_desc">
+                                      <object class="GtkLabel">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="wrap">True</property>
@@ -436,7 +436,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                     <property name="orientation">vertical</property>
                                     <property name="spacing">12</property>
                                     <child>
-                                      <object class="GtkLabel" id="label_recipe_general_repo_desc">
+                                      <object class="GtkLabel">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="wrap">True</property>
@@ -532,7 +532,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                     <property name="orientation">vertical</property>
                                     <property name="spacing">12</property>
                                     <child>
-                                      <object class="GtkLabel" id="label_recipe_general_extra_components_desc">
+                                      <object class="GtkLabel">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="wrap">True</property>
@@ -613,7 +613,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                     <property name="orientation">vertical</property>
                                     <property name="spacing">12</property>
                                     <child>
-                                      <object class="GtkLabel" id="label_recipe_general_sysconf_desc">
+                                      <object class="GtkLabel">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="wrap">True</property>
@@ -888,7 +888,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                     <property name="orientation">vertical</property>
                                     <property name="spacing">12</property>
                                     <child>
-                                      <object class="GtkLabel" id="label_recipe_expert_biy_desc">
+                                      <object class="GtkLabel">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                       </object>
@@ -983,7 +983,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                     <property name="orientation">vertical</property>
                                     <property name="spacing">12</property>
                                     <child>
-                                      <object class="GtkLabel" id="label_recipe_expert_dest_desc">
+                                      <object class="GtkLabel">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="wrap">True</property>
@@ -1079,7 +1079,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                     <property name="orientation">vertical</property>
                                     <property name="spacing">12</property>
                                     <child>
-                                      <object class="GtkLabel" id="label_recipe_expert_repo_desc">
+                                      <object class="GtkLabel">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="wrap">True</property>
@@ -1175,7 +1175,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                     <property name="orientation">vertical</property>
                                     <property name="spacing">12</property>
                                     <child>
-                                      <object class="GtkLabel" id="label_recipe_expert_extra_components_desc">
+                                      <object class="GtkLabel">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="wrap">True</property>
@@ -1256,7 +1256,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                     <property name="orientation">vertical</property>
                                     <property name="spacing">12</property>
                                     <child>
-                                      <object class="GtkLabel" id="label_recipe_general_sysconf_desc1">
+                                      <object class="GtkLabel">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="wrap">True</property>

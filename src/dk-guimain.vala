@@ -26,19 +26,11 @@ namespace Dk {
     [GtkChild]
     private Gtk.Box     box_recipe_general;
     [GtkChild]
-    private Gtk.Label   label_recipe_general_variants_desc;
-    [GtkChild]
     private Gtk.ListBox listbox_recipe_general_variants;
-    [GtkChild]
-    private Gtk.Label   label_recipe_general_dest_desc;
     [GtkChild]
     private Gtk.ListBox listbox_recipe_general_dest;
     [GtkChild]
-    private Gtk.Label   label_recipe_general_repo_desc;
-    [GtkChild]
     private Gtk.ListBox listbox_recipe_general_repo;
-    [GtkChild]
-    private Gtk.Label   label_recipe_general_extra_components_desc;
     [GtkChild]
     private Gtk.ListBox listbox_recipe_general_extra_components;
     [GtkChild]
@@ -58,19 +50,11 @@ namespace Dk {
     [GtkChild]
     private Gtk.Box     box_recipe_expert;
     [GtkChild]
-    private Gtk.Label   label_recipe_expert_biy_desc;
-    [GtkChild]
     private Gtk.ListBox listbox_recipe_expert_biy;
-    [GtkChild]
-    private Gtk.Label   label_recipe_expert_dest_desc;
     [GtkChild]
     private Gtk.ListBox listbox_recipe_expert_dest;
     [GtkChild]
-    private Gtk.Label   label_recipe_expert_repo_desc;
-    [GtkChild]
     private Gtk.ListBox listbox_recipe_expert_repo;
-    [GtkChild]
-    private Gtk.Label   label_recipe_expert_extra_components_desc;
     [GtkChild]
     private Gtk.ListBox listbox_recipe_expert_extra_components;
     [GtkChild]
