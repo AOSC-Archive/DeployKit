@@ -201,7 +201,6 @@ All descriptive string values (e.g. `"name"`, `"title"`) can have supplimental l
 ```json
 {
   "bulletin": {
-    "empty": false,
     "type": "info",
     "title": "Thank you for choosing AOSC OS!",
     "title@zh-cn": "感谢你选择 AOSC OS！",
@@ -211,13 +210,11 @@ All descriptive string values (e.g. `"name"`, `"title"`) can have supplimental l
 }
 ```
 
-The localized value is represented as `"<key>@<country_code>": "<value>"`. `<key>` should be the same as the string to be localized. `<country_code>` is an ISO 639-1 laungage code, case insensitive. `<key>` is the localized string value.
+The localized value is represented as `"<key>@<country_code>": "<value>"`. `<key>` should be the same as the string to be localized. `<country_code>` is an ISO 639-1 laungage code, case insensitive. `<key>` is the localized string value. Between the two parts, a hyphen (`-`) is used to seperate them.
 
 Note that `"type": "info"` is not localized, since it is not "descriptive"; the value represents an internal type, so the client should not care about translations on these keys.
 
-ISO 639 has several parts. In this specification, only ISO 639-1 is used; using newer specification is not recommended. This is because [Pango][pango] only recognizes and gives ISO 639-1 language codes. [Pango][pango] also gives all-lowercase language codes. The reference design of DeployKit uses it, so we just comply with it.
-
-[pango]: https://developer.gnome.org/pango/stable
+ISO 639 has several parts. In this specification, only ISO 639-1 is used; using newer specification is not recommended. The string is basically a transformation from the system locale gotten with the `setlocale` libc call, so for easier implementation `<country_code>` should be matched with system locale strings.
 
 ---
 
