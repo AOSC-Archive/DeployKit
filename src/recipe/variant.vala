@@ -194,6 +194,27 @@ namespace Dk {
         return this.tarballs;
       }
 
+      public Tarball? get_tarball_newest() {
+        Tarball? newest = null;
+
+        this.get_tarballs().foreach((t) => {
+          if (newest == null) {
+            newest = t;
+            return true;
+          }
+
+          if (t.get_date().compare(newest.get_date()) > 0) {
+            newest = t;
+            return true;
+          }
+
+          /* Make valadoc happy. */
+          return false;
+        });
+
+        return newest;
+      }
+
       public void set_tarballs(Gee.ArrayList<Tarball> tarballs) {
         this.tarballs = tarballs;
       }
