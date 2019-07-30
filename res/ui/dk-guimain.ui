@@ -215,11 +215,12 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                     </child>
                                     <child>
                                       <object class="GtkButton">
-                                        <property name="label" translatable="yes">Clear</property>
+                                        <property name="label">gtk-clear</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="relief">none</property>
+                                        <property name="use_stock">True</property>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -311,11 +312,12 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                     </child>
                                     <child>
                                       <object class="GtkButton">
-                                        <property name="label" translatable="yes">Clear</property>
+                                        <property name="label">gtk-clear</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="relief">none</property>
+                                        <property name="use_stock">True</property>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -326,11 +328,12 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                     </child>
                                     <child>
                                       <object class="GtkButton">
-                                        <property name="label" translatable="yes">Refresh</property>
+                                        <property name="label">gtk-refresh</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="relief">none</property>
+                                        <property name="use_stock">True</property>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -448,11 +451,12 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                     </child>
                                     <child>
                                       <object class="GtkButton">
-                                        <property name="label" translatable="yes">Clear</property>
+                                        <property name="label">gtk-clear</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="relief">none</property>
+                                        <property name="use_stock">True</property>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -544,11 +548,12 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                     </child>
                                     <child>
                                       <object class="GtkButton">
-                                        <property name="label" translatable="yes">Clear</property>
+                                        <property name="label">gtk-clear</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="relief">none</property>
+                                        <property name="use_stock">True</property>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -900,11 +905,12 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                     </child>
                                     <child>
                                       <object class="GtkButton">
-                                        <property name="label" translatable="yes">Clear</property>
+                                        <property name="label">gtk-clear</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="relief">none</property>
+                                        <property name="use_stock">True</property>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -1011,11 +1017,12 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                     </child>
                                     <child>
                                       <object class="GtkButton">
-                                        <property name="label" translatable="yes">Clear</property>
+                                        <property name="label">gtk-clear</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="relief">none</property>
+                                        <property name="use_stock">True</property>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -1107,11 +1114,12 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                     </child>
                                     <child>
                                       <object class="GtkButton">
-                                        <property name="label" translatable="yes">Clear</property>
+                                        <property name="label">gtk-clear</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="relief">none</property>
+                                        <property name="use_stock">True</property>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -1122,11 +1130,12 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                     </child>
                                     <child>
                                       <object class="GtkButton">
-                                        <property name="label" translatable="yes">Refresh</property>
+                                        <property name="label">gtk-refresh</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="relief">none</property>
+                                        <property name="use_stock">True</property>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -1244,11 +1253,12 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                     </child>
                                     <child>
                                       <object class="GtkButton">
-                                        <property name="label" translatable="yes">Clear</property>
+                                        <property name="label">gtk-clear</property>
                                         <property name="visible">True</property>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="relief">none</property>
+                                        <property name="use_stock">True</property>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
