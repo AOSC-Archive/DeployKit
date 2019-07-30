@@ -144,6 +144,7 @@ namespace Dk {
     private string? proxy_password;
 
     private GLib.File? local_recipe;
+    private string root_url = "https://repo.aosc.io";
 
     /**
      * Constructor for ``Dk.GuiMain``.
@@ -314,6 +315,14 @@ namespace Dk {
 
     public void set_local_recipe(GLib.File recipe) {
       this.local_recipe = recipe;
+    }
+
+    public string get_root_url() {
+      return this.root_url;
+    }
+
+    public void set_root_url(string url) {
+      this.root_url = url;
     }
   }
 }

@@ -19,6 +19,11 @@ namespace Dk {
      */
     protected override void activate() {
       var guimain = new Dk.GuiMain();
+
+      string? env_root_url = GLib.Environ.get_variable(GLib.Environ.get(), "DK_ROOT_URL");
+      if (env_root_url != null)
+        guimain.set_root_url(env_root_url);
+
       this.add_window(guimain);
       guimain.show_all();
     }
