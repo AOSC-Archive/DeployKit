@@ -186,6 +186,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                             <property name="can_focus">False</property>
                             <property name="border_width">18</property>
                             <property name="orientation">vertical</property>
+                            <property name="spacing">12</property>
                             <child>
                               <object class="GtkBox">
                                 <property name="visible">True</property>
@@ -334,6 +335,8 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                   <object class="GtkBox">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
+                                    <property name="margin_left">12</property>
+                                    <property name="margin_right">12</property>
                                     <property name="orientation">vertical</property>
                                     <property name="spacing">12</property>
                                     <child>
@@ -428,6 +431,8 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                   <object class="GtkBox">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
+                                    <property name="margin_left">12</property>
+                                    <property name="margin_right">12</property>
                                     <property name="orientation">vertical</property>
                                     <property name="spacing">12</property>
                                     <child>
@@ -522,6 +527,8 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                   <object class="GtkBox">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
+                                    <property name="margin_left">12</property>
+                                    <property name="margin_right">12</property>
                                     <property name="orientation">vertical</property>
                                     <property name="spacing">12</property>
                                     <child>
@@ -601,6 +608,8 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                   <object class="GtkBox">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
+                                    <property name="margin_left">12</property>
+                                    <property name="margin_right">12</property>
                                     <property name="orientation">vertical</property>
                                     <property name="spacing">12</property>
                                     <child>
@@ -821,6 +830,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                             <property name="can_focus">False</property>
                             <property name="border_width">18</property>
                             <property name="orientation">vertical</property>
+                            <property name="spacing">12</property>
                             <child>
                               <object class="GtkBox">
                                 <property name="visible">True</property>
@@ -873,6 +883,8 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                   <object class="GtkBox">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
+                                    <property name="margin_left">12</property>
+                                    <property name="margin_right">12</property>
                                     <property name="orientation">vertical</property>
                                     <property name="spacing">12</property>
                                     <child>
@@ -966,6 +978,8 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                   <object class="GtkBox">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
+                                    <property name="margin_left">12</property>
+                                    <property name="margin_right">12</property>
                                     <property name="orientation">vertical</property>
                                     <property name="spacing">12</property>
                                     <child>
@@ -1060,6 +1074,8 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                   <object class="GtkBox">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
+                                    <property name="margin_left">12</property>
+                                    <property name="margin_right">12</property>
                                     <property name="orientation">vertical</property>
                                     <property name="spacing">12</property>
                                     <child>
@@ -1154,6 +1170,8 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                   <object class="GtkBox">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
+                                    <property name="margin_left">12</property>
+                                    <property name="margin_right">12</property>
                                     <property name="orientation">vertical</property>
                                     <property name="spacing">12</property>
                                     <child>
@@ -1233,6 +1251,8 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                   <object class="GtkBox">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
+                                    <property name="margin_left">12</property>
+                                    <property name="margin_right">12</property>
                                     <property name="orientation">vertical</property>
                                     <property name="spacing">12</property>
                                     <child>
