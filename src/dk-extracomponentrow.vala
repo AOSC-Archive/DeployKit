@@ -43,12 +43,20 @@ namespace Dk {
      * @param download_size     Download size of the component, in byte.
      * @param installation_size Installation size of the component, in byte.
      */
-    public ExtraComponentRow(string icon_name, string component_name, string description, uint64 download_size, uint64 installation_size) {
+    public ExtraComponentRow(string icon_name, string component_name, string description, int64 download_size, int64 installation_size) {
       this.icon.set_from_icon_name(icon_name, Gtk.IconSize.DIALOG); // 48px
       this.component_name.set_text(component_name);
       this.description.set_text(description);
-      this.download_size.set_text(GLib.format_size(download_size, GLib.FormatSizeFlags.IEC_UNITS));
-      this.installation_size.set_text(GLib.format_size(installation_size, GLib.FormatSizeFlags.IEC_UNITS));
+
+      if (download_size < 0)
+        this.download_size.set_text("Unknown");
+      else
+        this.download_size.set_text(GLib.format_size(download_size, GLib.FormatSizeFlags.IEC_UNITS));
+
+      if (installation_size < 0)
+        this.installation_size.set_text("Unknown");
+      else
+        this.installation_size.set_text(GLib.format_size(installation_size, GLib.FormatSizeFlags.IEC_UNITS));
     }
   }
 }

@@ -36,11 +36,15 @@ namespace Dk {
      * @param description      Description on the type of destination.
      * @param capacity         Size of the destination, in byte.
      */
-    public DestinationRow(string icon_name, string destination_path, string description, uint64 capacity) {
+    public DestinationRow(string icon_name, string destination_path, string description, int64 capacity) {
       this.icon.set_from_icon_name(icon_name, Gtk.IconSize.DIALOG); // 48px
       this.destination_path.set_text(destination_path);
       this.description.set_text(description);
-      this.capacity.set_text(GLib.format_size(capacity, GLib.FormatSizeFlags.IEC_UNITS));
+
+      if (capacity < 0)
+        this.capacity.set_text("Unknown");
+      else
+        this.capacity.set_text(GLib.format_size(capacity, GLib.FormatSizeFlags.IEC_UNITS));
     }
   }
 }
