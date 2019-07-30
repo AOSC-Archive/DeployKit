@@ -4,7 +4,7 @@ This document specifies the structure and fields of `recipe.json`, which is a co
 
 [repo]: https://repo.aosc.io
 
-Document version: 0.2 (Unstable)
+Document version: 0.2.1 (Unstable)
 
 ## File Location
 
@@ -22,7 +22,7 @@ Document version: 0.2 (Unstable)
 https://repo.aosc.io/aosc-os/recipe.json
 ```
 
-The client is advised not to hard-code the root URL.
+The client is advised not to hard-code the root URL, in case `repo.aosc.io` is unavailable.
 
 ## Definition
 
@@ -89,7 +89,7 @@ A full example of `recipe.json`:
 }
 ```
 
-Note that a valid JSON does not require indentation, nor a sequence of attributes.
+Note that a valid JSON does not require indentation, nor special sequences.
 
 ### The `Version` Attribute
 
@@ -175,6 +175,7 @@ A `Tarball` object represents a compressed distribution of a specific favor of A
 
 - `"arch"`: A string value, indicating target processor architecture of the tarball.
 - `"date"`: A string value, describing the latest update date of the tarball. Note that this string follows the basic format of [ISO 8601 Data elements and interchange formats](https://en.wikipedia.org/wiki/ISO_8601), namely in the form `YYYYMMDD`, where `Y`, `M`, `D` are respectively year, month, and day.
+  - Since the date part solely cannot form a valid, complete ISO 8601 date string, the client may append a time part, e.g. `T000000` (00:00:00) before passing the string into parser implementations. The time part is not present in the recipe because it is not necessary.
   - The client (installer) may also implement the expanded year representation, with `+` prefixed in the date string, avoiding [year 10000 problem](https://en.wikipedia.org/wiki/Year_10,000_problem).
 - `"downloadSize"`: An integer value, indicating the size for download, in bytes. This field can contain `-1` indicating an unknown download size. In this case the client (installer) may try to figure it out via HTTP `HEAD` request.
 - `"instSize"`: An integer value, indicating the size for installation, in bytes. In some cases, this is unknown. This field can also contain a value of `-1` indicating an unknown installation size.
