@@ -65,7 +65,7 @@ namespace Dk {
           if (member == "name") {
             this.set_name(reader.get_string_value());
           } else if (member == "loc") {
-            this.set_loc(reader.get_string_value());
+            this.set_location(reader.get_string_value());
           } else if (member == "url") {
             this.set_url(reader.get_string_value());
           } else if (member.has_prefix("name@")) {
@@ -73,7 +73,7 @@ namespace Dk {
             this.set_name_l10n(lang, reader.get_string_value());
           } else if (member.has_prefix("loc@")) {
             string lang = member.substring(4);
-            this.set_loc_l10n(lang, reader.get_string_value());
+            this.set_location_l10n(lang, reader.get_string_value());
           } else {}
 
           reader.end_member();
@@ -128,7 +128,7 @@ namespace Dk {
         });
 
         builder.set_member_name("loc");
-        builder.add_string_value(this.get_loc());
+        builder.add_string_value(this.get_location());
 
         this.loc_l10n.map_iterator().foreach((k, v) => {
           builder.set_member_name("loc@" + k);
@@ -178,11 +178,11 @@ namespace Dk {
         this.name = name;
       }
 
-      public string get_loc() {
+      public string get_location() {
         return this.loc;
       }
 
-      public void set_loc(string loc) {
+      public void set_location(string loc) {
         this.loc = loc;
       }
 
@@ -202,11 +202,11 @@ namespace Dk {
         this.name_l10n.set(lang, name);
       }
 
-      public string get_loc_l10n(string lang) {
+      public string get_location_l10n(string lang) {
         return this.loc_l10n.get(lang);
       }
 
-      public void set_loc_l10n(string lang, string name) {
+      public void set_location_l10n(string lang, string name) {
         this.loc_l10n.set(lang, name);
       }
     }
