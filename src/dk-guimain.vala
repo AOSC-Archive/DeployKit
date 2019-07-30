@@ -111,6 +111,8 @@ namespace Dk {
     private string? proxy_username;
     private string? proxy_password;
 
+    private GLib.File? local_recipe;
+
     /**
      * Constructor for ``Dk.GuiMain``.
      */
@@ -272,6 +274,14 @@ namespace Dk {
       // Set modal dialog transient for the main window
       network_config_dialog.set_transient_for(this);
       network_config_dialog.show_all();
+    }
+
+    public GLib.File get_local_recipe() {
+      return this.local_recipe;
+    }
+
+    public void set_local_recipe(GLib.File recipe) {
+      this.local_recipe = recipe;
     }
   }
 }
