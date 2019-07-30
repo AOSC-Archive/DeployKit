@@ -14,6 +14,7 @@ sources = [
   'src/recipe/variant.vala',
   'src/recipe/tarball.vala',
   'src/recipe/mirror.vala',
+  'src/utils/lang.vala',
   'src/dk-variantrow.vala',
   'src/dk-destinationrow.vala',
   'src/dk-mirrorrow.vala',
