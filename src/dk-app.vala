@@ -3,13 +3,44 @@ namespace Dk {
    * Main application manager of DeployKit.
    */
   public class App : Gtk.Application {
+    private static bool version = false;
+
+    private const GLib.OptionEntry[] options = {
+      {"version", 'v', GLib.OptionFlags.NONE, GLib.OptionArg.NONE, ref version, "Show version information", null},
+    };
+
     /**
      * Constructor of the application.
      *
      * This creates a ``Gtk.Application`` with project-defined attributes.
      */
     public App() {
-      Object(application_id: "io.aosc.DeployKit", flags: GLib.ApplicationFlags.HANDLES_OPEN);
+      Object(
+        application_id: "io.aosc.DeployKit",
+        flags: GLib.ApplicationFlags.HANDLES_OPEN
+      );
+
+      this.set_option_context_summary("AOSC OS Installer and Recovery Utility");
+      this.add_main_option_entries(this.options);
+    }
+
+    /**
+     * Signal handler for the ``handle_local_options`` signal of application.
+     *
+     * This is called when some command line arguments are parsed.
+     *
+     * @param options Command line arguments get parsed by ``GApplication``.
+     * @return Any positive exit code if the handler want to quit the program
+     *         with it, otherwise -1 to let ``GApplication`` continue running
+     *         the application.
+     */
+    protected override int handle_local_options(GLib.VariantDict options) {
+      if (this.version) {
+        stdout.printf("%s\n", Dk.get_version());
+        return 0;
+      }
+
+      return -1;
     }
 
     /**
