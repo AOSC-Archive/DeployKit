@@ -38,9 +38,11 @@ namespace Dk {
        * json-glib, and can directly get a ``Json.Node`` from the parser.
        *
        * @param node A Json.Node from json-glib.
+       * @return true if the deserialization process successfully finished, or
+       *         false if the JSON node cannot represent this object.
        * @see from_json_string
        */
-      public void from_json_node(Json.Node node) {
+      public bool from_json_node(Json.Node node) {
         var reader = new Json.Reader(node);
 
         foreach (string member in reader.list_members()) {
@@ -51,8 +53,14 @@ namespace Dk {
           }
 
           if (member == "name") {
+            if (!reader.is_value())
+              return false;
+
             this.set_name(reader.get_string_value());
           } else if (member == "tarballs")  {
+            if (!reader.is_array())
+              return false;
+
             int elements = reader.count_elements();
 
             for (int i = 0; i < elements; i++) {
@@ -92,12 +100,17 @@ namespace Dk {
               reader.end_element();
             }
           } else if (member.has_prefix("name@")) {
+            if (!reader.is_value())
+              return false;
+
             string lang = member.substring(5);
             this.set_name_l10n(lang, reader.get_string_value());
           } else {}
 
           reader.end_member();
         }
+
+        return true;
       }
 
       /**
@@ -122,9 +135,7 @@ namespace Dk {
           return false;
         }
 
-        this.from_json_node(parser.get_root());
-
-        return true;
+        return this.from_json_node(parser.get_root());
       }
 
       /**
