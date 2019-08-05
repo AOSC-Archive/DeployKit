@@ -19,6 +19,16 @@ namespace Dk {
     [GtkChild]
     private Gtk.Button btn_network;
 
+    /* Bulletin */
+    [GtkChild]
+    private Gtk.Revealer revealer_bulletin;
+    [GtkChild]
+    private Gtk.InfoBar infobar_bulletin;
+    [GtkChild]
+    private Gtk.Label label_bulletin_title;
+    [GtkChild]
+    private Gtk.Label label_bulletin_body;
+
     /* Main Switching Stack */
     [GtkChild]
     private Gtk.Stack stack_main;
@@ -442,6 +452,22 @@ namespace Dk {
       network_config_dialog.show_all();
     }
 
+    [GtkCallback]
+    private void infobar_bulletin_response_cb(int response_id) {
+      if (response_id == Gtk.ResponseType.CANCEL ||
+          response_id == Gtk.ResponseType.CLOSE)
+      {
+        /*
+         * Either the close button is clicked or Esc is pressed.
+         *
+         * I still don't know why after GtkInfoBar reveals itself, there is
+         * still an annoying 1px line displaying. Look how nice a GtkRevealer
+         * does.
+         */
+        this.revealer_bulletin.set_reveal_child(false);
+      }
+    }
+
     /**
      * Load a recipe.json string into GUI.
      *
@@ -457,8 +483,23 @@ namespace Dk {
       if (recipe.get_version() != 0)
         throw new LoadRecipeError.UNKNOWN_VERSION("Recipe version %d is not supported", recipe.get_version());
 
-      /* TODO: Bulletin */
+      /* Bulletin */
       var bulletin = recipe.get_bulletin();
+      if (bulletin.get_bulletin_type() != "unknown" &&
+          bulletin.get_bulletin_type() != "none")
+      {
+        var title = bulletin.get_title();
+        var body  = bulletin.get_body();
+
+        if (title != null)
+          this.label_bulletin_title.set_text(title);
+        if (body != null)
+          this.label_bulletin_body.set_text(body);
+
+        /* Reveal only when something is to be shown */
+        if (!(title == null && body == null))
+          this.revealer_bulletin.set_reveal_child(true);
+      }
 
       /* Variants */
       recipe.get_variants().foreach((v) => {
