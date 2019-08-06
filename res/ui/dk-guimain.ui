@@ -1034,6 +1034,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                       <object class="GtkLabel">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
+                                        <property name="wrap">True</property>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
