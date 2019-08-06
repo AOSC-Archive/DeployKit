@@ -509,7 +509,7 @@ namespace Dk {
         this.listbox_recipe_general_variant.add(
           new VariantRow(
             "package-x-generic-symbolic",
-            v.get_name(),
+            v.get_name_l10n(Dk.Utils.get_lang()) ?? v.get_name(),
             tarball_newest.get_date().format("%x"),
             tarball_newest.get_download_size(),
             tarball_newest.get_installation_size()
