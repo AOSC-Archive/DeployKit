@@ -38,7 +38,7 @@ public delegate void NetworkConfigSaveCb(ProxyType? proxy_type, string? proxy_ad
   * offline mode (use DeployKit without an Internet connection) manually for
   * large scale deployment or advanced installation.
   */
-[GtkTemplate (ui = "/io/aosc/DeployKit/ui/dk-networkconfig.ui")]
+[GtkTemplate (ui = "/io/aosc/DeployKit/ui/networkconfig.ui")]
 public class NetworkConfig : Gtk.Window {
   /**
     * The "Done" button for the user to save the form.

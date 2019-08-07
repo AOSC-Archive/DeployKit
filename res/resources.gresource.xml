@@ -5,8 +5,8 @@
     <file compressed="true" preprocess="xml-stripblanks">ui/rows/mirror.ui</file>
     <file compressed="true" preprocess="xml-stripblanks">ui/rows/destination.ui</file>
     <file compressed="true" preprocess="xml-stripblanks">ui/rows/extracomponent.ui</file>
-    <file compressed="true" preprocess="xml-stripblanks">ui/dk-networkconfig.ui</file>
-    <file compressed="true" preprocess="xml-stripblanks">ui/dk-guimain.ui</file>
-    <file compressed="true">ui/dk-gui.css</file>
+    <file compressed="true" preprocess="xml-stripblanks">ui/networkconfig.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks">ui/main.ui</file>
+    <file compressed="true">ui/gui.css</file>
   </gresource>
 </gresources>

@@ -9,7 +9,7 @@ private errordomain LoadRecipeError {
 /**
  * The main application window of DeployKit.
  */
-[GtkTemplate (ui = "/io/aosc/DeployKit/ui/dk-guimain.ui")]
+[GtkTemplate (ui = "/io/aosc/DeployKit/ui/main.ui")]
 public class Main : Gtk.ApplicationWindow {
   /* Widgets in Header Bar */
   [GtkChild]
@@ -169,7 +169,7 @@ public class Main : Gtk.ApplicationWindow {
   public Main() {
     // Load CSS from resource to override styles of some widgets
     var css_provider = new Gtk.CssProvider();
-    css_provider.load_from_resource("/io/aosc/DeployKit/ui/dk-gui.css");
+    css_provider.load_from_resource("/io/aosc/DeployKit/ui/gui.css");
     Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
   }
 
