@@ -33,7 +33,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
   <!-- interface-description Network configuration dialog for AOSC DeployKit -->
   <!-- interface-copyright 2019 Anthon Open Source Community -->
   <!-- interface-authors Junde Yhi <lmy441900@aosc.xyz> -->
-  <template class="DkNetworkConfig" parent="GtkWindow">
+  <template class="DkGuiNetworkConfig" parent="GtkWindow">
     <property name="can_focus">False</property>
     <property name="modal">True</property>
     <property name="default_width">400</property>

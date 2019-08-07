@@ -427,7 +427,7 @@ namespace Dk {
        */
       [GtkCallback]
       private void btn_network_clicked_cb() {
-        var network_config_dialog = new Dk.NetworkConfig(
+        var network_config_dialog = new Dk.Gui.NetworkConfig(
           this.proxy_type,
           this.proxy_address,
           this.proxy_port,
