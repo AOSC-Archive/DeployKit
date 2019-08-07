@@ -5,7 +5,7 @@ namespace Rows {
 /**
  * Template widget for use in the "Extra Components" section of recipe.
  */
-[GtkTemplate (ui = "/io/aosc/DeployKit/ui/dk-extracomponentrow.ui")]
+[GtkTemplate (ui = "/io/aosc/DeployKit/ui/rows/extracomponent.ui")]
 public class ExtraComponent : Gtk.Box {
   /**
    * Icon identifying the component pack.

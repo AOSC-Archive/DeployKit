@@ -5,7 +5,7 @@ namespace Rows {
 /**
  * Template widget for use in the "Mirrors" section of recipe.
  */
-[GtkTemplate (ui = "/io/aosc/DeployKit/ui/dk-mirrorrow.ui")]
+[GtkTemplate (ui = "/io/aosc/DeployKit/ui/rows/mirror.ui")]
 public class Mirror: Gtk.Box {
   /**
    * Icon identifying the mirror.

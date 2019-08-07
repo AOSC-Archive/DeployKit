@@ -5,7 +5,7 @@ namespace Rows {
 /**
  * Template widget for use in the "Destination" section of recipe.
  */
-[GtkTemplate (ui = "/io/aosc/DeployKit/ui/dk-destinationrow.ui")]
+[GtkTemplate (ui = "/io/aosc/DeployKit/ui/rows/destination.ui")]
 public class Destination: Gtk.Box {
   /**
    * Icon identifying the type of location (e.g. SSD, HDD, NVMe)

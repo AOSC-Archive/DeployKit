@@ -5,7 +5,7 @@ namespace Rows {
 /**
  * Template widget for use in the "Variants" section of recipe.
  */
-[GtkTemplate (ui = "/io/aosc/DeployKit/ui/dk-variantrow.ui")]
+[GtkTemplate (ui = "/io/aosc/DeployKit/ui/rows/variant.ui")]
 public class Variant: Gtk.Box {
   /**
    * Icon identifying the variant.
