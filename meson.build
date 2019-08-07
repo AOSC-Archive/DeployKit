@@ -1,80 +1,8 @@
 project('DeployKit', 'vala', 'c', license: 'MIT', version: '0.1')
 
-# GTK depends on GObject, GLib, and GIO
-dependencies = [
-  dependency('gobject-2.0'),
-  dependency('gio-2.0'),
-  dependency('gtk+-3.0'),
-  dependency('gee-0.8'),
-  dependency('json-glib-1.0'),
-  dependency('libsoup-2.4'),
-]
+subdir('res')
+subdir('src')
 
-# Source files
-sources = [
-  'src/recipe/recipe.vala',
-  'src/recipe/bulletin.vala',
-  'src/recipe/variant.vala',
-  'src/recipe/tarball.vala',
-  'src/recipe/mirror.vala',
-  'src/utils/lang.vala',
-  'src/rows/variantrow.vala',
-  'src/rows/destinationrow.vala',
-  'src/rows/mirrorrow.vala',
-  'src/rows/extracomponentrow.vala',
-  'src/gui/networkconfig.vala',
-  'src/gui/guimain.vala',
-  'src/app.vala',
-  'src/main.vala',
-]
-
-# Add configuration files for versioning, etc
-conf_data = configuration_data()
-conf_data.set('VERSION', meson.project_version())
-sources += configure_file(
-  input: 'src/utils/version.vala.in',
-  output: 'version.vala',
-  configuration : conf_data,
-)
-
-# Add resource files
-resources = import('gnome').compile_resources(
-  'resources',
-  'res/resources.gresource.xml',
-  source_dir: 'res',
-)
-
-# Final executable
-executable('aosc-dk', sources + resources, dependencies: dependencies)
-
-# Set up documentation target to generate one from valadoc
 if get_option('build_documentation')
-  valadoc = find_program('valadoc')
-
-  # Generate the package import options for valadoc
-  pkgs_valac = []
-  foreach d : dependencies
-    pkgs_valac += '--pkg'
-    pkgs_valac += d.name()
-  endforeach
-
-  custom_target(
-    'docs',
-    build_by_default: true,
-    input: sources,
-    output: 'docs',
-    command: [
-      valadoc,
-      pkgs_valac,
-      '--package-name', meson.project_name(),
-      '--package-version', meson.project_version(),
-      '--internal',
-      '--private',
-      '--use-svg-images',
-      '--force',
-      '--basedir', meson.current_source_dir(),
-      '--directory', '@OUTPUT@',
-      '@INPUT@'
-    ]
-  )
+  subdir('docs')
 endif
