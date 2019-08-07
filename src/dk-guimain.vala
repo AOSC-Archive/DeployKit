@@ -197,9 +197,11 @@ namespace Dk {
         } catch (Error e) {
           var dlg = new Gtk.MessageDialog(
             this,
-            DESTROY_WITH_PARENT | MODAL,
-            ERROR,
-            OK,
+            Gtk.DialogFlags.DESTROY_WITH_PARENT
+              | Gtk.DialogFlags.MODAL
+              | Gtk.DialogFlags.USE_HEADER_BAR,
+            Gtk.MessageType.ERROR,
+            Gtk.ButtonsType.OK,
             "%s.\n\nPlease check again if the file is accessible.",
             e.message
           );
@@ -217,9 +219,11 @@ namespace Dk {
         } catch (LoadRecipeError e) {
           var dlg = new Gtk.MessageDialog(
             this,
-            DESTROY_WITH_PARENT | MODAL,
-            ERROR,
-            OK,
+            Gtk.DialogFlags.DESTROY_WITH_PARENT
+              | Gtk.DialogFlags.MODAL
+              | Gtk.DialogFlags.USE_HEADER_BAR,
+            Gtk.MessageType.ERROR,
+            Gtk.ButtonsType.OK,
             "Failed to load the specified recipe at %s: %s.\n\nPlease check again if the content of file is valid.",
             this.local_recipe.get_parse_name(),
             e.message
@@ -261,9 +265,11 @@ namespace Dk {
             /* Give a message to the user about what happened */
             var dlg = new Gtk.MessageDialog(
               this,
-              DESTROY_WITH_PARENT | MODAL,
-              ERROR,
-              OK,
+              Gtk.DialogFlags.DESTROY_WITH_PARENT
+              | Gtk.DialogFlags.MODAL
+              | Gtk.DialogFlags.USE_HEADER_BAR,
+              Gtk.MessageType.ERROR,
+              Gtk.ButtonsType.OK,
               "You are now in offline mode because it looks like the service is temporary unavailable (error code %u).\n\nPlease check your network connection. If necessary, use the provided network settings, and try again. If you believe that your network connection has nothing wrong, then we might get something wrong. Please report to us.",
               status
             );
@@ -290,9 +296,11 @@ namespace Dk {
           } catch (LoadRecipeError e) {
             var dlg = new Gtk.MessageDialog(
               this,
-              DESTROY_WITH_PARENT | MODAL,
-              ERROR,
-              OK,
+              Gtk.DialogFlags.DESTROY_WITH_PARENT
+              | Gtk.DialogFlags.MODAL
+              | Gtk.DialogFlags.USE_HEADER_BAR,
+              Gtk.MessageType.ERROR,
+              Gtk.ButtonsType.OK,
               "Failed to load the fetched recipe: %s.\n\nPlease report this incident to us.",
               e.message
             );
