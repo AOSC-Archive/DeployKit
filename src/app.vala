@@ -36,7 +36,7 @@ namespace Dk {
      */
     protected override int handle_local_options(GLib.VariantDict options) {
       if (this.version) {
-        stdout.printf("%s\n", Dk.get_version());
+        stdout.printf("%s\n", Dk.Utils.get_version());
         return 0;
       }
 
