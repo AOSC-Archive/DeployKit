@@ -267,8 +267,8 @@ namespace Dk {
               var dlg = new Gtk.MessageDialog(
                 this,
                 Gtk.DialogFlags.DESTROY_WITH_PARENT
-                | Gtk.DialogFlags.MODAL
-                | Gtk.DialogFlags.USE_HEADER_BAR,
+                  | Gtk.DialogFlags.MODAL
+                  | Gtk.DialogFlags.USE_HEADER_BAR,
                 Gtk.MessageType.ERROR,
                 Gtk.ButtonsType.OK,
                 "You are now in offline mode because it looks like the service is temporary unavailable (error code %u).\n\nPlease check your network connection. If necessary, use the provided network settings, and try again. If you believe that your network connection has nothing wrong, then we might get something wrong. Please report to us.",
@@ -298,8 +298,8 @@ namespace Dk {
               var dlg = new Gtk.MessageDialog(
                 this,
                 Gtk.DialogFlags.DESTROY_WITH_PARENT
-                | Gtk.DialogFlags.MODAL
-                | Gtk.DialogFlags.USE_HEADER_BAR,
+                  | Gtk.DialogFlags.MODAL
+                  | Gtk.DialogFlags.USE_HEADER_BAR,
                 Gtk.MessageType.ERROR,
                 Gtk.ButtonsType.OK,
                 "Failed to load the fetched recipe: %s.\n\nPlease report this incident to us.",
