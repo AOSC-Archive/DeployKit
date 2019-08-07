@@ -49,14 +49,14 @@ namespace Dk {
      * This is called when the program is started.
      */
     protected override void activate() {
-      var guimain = new Dk.GuiMain();
+      var gui = new Dk.Gui.Main();
 
       string? env_root_url = GLib.Environ.get_variable(GLib.Environ.get(), "DK_ROOT_URL");
       if (env_root_url != null)
-        guimain.set_root_url(env_root_url);
+        gui.set_root_url(env_root_url);
 
-      this.add_window(guimain);
-      guimain.show_all();
+      this.add_window(gui);
+      gui.show_all();
     }
 
     /**
@@ -71,15 +71,15 @@ namespace Dk {
      * @param hint  A hint (?).
      */
     protected override void open(GLib.File[] files, string hint) {
-      var guimain = new Dk.GuiMain();
+      var gui = new Dk.Gui.Main();
 
       if (files.length > 1)
         GLib.message("more than one local recipe are given, only the first one will be processed.");
 
-      guimain.set_local_recipe(files[0]);
+      gui.set_local_recipe(files[0]);
 
-      this.add_window(guimain);
-      guimain.show_all();
+      this.add_window(gui);
+      gui.show_all();
     }
   }
 }

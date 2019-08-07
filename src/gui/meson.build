@@ -10,5 +10,5 @@ dk_srcs += files(
   'rows/extracomponentrow.vala',
 
   'networkconfig.vala',
-  'guimain.vala',
+  'main.vala',
 )
