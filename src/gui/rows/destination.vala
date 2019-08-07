@@ -1,10 +1,12 @@
 namespace Dk {
+namespace Gui {
+namespace Rows {
 
 /**
  * Template widget for use in the "Destination" section of recipe.
  */
 [GtkTemplate (ui = "/io/aosc/DeployKit/ui/dk-destinationrow.ui")]
-public class DestinationRow: Gtk.Box {
+public class Destination: Gtk.Box {
   /**
    * Icon identifying the type of location (e.g. SSD, HDD, NVMe)
    */
@@ -30,14 +32,14 @@ public class DestinationRow: Gtk.Box {
   private Gtk.Label capacity;
 
   /**
-   * Constructor for ``Dk.DestinationRow``.
+   * Constructor for row ``Destination``.
    *
    * @param icon_name        Name of icon to display.
    * @param destination_path Path to the destination.
    * @param description      Description on the type of destination.
    * @param capacity         Size of the destination, in byte.
    */
-  public DestinationRow(string icon_name, string destination_path, string description, int64 capacity) {
+  public Destination(string icon_name, string destination_path, string description, int64 capacity) {
     this.icon.set_from_icon_name(icon_name, Gtk.IconSize.DIALOG); // 48px
     this.destination_path.set_text(destination_path);
     this.description.set_text(description);
@@ -49,4 +51,6 @@ public class DestinationRow: Gtk.Box {
   }
 }
 
+} /* namespace Rows */
+} /* namespace Gui */
 } /* namespace Dk */

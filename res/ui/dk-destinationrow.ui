@@ -33,7 +33,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
   <!-- interface-description Widget used in the \"Destination\" section in AOSC DeployKit -->
   <!-- interface-copyright 2019 Anthon Open Source Community -->
   <!-- interface-authors Junde Yhi <lmy441900@aosc.xyz> -->
-  <template class="DkDestinationRow" parent="GtkBox">
+  <template class="DkGuiRowsDestination" parent="GtkBox">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
     <property name="border_width">6</property>

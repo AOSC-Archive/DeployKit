@@ -4,10 +4,10 @@ dk_deps += [
 ]
 
 dk_srcs += files(
-  'rows/variantrow.vala',
-  'rows/destinationrow.vala',
-  'rows/mirrorrow.vala',
-  'rows/extracomponentrow.vala',
+  'rows/variant.vala',
+  'rows/destination.vala',
+  'rows/mirror.vala',
+  'rows/extracomponent.vala',
 
   'networkconfig.vala',
   'main.vala',

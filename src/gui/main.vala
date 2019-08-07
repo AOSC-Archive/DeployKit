@@ -524,10 +524,10 @@ public class Main : Gtk.ApplicationWindow {
       /*
         * NOTE: It is impossible to add a same widget to two different
         * containers, so for the two different recipe pages, two identical
-        * VariantRows are allocated.
+        * "Variant" rows are allocated.
         */
       this.listbox_recipe_general_variant.add(
-        new VariantRow(
+        new Rows.Variant(
           "package-x-generic-symbolic",
           v.get_name_l10n(Dk.Utils.get_lang()) ?? v.get_name(),
           tarball_newest.get_date().format("%x"),
@@ -536,7 +536,7 @@ public class Main : Gtk.ApplicationWindow {
         )
       );
       this.listbox_recipe_expert_biy.add(
-        new VariantRow(
+        new Rows.Variant(
           "package-x-generic-symbolic",
           v.get_name_l10n(Dk.Utils.get_lang()) ?? v.get_name(),
           tarball_newest.get_date().format("%x"),
@@ -551,14 +551,14 @@ public class Main : Gtk.ApplicationWindow {
     /* Mirrors */
     recipe.get_mirrors().foreach((m) => {
       this.listbox_recipe_general_mirror.add(
-        new MirrorRow(
+        new Rows.Mirror(
           "package-x-generic-symbolic",
           m.get_name_l10n(Dk.Utils.get_lang()) ?? m.get_name(),
           m.get_location_l10n(Dk.Utils.get_lang()) ?? m.get_location()
         )
       );
       this.listbox_recipe_expert_mirror.add(
-        new MirrorRow(
+        new Rows.Mirror(
           "package-x-generic-symbolic",
           m.get_name_l10n(Dk.Utils.get_lang()) ?? m.get_name(),
           m.get_location_l10n(Dk.Utils.get_lang()) ?? m.get_location()

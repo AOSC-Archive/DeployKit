@@ -1,10 +1,12 @@
 namespace Dk {
+namespace Gui {
+namespace Rows {
 
 /**
  * Template widget for use in the "Extra Components" section of recipe.
  */
 [GtkTemplate (ui = "/io/aosc/DeployKit/ui/dk-extracomponentrow.ui")]
-public class ExtraComponentRow : Gtk.Box {
+public class ExtraComponent : Gtk.Box {
   /**
    * Icon identifying the component pack.
    */
@@ -36,7 +38,7 @@ public class ExtraComponentRow : Gtk.Box {
   private Gtk.Label installation_size;
 
   /**
-   * Constructor for ``Dk.ExtraComponentRow``.
+   * Constructor for row ``ExtraComponent``.
    *
    * @param icon_name         Name of icon identifying the component.
    * @param component_name    Name of the component.
@@ -44,7 +46,7 @@ public class ExtraComponentRow : Gtk.Box {
    * @param download_size     Download size of the component, in byte.
    * @param installation_size Installation size of the component, in byte.
    */
-  public ExtraComponentRow(string icon_name, string component_name, string description, int64 download_size, int64 installation_size) {
+  public ExtraComponent(string icon_name, string component_name, string description, int64 download_size, int64 installation_size) {
     this.icon.set_from_icon_name(icon_name, Gtk.IconSize.DIALOG); // 48px
     this.component_name.set_text(component_name);
     this.description.set_text(description);
@@ -61,4 +63,6 @@ public class ExtraComponentRow : Gtk.Box {
   }
 }
 
+} /* namespace Rows */
+} /* namespace Gui */
 } /* namespace Dk */
