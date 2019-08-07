@@ -22,9 +22,9 @@ sources = [
   'src/rows/destinationrow.vala',
   'src/rows/mirrorrow.vala',
   'src/rows/extracomponentrow.vala',
-  'src/dk-networkconfig.vala',
-  'src/dk-guimain.vala',
-  'src/dk-app.vala',
+  'src/networkconfig.vala',
+  'src/guimain.vala',
+  'src/app.vala',
   'src/main.vala',
 ]
 
@@ -32,15 +32,15 @@ sources = [
 conf_data = configuration_data()
 conf_data.set('VERSION', meson.project_version())
 sources += configure_file(
-  input: 'src/dk-version.vala.in',
-  output: 'dk-version.vala',
+  input: 'src/version.vala.in',
+  output: 'version.vala',
   configuration : conf_data,
 )
 
 # Add resource files
 resources = import('gnome').compile_resources(
-  'dk-resources',
-  'res/dk-resources.gresource.xml',
+  'resources',
+  'res/resources.gresource.xml',
   source_dir: 'res',
 )
 
