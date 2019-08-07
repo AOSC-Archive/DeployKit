@@ -4,10 +4,10 @@ namespace Dk {
  * Main application manager of DeployKit.
  */
 public class App : Gtk.Application {
-  private static bool version = false;
+  private static bool print_version = false;
 
   private const GLib.OptionEntry[] options = {
-    {"version", 'v', GLib.OptionFlags.NONE, GLib.OptionArg.NONE, ref version, "Show version information", null},
+    {"version", 'v', GLib.OptionFlags.NONE, GLib.OptionArg.NONE, ref print_version, "Show version information", null},
   };
 
   /**
@@ -36,7 +36,7 @@ public class App : Gtk.Application {
    *         the application.
    */
   protected override int handle_local_options(GLib.VariantDict options) {
-    if (this.version) {
+    if (this.print_version) {
       stdout.printf("%s\n", Dk.Utils.get_version());
       return 0;
     }
