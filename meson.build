@@ -32,7 +32,7 @@ sources = [
 conf_data = configuration_data()
 conf_data.set('VERSION', meson.project_version())
 sources += configure_file(
-  input: 'src/version.vala.in',
+  input: 'src/utils/version.vala.in',
   output: 'version.vala',
   configuration : conf_data,
 )
