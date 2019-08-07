@@ -9,6 +9,8 @@ dk_srcs = files(
   'main.vala',
 )
 
+# Submodules of DeployKit will add their dependencies to dk_deps and their
+# source files to dk_srcs if necessary.
 subdir('recipe')
 subdir('utils')
 
