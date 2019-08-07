@@ -452,6 +452,11 @@ namespace Dk {
       network_config_dialog.show_all();
     }
 
+    /**
+     * Callback on ``response`` event of the bulletin banner.
+     *
+     * @param response_id The GTK response ID set in GUI definition.
+     */
     [GtkCallback]
     private void infobar_bulletin_response_cb(int response_id) {
       if (response_id == Gtk.ResponseType.CANCEL ||
@@ -503,9 +508,14 @@ namespace Dk {
 
       /* Variants */
       recipe.get_variants().foreach((v) => {
-        /* XXX: Only the newest tarball is shown. Need to design a way to display all. */
+        /* XXX: Only the newest tarball is shown. */
         var tarball_newest = v.get_tarball_newest();
 
+        /*
+         * NOTE: It is impossible to add a same widget to two different
+         * containers, so for the two different recipe pages, two identical
+         * VariantRows are allocated.
+         */
         this.listbox_recipe_general_variant.add(
           new VariantRow(
             "package-x-generic-symbolic",
