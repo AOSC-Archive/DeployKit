@@ -22,8 +22,8 @@ sources = [
   'src/rows/destinationrow.vala',
   'src/rows/mirrorrow.vala',
   'src/rows/extracomponentrow.vala',
-  'src/networkconfig.vala',
-  'src/guimain.vala',
+  'src/gui/networkconfig.vala',
+  'src/gui/guimain.vala',
   'src/app.vala',
   'src/main.vala',
 ]
