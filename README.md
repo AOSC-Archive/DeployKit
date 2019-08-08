@@ -38,7 +38,7 @@ ninja
 
 [Options](meson_options.txt) can be set with `meson` to customize the build:
 
-- `-Dbuild_documentation=false` to disable HTML documentation build using `valadoc`.
+- `-Dbuild_docs=false` to disable HTML documentation build using `valadoc`.
 - More to come...
 
 ## Features
