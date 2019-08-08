@@ -26,7 +26,7 @@ public class App : GLib.Application {
     );
 
     this.set_option_context_summary("AOSC OS Installer and Recovery Utility");
-    this.add_main_option_entries(this.options);
+    this.add_main_option_entries(options);
   }
 
   /**
@@ -40,7 +40,7 @@ public class App : GLib.Application {
    *         the application.
    */
   protected override int handle_local_options(GLib.VariantDict options) {
-    if (this.print_version) {
+    if (print_version) {
       stdout.printf("%s\n", Dk.Utils.get_version());
       return 0;
     }
