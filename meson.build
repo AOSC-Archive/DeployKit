@@ -1,8 +1,12 @@
 project('DeployKit', 'vala', 'c', license: 'MIT', version: '0.1')
 
-subdir('res')
-subdir('src')
+# DeployKit
+if get_option('build_deploykit')
+  subdir('res')
+  subdir('src')
+endif
 
+# Documentation
 if get_option('build_documentation')
   subdir('docs')
 endif

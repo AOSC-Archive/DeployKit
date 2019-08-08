@@ -3,7 +3,11 @@ namespace Dk {
 /**
  * Main application manager of DeployKit.
  */
+#if BUILD_GUI
 public class App : Gtk.Application {
+#else
+public class App : GLib.Application {
+#endif
   private static bool print_version = false;
 
   private const GLib.OptionEntry[] options = {
@@ -50,6 +54,7 @@ public class App : Gtk.Application {
    * This is called when the program is started.
    */
   protected override void activate() {
+#if BUILD_GUI
     var gui = new Dk.Gui.Main();
 
     string? env_root_url = GLib.Environ.get_variable(GLib.Environ.get(), "DK_ROOT_URL");
@@ -58,6 +63,8 @@ public class App : Gtk.Application {
 
     this.add_window(gui);
     gui.show_all();
+#else
+#endif
   }
 
   /**
@@ -72,6 +79,7 @@ public class App : Gtk.Application {
    * @param hint  A hint (?).
    */
   protected override void open(GLib.File[] files, string hint) {
+#if BUILD_GUI
     var gui = new Dk.Gui.Main();
 
     if (files.length > 1)
@@ -81,6 +89,8 @@ public class App : Gtk.Application {
 
     this.add_window(gui);
     gui.show_all();
+#else
+#endif
   }
 }
 

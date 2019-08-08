@@ -12,3 +12,7 @@ dk_srcs += files(
   'networkconfig.vala',
   'main.vala',
 )
+
+dk_args += ['-D', 'BUILD_GUI']
+
+add_project_arguments(dk_args, language: 'vala')

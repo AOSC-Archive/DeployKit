@@ -14,6 +14,7 @@ custom_target(
   output: '.',
   command: [
     valadoc,
+    dk_args,
     pkgs_valac,
     '--package-name', meson.project_name(),
     '--package-version', meson.project_version(),

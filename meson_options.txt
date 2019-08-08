@@ -1,1 +1,17 @@
+##### Options for DeployKit #####
+
+# Build DeployKit (main switch)
+option('build_deploykit', type: 'boolean', value: 'true')
+
+# Build DeployKit with GUI frontend (using GTK)
+option('build_gui', type: 'boolean', value: 'true')
+
+##### Options for Unit Tests #####
+
+# Build the unit tests (main switch)
+option('build_tests', type: 'boolean', value: 'true')
+
+##### Options for Documentation #####
+
+# Build the HTML documentation using valadoc
 option('build_documentation', type: 'boolean', value: 'true')
