@@ -20,7 +20,7 @@ The following libraries are required both during compile-time and run-time:
 - **LibGee** 0.8+ (`libgee-0.8`): The GObject-based data structure library for Vala
 - **JSON-GLib** 1.x (`json-glib-1.0`): The GObject-based JSON parsing and generating library
 - **LibSoup** 2.4+ (`libsoup-2.4`): The GObject-based HTTP(S) client / server
-- **GTK** 3.x (`gtk+-3.0`): The famous toolkit for building nice graphical user interfaces
+- **GTK** 3.20+ (`gtk+-3.0`): The famous toolkit for building nice graphical user interfaces
 
 ## Build
 

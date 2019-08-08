@@ -1,5 +1,5 @@
 dk_deps += [
-  dependency('gtk+-3.0'),
+  dependency('gtk+-3.0', version: '>=3.20'),
   dependency('libsoup-2.4'),
 ]
 
