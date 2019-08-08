@@ -7,6 +7,6 @@ if get_option('build_deploykit')
 endif
 
 # Documentation
-if get_option('build_documentation')
+if get_option('build_docs')
   subdir('docs')
 endif
