@@ -38,7 +38,9 @@ ninja
 
 [Options](meson_options.txt) can be set with `meson` to customize the build:
 
-- `-Dbuild_docs=false` to disable HTML documentation build using `valadoc`.
+- `-Dbuild_gui=false` to opt-out the GUI frontend of DeployKit (CLI only)
+- `-Dbuild_tests=false` to avoid building unit tests to reduce build time
+- `-Dbuild_docs=false` to disable HTML documentation build using `valadoc`
 - More to come...
 
 ## Features
