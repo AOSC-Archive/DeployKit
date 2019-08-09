@@ -135,7 +135,23 @@ public class Main : Gtk.ApplicationWindow {
   [GtkChild]
   private Gtk.Entry entry_recipe_expert_admin_password_retype;
 
-  /* ========== Widgets in Page 4 (Installation) ========== */
+  /* ========== Widgets in Page 4 (Confirm) ========== */
+  [GtkChild]
+  private Gtk.Box box_confirm;
+  [GtkChild]
+  private Gtk.Label label_confirm_variant;
+  [GtkChild]
+  private Gtk.Label label_confirm_dest;
+  [GtkChild]
+  private Gtk.Label label_confirm_mirror;
+  [GtkChild]
+  private Gtk.Label label_confirm_xcomps;
+  [GtkChild]
+  private Gtk.Label label_confirm_locale;
+  [GtkChild]
+  private Gtk.Label label_confirm_admin_username;
+
+  /* ========== Widgets in Page 5 (Installation) ========== */
   [GtkChild]
   private Gtk.Box   box_install;
   [GtkChild]
@@ -149,7 +165,7 @@ public class Main : Gtk.ApplicationWindow {
   [GtkChild]
   private Gtk.ProgressBar progressbar_installation;
 
-  /* ========== Widgets in Page 5 (Done) ========== */
+  /* ========== Widgets in Page 6 (Done) ========== */
   [GtkChild]
   private Gtk.Box box_done;
 
@@ -352,6 +368,20 @@ public class Main : Gtk.ApplicationWindow {
   }
 
   /**
+   * Callback on ``map`` event of ``Gtk.Box`` "Confirm".
+   *
+   * This function is called as the box shows up, so as to switch the content
+   * in the header bar correspondingly.
+   */
+  [GtkCallback]
+  private void box_confirm_map_cb() {
+    this.headerbar_main.set_title("Confirm");
+    this.togglebtn_expert.set_visible(false);
+    this.btn_network.set_visible(true);
+    this.btn_ok.set_visible(true);
+  }
+
+  /**
     * Callback on ``map`` event of ``Gtk.Box`` "Installing".
     *
     * This function is called as the box shows up, so as to switch the content
@@ -405,6 +435,8 @@ public class Main : Gtk.ApplicationWindow {
     if (visible_child == this.box_recipe_general ||
         visible_child == this.box_recipe_expert)
     {
+      this.stack_main.set_visible_child(this.box_confirm);
+    } else if (visible_child == this.box_confirm) {
       // TODO: Proceed with installation
       // 1. Store configuration into config store
       // 2. Switch to installation page
