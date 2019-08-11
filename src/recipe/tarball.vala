@@ -201,21 +201,21 @@ public class Tarball : GLib.Object {
 
   public bool set_date_from_string(string date_str) {
     /*
-      * NB: A "valid ISO 8601 formatted string" must contain at least the
-      * date part and the time part, with a delimiter in between. However, in
-      * the recipe specification, "date" only contains the date part, and
-      * thus the string cannot be parsed by GLib. Here we do a little trick
-      * to make GLib happy.
-      */
+     * NB: A "valid ISO 8601 formatted string" must contain at least the
+     * date part and the time part, with a delimiter in between. However, in
+     * the recipe specification, "date" only contains the date part, and
+     * thus the string cannot be parsed by GLib. Here we do a little trick
+     * to make GLib happy.
+     */
     string datetime_str = ("T" in date_str || " " in date_str) ? date_str : date_str + "T000000";
 
     /*
-      * "This call can fail (returning null) if text is not a valid ISO 8601
-      * formatted string."
-      * -- https://valadoc.org/glib-2.0/GLib.DateTime.DateTime.from_iso8601.html
-      *
-      * How?
-      */
+     * "This call can fail (returning null) if text is not a valid ISO 8601
+     * formatted string."
+     * -- https://valadoc.org/glib-2.0/GLib.DateTime.DateTime.from_iso8601.html
+     *
+     * How?
+     */
     var date = new DateTime.from_iso8601(datetime_str, new TimeZone.utc());
     if (date != null) {
       this.date = date;

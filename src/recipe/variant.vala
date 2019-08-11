@@ -69,10 +69,10 @@ public class Variant : GLib.Object {
 
           if (reader.is_object()) {
             /*
-              * json-glib does not have the ability to take a whole JSON
-              * object out, so we have to re-construct an object member-by-
-              * member...
-              */
+             * json-glib does not have the ability to take a whole JSON
+             * object out, so we have to re-construct an object member-by-
+             * member...
+             */
             var tarball = new Tarball();
 
             if (reader.read_member("arch"))

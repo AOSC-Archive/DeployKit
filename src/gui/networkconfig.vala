@@ -21,78 +21,78 @@ public enum ProxyType {
 }
 
 /**
-  * Callback for the dialog to save what the user filled in.
-  *
-  * @param proxy_type     Type of the proxy in Dk.ProxyType.
-  * @param proxy_address  Address of the proxy.
-  * @param proxy_port     Port to connect to.
-  * @param proxy_username Username for the proxy.
-  * @param proxy_password Password for the proxy.
-  */
+ * Callback for the dialog to save what the user filled in.
+ *
+ * @param proxy_type     Type of the proxy in Dk.ProxyType.
+ * @param proxy_address  Address of the proxy.
+ * @param proxy_port     Port to connect to.
+ * @param proxy_username Username for the proxy.
+ * @param proxy_password Password for the proxy.
+ */
 public delegate void NetworkConfigSaveCb(ProxyType? proxy_type, string? proxy_address, string? proxy_port, string? proxy_username, string? proxy_password);
 
 /**
-  * A network configuration dialog.
-  *
-  * The dialog allows the user to set up a proxy for download, or to enable
-  * offline mode (use DeployKit without an Internet connection) manually for
-  * large scale deployment or advanced installation.
-  */
+ * A network configuration dialog.
+ *
+ * The dialog allows the user to set up a proxy for download, or to enable
+ * offline mode (use DeployKit without an Internet connection) manually for
+ * large scale deployment or advanced installation.
+ */
 [GtkTemplate (ui = "/io/aosc/DeployKit/ui/networkconfig.ui")]
 public class NetworkConfig : Gtk.Window {
   /**
-    * The "Done" button for the user to save the form.
-    */
+   * The "Done" button for the user to save the form.
+   */
   [GtkChild (name = "btn_done")]
   private Gtk.Button done;
 
   /**
-    * The drop down for user to select the type of proxy.
-    */
+   * The drop down for user to select the type of proxy.
+   */
   [GtkChild (name = "combobox_type")]
   private Gtk.ComboBoxText proxy_type;
 
   /**
-    * Input entry for proxy address.
-    */
+   * Input entry for proxy address.
+   */
   [GtkChild (name = "entry_addr")]
   private Gtk.Entry address;
 
   /**
-    * Input entry for proxy port.
-    */
+   * Input entry for proxy port.
+   */
   [GtkChild (name = "entry_port")]
   private Gtk.Entry port;
 
   /**
-    * Input entry for username of the require-to-login proxy.
-    */
+   * Input entry for username of the require-to-login proxy.
+   */
   [GtkChild (name = "entry_username")]
   private Gtk.Entry username;
 
   /**
-    * Input entry for password of the require-to-login proxy.
-    */
+   * Input entry for password of the require-to-login proxy.
+   */
   [GtkChild (name = "entry_password")]
   private Gtk.Entry password;
 
   /**
-    * Dk.NetworkConfigSaveCb for saving the form.
-    */
+   * Dk.NetworkConfigSaveCb for saving the form.
+   */
   private NetworkConfigSaveCb callback_save;
 
   /**
-    * Constructor for Dk.NetworkConfig.
-    *
-    * The parameters for constructor is for the caller to fill what the user
-    * just set back to the dialog in order not to confuse the user.
-    *
-    * @param type     Type of the proxy.
-    * @param addr     Address of the proxy.
-    * @param port     Port of the proxy.
-    * @param username Username for the proxy.
-    * @param password Password for the proxy.
-    */
+   * Constructor for Dk.NetworkConfig.
+   *
+   * The parameters for constructor is for the caller to fill what the user
+   * just set back to the dialog in order not to confuse the user.
+   *
+   * @param type     Type of the proxy.
+   * @param addr     Address of the proxy.
+   * @param port     Port of the proxy.
+   * @param username Username for the proxy.
+   * @param password Password for the proxy.
+   */
   public NetworkConfig(ProxyType? type, string? addr, string? port, string? username, string? password, NetworkConfigSaveCb cb) {
     if (type != null)
       this.proxy_type.set_active(type);
@@ -133,10 +133,10 @@ public class NetworkConfig : Gtk.Window {
   }
 
   /**
-    * Callback on ``changed`` event of combo-box ``proxy_type``.
-    *
-    * The form should be cleared when the proxy type is changed.
-    */
+   * Callback on ``changed`` event of combo-box ``proxy_type``.
+   *
+   * The form should be cleared when the proxy type is changed.
+   */
   [GtkCallback]
   private void combobox_type_changed_cb() {
     if (this.proxy_type.get_active() == ProxyType.DISABLE) {
@@ -158,12 +158,12 @@ public class NetworkConfig : Gtk.Window {
   }
 
   /**
-    * Callback on ``clicked`` event of button ``done``.
-    *
-    * The function retrieves data from the form, converts them into data types
-    * defined in delegate NetworkConfigSaveCb, and calls it to "save" the
-    * network settings.
-    */
+   * Callback on ``clicked`` event of button ``done``.
+   *
+   * The function retrieves data from the form, converts them into data types
+   * defined in delegate NetworkConfigSaveCb, and calls it to "save" the
+   * network settings.
+   */
   [GtkCallback]
   private void btn_done_clicked_cb() {
     ProxyType? type = null;

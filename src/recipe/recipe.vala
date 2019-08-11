@@ -9,32 +9,32 @@ namespace Recipe {
  */
 public class Recipe : GLib.Object {
   /**
-    * The API version used in the recipe.
-    */
+   * The API version used in the recipe.
+   */
   private int version;
 
   /**
-    * A Bulletin object, containing a bulletin message.
-    */
+   * A Bulletin object, containing a bulletin message.
+   */
   private Bulletin bulletin;
 
   /**
-    * An array of Variant object, containing a series of tarball variants.
-    */
+   * An array of Variant object, containing a series of tarball variants.
+   */
   private Gee.ArrayList<Variant> variants;
 
   /**
-    * An array of Mirror object, containing available mirrors for
-    * downloading.
-    */
+   * An array of Mirror object, containing available mirrors for
+   * downloading.
+   */
   private Gee.ArrayList<Mirror> mirrors;
 
   /**
-    * Constructor for Recipe.
-    *
-    * This constructor only initializes private variables to their default
-    * states. Use the from_json method to fill the object with valid data.
-    */
+   * Constructor for Recipe.
+   *
+   * This constructor only initializes private variables to their default
+   * states. Use the from_json method to fill the object with valid data.
+   */
   public Recipe() {
     this.version = -1;
     this.bulletin = new Bulletin();
@@ -43,16 +43,16 @@ public class Recipe : GLib.Object {
   }
 
   /**
-    * Fill the object with an existing Json.Node.
-    *
-    * This is useful when the caller has already parsed the JSON string with
-    * json-glib, and can directly get a ``Json.Node`` from the parser.
-    *
-    * @param node A Json.Node from json-glib.
-    * @return true if the deserialization process successfully finished, or
-    *         false if the JSON node cannot represent this object.
-    * @see from_json_string
-    */
+   * Fill the object with an existing Json.Node.
+   *
+   * This is useful when the caller has already parsed the JSON string with
+   * json-glib, and can directly get a ``Json.Node`` from the parser.
+   *
+   * @param node A Json.Node from json-glib.
+   * @return true if the deserialization process successfully finished, or
+   *         false if the JSON node cannot represent this object.
+   * @see from_json_string
+   */
   public bool from_json_node(Json.Node node) {
     var reader = new Json.Reader(node);
 
@@ -144,18 +144,18 @@ public class Recipe : GLib.Object {
   }
 
   /**
-    * Fill the object with a JSON string (deserialize).
-    *
-    * This method parses the given JSON string, and then calls
-    * ``from_json_node`` to finish the process. Just use ``from_json_node``
-    * if you have parsed the JSON string elsewhere, where a ``Json.Node`` can
-    * be used.
-    *
-    * @param json The JSON string representing the object.
-    * @return true if the deserialization process successfully finished, or
-    *         false if the JSON string contains unrecognized parts.
-    * @see from_json_node
-    */
+   * Fill the object with a JSON string (deserialize).
+   *
+   * This method parses the given JSON string, and then calls
+   * ``from_json_node`` to finish the process. Just use ``from_json_node``
+   * if you have parsed the JSON string elsewhere, where a ``Json.Node`` can
+   * be used.
+   *
+   * @param json The JSON string representing the object.
+   * @return true if the deserialization process successfully finished, or
+   *         false if the JSON string contains unrecognized parts.
+   * @see from_json_node
+   */
   public bool from_json_string(string json) {
     var parser = new Json.Parser();
 
@@ -169,10 +169,10 @@ public class Recipe : GLib.Object {
   }
 
   /**
-    * Outputs the object using ``Json.Node`` from ``json-glib``.
-    *
-    * @return The ``Json.Node`` representing the object.
-    */
+   * Outputs the object using ``Json.Node`` from ``json-glib``.
+   *
+   * @return The ``Json.Node`` representing the object.
+   */
   public Json.Node to_json_node() {
     var builder = new Json.Builder();
 
@@ -203,10 +203,10 @@ public class Recipe : GLib.Object {
   }
 
   /**
-    * Transform the object into a JSON string (serialize).
-    *
-    * @return The JSON representation of the object.
-    */
+   * Transform the object into a JSON string (serialize).
+   *
+   * @return The JSON representation of the object.
+   */
   public string to_json_string() {
     var generator = new Json.Generator();
     generator.set_root(this.to_json_node());
@@ -214,12 +214,12 @@ public class Recipe : GLib.Object {
   }
 
   /**
-    * Transform the object into a string.
-    *
-    * This is currently equlvalent to ``to_json_string``.
-    *
-    * @return The string representation of the object.
-    */
+   * Transform the object into a string.
+   *
+   * This is currently equlvalent to ``to_json_string``.
+   *
+   * @return The string representation of the object.
+   */
   public string to_string() {
     return this.to_json_string();
   }

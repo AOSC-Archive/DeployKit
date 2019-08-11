@@ -180,8 +180,8 @@ public class Main : Gtk.ApplicationWindow {
   private string root_url = "https://repo.aosc.io";
 
   /**
-    * Constructor for ``Dk.Gui.Main``.
-    */
+   * Constructor for ``Dk.Gui.Main``.
+   */
   public Main() {
     // Load CSS from resource to override styles of some widgets
     var css_provider = new Gtk.CssProvider();
@@ -190,11 +190,11 @@ public class Main : Gtk.ApplicationWindow {
   }
 
   /**
-    * Callback on ``map`` event of ``Gtk.Box`` "Preparing".
-    *
-    * This function is called as the box shows up, so as to switch the content
-    * in the header bar correspondingly.
-    */
+   * Callback on ``map`` event of ``Gtk.Box`` "Preparing".
+   *
+   * This function is called as the box shows up, so as to switch the content
+   * in the header bar correspondingly.
+   */
   [GtkCallback]
   private void box_prepare_map_cb() {
     this.headerbar_main.set_title("Preparing");
@@ -203,9 +203,9 @@ public class Main : Gtk.ApplicationWindow {
     this.btn_ok.set_visible(false);
 
     /*
-      * If a recipe.json is given, use that file and do not fetch from the
-      * Internet. This is useful for debugging.
-      */
+     * If a recipe.json is given, use that file and do not fetch from the
+     * Internet. This is useful for debugging.
+     */
     if (this.local_recipe != null) {
       GLib.message("You are using a local recipe. This is only for debugging and advanced users' use; DO NOT USE IT if you don't know what you are doing!");
 
@@ -230,8 +230,8 @@ public class Main : Gtk.ApplicationWindow {
       }
 
       /*
-        * Load recipe from the specified file.
-        */
+       * Load recipe from the specified file.
+       */
       try {
         this.load_recipe((string)file_content);
       } catch (LoadRecipeError e) {
@@ -259,12 +259,12 @@ public class Main : Gtk.ApplicationWindow {
     }
 
     /*
-      * If no local recipe is given, fetch one online.
-      *
-      * After the thread below is created, the signal handler returns. When
-      * data arrives the thread will tell GLib to call a lambda function in the
-      * main thread to update GUI (to switch to the recipe page).
-      */
+     * If no local recipe is given, fetch one online.
+     *
+     * After the thread below is created, the signal handler returns. When
+     * data arrives the thread will tell GLib to call a lambda function in the
+     * main thread to update GUI (to switch to the recipe page).
+     */
     new GLib.Thread<bool>("fetch_recipe", () => {
       var session = new Soup.Session();
       var baseuri = new Soup.URI(this.root_url);
@@ -307,8 +307,8 @@ public class Main : Gtk.ApplicationWindow {
       // Once fetched, go back to the main thread to refresh GUI
       GLib.Idle.add(() => {
         /*
-          * All processes above successfully finished, enter online mode.
-          */
+         * All processes above successfully finished, enter online mode.
+         */
         try {
           this.load_recipe(http_content);
         } catch (LoadRecipeError e) {
@@ -340,11 +340,11 @@ public class Main : Gtk.ApplicationWindow {
   }
 
   /**
-    * Callback on ``map`` event of ``Gtk.Box`` "Recipe (General)".
-    *
-    * This function is called as the box shows up, so as to switch the content
-    * in the header bar correspondingly.
-    */
+   * Callback on ``map`` event of ``Gtk.Box`` "Recipe (General)".
+   *
+   * This function is called as the box shows up, so as to switch the content
+   * in the header bar correspondingly.
+   */
   [GtkCallback]
   private void box_recipe_general_map_cb() {
     this.headerbar_main.set_title("Recipe");
@@ -354,11 +354,11 @@ public class Main : Gtk.ApplicationWindow {
   }
 
   /**
-    * Callback on ``map`` event of ``Gtk.Box`` "Recipe (Expert)".
-    *
-    * This function is called as the box shows up, so as to switch the content
-    * in the header bar correspondingly.
-    */
+   * Callback on ``map`` event of ``Gtk.Box`` "Recipe (Expert)".
+   *
+   * This function is called as the box shows up, so as to switch the content
+   * in the header bar correspondingly.
+   */
   [GtkCallback]
   private void box_recipe_expert_map_cb() {
     this.headerbar_main.set_title("Recipe");
@@ -382,11 +382,11 @@ public class Main : Gtk.ApplicationWindow {
   }
 
   /**
-    * Callback on ``map`` event of ``Gtk.Box`` "Installing".
-    *
-    * This function is called as the box shows up, so as to switch the content
-    * in the header bar correspondingly.
-    */
+   * Callback on ``map`` event of ``Gtk.Box`` "Installing".
+   *
+   * This function is called as the box shows up, so as to switch the content
+   * in the header bar correspondingly.
+   */
   [GtkCallback]
   private void box_install_map_cb() {
     this.headerbar_main.set_title("Installing");
@@ -396,11 +396,11 @@ public class Main : Gtk.ApplicationWindow {
   }
 
   /**
-    * Callback on ``map`` event of ``Gtk.Box`` "Done".
-    *
-    * This function is called as the box shows up, so as to switch the content
-    * in the header bar correspondingly.
-    */
+   * Callback on ``map`` event of ``Gtk.Box`` "Done".
+   *
+   * This function is called as the box shows up, so as to switch the content
+   * in the header bar correspondingly.
+   */
   [GtkCallback]
   private void box_done_map_cb() {
     this.headerbar_main.set_title("Done");
@@ -410,11 +410,11 @@ public class Main : Gtk.ApplicationWindow {
   }
 
   /**
-    * Callback on ``toggled`` event of the toggle-button "Expert".
-    *
-    * When the button is toggled, the interface should switch to the "expert"
-    * recipe for the user to perform advanced installation.
-    */
+   * Callback on ``toggled`` event of the toggle-button "Expert".
+   *
+   * When the button is toggled, the interface should switch to the "expert"
+   * recipe for the user to perform advanced installation.
+   */
   [GtkCallback]
   private void togglebtn_expert_toggled_cb() {
     if (this.togglebtn_expert.get_active())
@@ -424,11 +424,11 @@ public class Main : Gtk.ApplicationWindow {
   }
 
   /**
-    * Callback on ``clicked`` event of the button "OK".
-    *
-    * When the button is clicked, installation should take place according to
-    * what the user selects in the recipe.
-    */
+   * Callback on ``clicked`` event of the button "OK".
+   *
+   * When the button is clicked, installation should take place according to
+   * what the user selects in the recipe.
+   */
   [GtkCallback]
   private void btn_ok_clicked_cb() {
     var visible_child = this.stack_main.get_visible_child();
@@ -452,12 +452,12 @@ public class Main : Gtk.ApplicationWindow {
   }
 
   /**
-    * Callback on ``clicked`` event of button "Network Config".
-    *
-    * When the button is clicked, a network configuation dialog should show up
-    * for the user to configure their suitable network setup, e.g. proxies, or
-    * offline.
-    */
+   * Callback on ``clicked`` event of button "Network Config".
+   *
+   * When the button is clicked, a network configuation dialog should show up
+   * for the user to configure their suitable network setup, e.g. proxies, or
+   * offline.
+   */
   [GtkCallback]
   private void btn_network_clicked_cb() {
     var network_config_dialog = new Dk.Gui.NetworkConfig(
@@ -495,10 +495,10 @@ public class Main : Gtk.ApplicationWindow {
   }
 
   /**
-    * Callback on ``response`` event of the bulletin banner.
-    *
-    * @param response_id The GTK response ID set in GUI definition.
-    */
+   * Callback on ``response`` event of the bulletin banner.
+   *
+   * @param response_id The GTK response ID set in GUI definition.
+   */
   [GtkCallback]
   private void infobar_bulletin_response_cb(int response_id) {
     if (response_id == Gtk.ResponseType.CANCEL ||
@@ -516,10 +516,10 @@ public class Main : Gtk.ApplicationWindow {
   }
 
   /**
-    * Load a recipe.json string into GUI.
-    *
-    * @param recipe_str A JSON string representing a recipe object.
-    */
+   * Load a recipe.json string into GUI.
+   *
+   * @param recipe_str A JSON string representing a recipe object.
+   */
   private void load_recipe(string recipe_str) throws LoadRecipeError {
     var recipe = new Dk.Recipe.Recipe();
     bool r = recipe.from_json_string(recipe_str);
@@ -554,10 +554,10 @@ public class Main : Gtk.ApplicationWindow {
       var tarball_newest = v.get_tarball_newest();
 
       /*
-        * NOTE: It is impossible to add a same widget to two different
-        * containers, so for the two different recipe pages, two identical
-        * "Variant" rows are allocated.
-        */
+       * NOTE: It is impossible to add a same widget to two different
+       * containers, so for the two different recipe pages, two identical
+       * "Variant" rows are allocated.
+       */
       this.listbox_recipe_general_variant.add(
         new Rows.Variant(
           "package-x-generic-symbolic",

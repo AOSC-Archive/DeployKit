@@ -10,48 +10,48 @@ namespace Recipe {
  */
 public class Bulletin : GLib.Object {
   /**
-    * Type of the bulletin message.
-    *
-    * This should normally be one of the following:
-    *
-    * - "unknown": The object is uninitialized.
-    * - "none": No message is carried.
-    * - "info": Informative message.
-    * - "warning": Warning message.
-    * - "fatal": Fatal message.
-    *
-    * For forward and backward compatibility consideration, this field is
-    * a string, rather than an enumeration (``enum``). The user of the object
-    * should check the returned string.
-    */
+   * Type of the bulletin message.
+   *
+   * This should normally be one of the following:
+   *
+   * - "unknown": The object is uninitialized.
+   * - "none": No message is carried.
+   * - "info": Informative message.
+   * - "warning": Warning message.
+   * - "fatal": Fatal message.
+   *
+   * For forward and backward compatibility consideration, this field is
+   * a string, rather than an enumeration (``enum``). The user of the object
+   * should check the returned string.
+   */
   private string type;
 
   /**
-    * Title of the bulletin message (optional).
-    */
+   * Title of the bulletin message (optional).
+   */
   private string? title;
 
   /**
-    * Body of the bulletin message (optional).
-    */
+   * Body of the bulletin message (optional).
+   */
   private string? body;
 
   /**
-    * A list of localized ``title`` strings.
-    */
+   * A list of localized ``title`` strings.
+   */
   private Gee.HashMap<string, string> title_l10n;
 
   /**
-    * A list of localized ``body`` strings.
-    */
+   * A list of localized ``body`` strings.
+   */
   private Gee.HashMap<string, string> body_l10n;
 
   /**
-    * Constructor for Bulletin.
-    *
-    * This constructor only initializes private variables to their default
-    * states. Use the from_json method to fill the object with valid data.
-    */
+   * Constructor for Bulletin.
+   *
+   * This constructor only initializes private variables to their default
+   * states. Use the from_json method to fill the object with valid data.
+   */
   public Bulletin() {
     this.type = "unknown";
     this.title = null;
@@ -61,16 +61,16 @@ public class Bulletin : GLib.Object {
   }
 
   /**
-    * Fill the object with an existing Json.Node.
-    *
-    * This is useful when the caller has already parsed the JSON string with
-    * json-glib, and can directly get a ``Json.Node`` from the parser.
-    *
-    * @param node A Json.Node from json-glib.
-    * @return true if the deserialization process successfully finished, or
-    *         false if the JSON node cannot represent this object.
-    * @see from_json_string
-    */
+   * Fill the object with an existing Json.Node.
+   *
+   * This is useful when the caller has already parsed the JSON string with
+   * json-glib, and can directly get a ``Json.Node`` from the parser.
+   *
+   * @param node A Json.Node from json-glib.
+   * @return true if the deserialization process successfully finished, or
+   *         false if the JSON node cannot represent this object.
+   * @see from_json_string
+   */
   public bool from_json_node(Json.Node node) {
     var reader = new Json.Reader(node);
 
@@ -117,18 +117,18 @@ public class Bulletin : GLib.Object {
   }
 
   /**
-    * Fill the object with a JSON string (deserialize).
-    *
-    * This method parses the given JSON string, and then calls
-    * ``from_json_node`` to finish the process. Just use ``from_json_node``
-    * if you have parsed the JSON string elsewhere, where a ``Json.Node`` can
-    * be used.
-    *
-    * @param json The JSON string representing the object.
-    * @return true if the deserialization process successfully finished, or
-    *         false if the JSON string contains unrecognized parts.
-    * @see from_json_node
-    */
+   * Fill the object with a JSON string (deserialize).
+   *
+   * This method parses the given JSON string, and then calls
+   * ``from_json_node`` to finish the process. Just use ``from_json_node``
+   * if you have parsed the JSON string elsewhere, where a ``Json.Node`` can
+   * be used.
+   *
+   * @param json The JSON string representing the object.
+   * @return true if the deserialization process successfully finished, or
+   *         false if the JSON string contains unrecognized parts.
+   * @see from_json_node
+   */
   public bool from_json_string(string json) {
     var parser = new Json.Parser();
 
@@ -142,10 +142,10 @@ public class Bulletin : GLib.Object {
   }
 
   /**
-    * Outputs the object using ``Json.Node`` from ``json-glib``.
-    *
-    * @return The ``Json.Node`` representing the object.
-    */
+   * Outputs the object using ``Json.Node`` from ``json-glib``.
+   *
+   * @return The ``Json.Node`` representing the object.
+   */
   public Json.Node to_json_node() {
     var builder = new Json.Builder();
 
@@ -180,10 +180,10 @@ public class Bulletin : GLib.Object {
   }
 
   /**
-    * Transform the object into a JSON string (serialize).
-    *
-    * @return The JSON representation of the object.
-    */
+   * Transform the object into a JSON string (serialize).
+   *
+   * @return The JSON representation of the object.
+   */
   public string to_json_string() {
     var generator = new Json.Generator();
     generator.set_root(this.to_json_node());
@@ -191,12 +191,12 @@ public class Bulletin : GLib.Object {
   }
 
   /**
-    * Transform the object into a string.
-    *
-    * This is currently equlvalent to ``to_json_string``.
-    *
-    * @return The string representation of the object.
-    */
+   * Transform the object into a string.
+   *
+   * This is currently equlvalent to ``to_json_string``.
+   *
+   * @return The string representation of the object.
+   */
   public string to_string() {
     return this.to_json_string();
   }
