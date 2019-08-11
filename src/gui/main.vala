@@ -1,8 +1,14 @@
 namespace Dk {
 namespace Gui {
 
+/**
+ * Errors that may be thrown by ``load_recipe``.
+ */
 private errordomain LoadRecipeError {
+  /** Parse error. */
   PARSE_ERROR,
+
+  /** Unknown recipe version. */
   UNKNOWN_VERSION,
 }
 
