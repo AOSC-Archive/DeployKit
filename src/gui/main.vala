@@ -23,6 +23,8 @@ public class Main : Gtk.ApplicationWindow {
   [GtkChild]
   private Gtk.ToggleButton togglebtn_expert;
   [GtkChild]
+  private Gtk.Button btn_back;
+  [GtkChild]
   private Gtk.Button btn_ok;
   [GtkChild]
   private Gtk.Button btn_network;
@@ -176,6 +178,8 @@ public class Main : Gtk.ApplicationWindow {
   private Gtk.Box box_done;
 
   /* ========== Variables to Use ========== */
+  private Gtk.Widget? last_page;
+
   private ProxyType? proxy_type;
   private string? proxy_address;
   private string? proxy_port;
@@ -205,6 +209,7 @@ public class Main : Gtk.ApplicationWindow {
   private void box_prepare_map_cb() {
     this.headerbar_main.set_title("Preparing");
     this.togglebtn_expert.set_visible(false);
+    this.btn_back.set_visible(false);
     this.btn_network.set_visible(true);
     this.btn_ok.set_visible(false);
 
@@ -355,6 +360,7 @@ public class Main : Gtk.ApplicationWindow {
   private void box_recipe_general_map_cb() {
     this.headerbar_main.set_title("Recipe");
     this.togglebtn_expert.set_visible(true);
+    this.btn_back.set_visible(false);
     this.btn_network.set_visible(true);
     this.btn_ok.set_visible(true);
   }
@@ -369,6 +375,7 @@ public class Main : Gtk.ApplicationWindow {
   private void box_recipe_expert_map_cb() {
     this.headerbar_main.set_title("Recipe");
     this.togglebtn_expert.set_visible(true);
+    this.btn_back.set_visible(false);
     this.btn_network.set_visible(true);
     this.btn_ok.set_visible(true);
   }
@@ -383,6 +390,7 @@ public class Main : Gtk.ApplicationWindow {
   private void box_confirm_map_cb() {
     this.headerbar_main.set_title("Confirm");
     this.togglebtn_expert.set_visible(false);
+    this.btn_back.set_visible(true);
     this.btn_network.set_visible(true);
     this.btn_ok.set_visible(true);
   }
@@ -397,6 +405,7 @@ public class Main : Gtk.ApplicationWindow {
   private void box_install_map_cb() {
     this.headerbar_main.set_title("Installing");
     this.togglebtn_expert.set_visible(false);
+    this.btn_back.set_visible(false);
     this.btn_network.set_visible(false);
     this.btn_ok.set_visible(false);
   }
@@ -411,6 +420,7 @@ public class Main : Gtk.ApplicationWindow {
   private void box_done_map_cb() {
     this.headerbar_main.set_title("Done");
     this.togglebtn_expert.set_visible(false);
+    this.btn_back.set_visible(false);
     this.btn_network.set_visible(false);
     this.btn_ok.set_visible(false);
   }
@@ -430,6 +440,18 @@ public class Main : Gtk.ApplicationWindow {
   }
 
   /**
+   * Callback on ``clicked`` event of the button "Back".
+   *
+   * When the button is clicked, the interface should switch back to the last
+   * page.
+   */
+  [GtkCallback]
+  private void btn_back_clicked_cb() {
+    if (this.last_page != null)
+      this.stack_main.set_visible_child(this.last_page);
+  }
+
+  /**
    * Callback on ``clicked`` event of the button "OK".
    *
    * When the button is clicked, installation should take place according to
@@ -441,6 +463,9 @@ public class Main : Gtk.ApplicationWindow {
     if (visible_child == this.box_recipe_general ||
         visible_child == this.box_recipe_expert)
     {
+      /* Remember which recipe the user used */
+      this.last_page = visible_child;
+
       this.stack_main.set_visible_child(this.box_confirm);
     } else if (visible_child == this.box_confirm) {
       // TODO: Proceed with installation

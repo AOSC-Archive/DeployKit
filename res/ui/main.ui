@@ -61,6 +61,24 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
           </object>
         </child>
         <child>
+          <object class="GtkButton" id="btn_back">
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="clicked" handler="btn_back_clicked_cb" swapped="no"/>
+            <child>
+              <object class="GtkImage">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="stock">gtk-go-back</property>
+                <property name="icon_size">3</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="position">3</property>
+          </packing>
+        </child>
+        <child>
           <object class="GtkButton" id="btn_ok">
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
