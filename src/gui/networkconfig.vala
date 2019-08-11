@@ -105,7 +105,31 @@ public class NetworkConfig : Gtk.Window {
     if (password != null)
       this.password.set_text(password);
 
-    this.callback_save = cb;
+    /*
+     * XXX: The closure is to make Vala happy:
+     *
+     *   ../src/gui/networkconfig.vala:108.26-108.27: warning: copying delegates
+     *   is not supported
+     *
+     * If `cb` is prefixed with `(owned)`:
+     *
+     * ../src/gui/networkconfig.vala:123.26-123.35: error: No reference to be
+     * transferred
+     *     this.callback_save = (owned) cb;
+     *                          ^^^^^^^^^^
+     *
+     * This may because
+     *
+     * - Delegates copying is discoraged because the context information isn't
+     *   reference counted
+     * - The callback is passed in, so at the caller side there might be some
+     *   sort of reference (I guess, although I actually wrote a closure).
+     *
+     * See https://stackoverflow.com/a/16697408
+     */
+    this.callback_save = (type, addr, port, username, password) => {
+      cb(type, addr, port, username, password);
+    };
   }
 
   /**
