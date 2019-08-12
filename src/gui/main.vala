@@ -401,17 +401,26 @@ public class Main : Gtk.ApplicationWindow {
     Gtk.ListBoxRow? dest_row = null;
     Gtk.ListBoxRow? mirror_row = null;
     Gtk.ListBoxRow? xcomps_row = null;
+    string? hostname = null;
+    string? locale   = null;
+    string? username = null;
 
     if (this.last_page == box_recipe_general) {
       variant_row = this.listbox_recipe_general_variant.get_selected_row();
       dest_row    = this.listbox_recipe_general_dest.get_selected_row();
       mirror_row  = this.listbox_recipe_general_mirror.get_selected_row();
       xcomps_row  = this.listbox_recipe_general_xcomps.get_selected_row();
+      hostname    = this.entry_recipe_general_hostname.get_text();
+      locale      = this.entry_recipe_general_locale.get_text();
+      username    = this.entry_recipe_general_admin_username.get_text();
     } else if (this.last_page == box_recipe_expert) {
       variant_row = this.listbox_recipe_expert_biy.get_selected_row();
       dest_row    = this.listbox_recipe_expert_dest.get_selected_row();
       mirror_row  = this.listbox_recipe_expert_mirror.get_selected_row();
       xcomps_row  = this.listbox_recipe_expert_xcomps.get_selected_row();
+      hostname    = this.entry_recipe_expert_hostname.get_text();
+      locale      = this.entry_recipe_expert_locale.get_text();
+      username    = this.entry_recipe_expert_admin_username.get_text();
     }
 
     this.label_confirm_variant.set_text(
@@ -438,20 +447,16 @@ public class Main : Gtk.ApplicationWindow {
       ((Rows.ExtraComponent)xcomps_row.get_child()).get_component_name()
     );
 
-    string hostname = this.entry_recipe_general_hostname.get_text();
-    string locale   = this.entry_recipe_general_locale.get_text();
-    string username = this.entry_recipe_general_admin_username.get_text();
-
     this.label_confirm_hostname.set_text(
-      hostname == "" ? "Not set" : hostname
+      (hostname == null || hostname == "") ? "Not set" : hostname
     );
 
     this.label_confirm_locale.set_text(
-      locale == "" ? "Default" : locale
+      (locale == null || locale == "") ? "Default" : locale
     );
 
     this.label_confirm_admin_username.set_text(
-      username == "" ? "Not filled" : username
+      (username == null || username == "") ? "Not filled" : username
     );
   }
 
