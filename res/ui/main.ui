@@ -1857,7 +1857,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                       </object>
                                       <packing>
                                         <property name="left_attach">1</property>
-                                        <property name="top_attach">4</property>
+                                        <property name="top_attach">6</property>
                                       </packing>
                                     </child>
                                     <child>
@@ -1885,7 +1885,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                       </object>
                                       <packing>
                                         <property name="left_attach">0</property>
-                                        <property name="top_attach">4</property>
+                                        <property name="top_attach">6</property>
                                       </packing>
                                     </child>
                                     <child>
@@ -1914,6 +1914,34 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                       <packing>
                                         <property name="left_attach">1</property>
                                         <property name="top_attach">5</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <object class="GtkLabel">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="halign">end</property>
+                                        <property name="label" translatable="yes">Hostname:</property>
+                                        <property name="ellipsize">start</property>
+                                        <attributes>
+                                          <attribute name="weight" value="bold"/>
+                                        </attributes>
+                                      </object>
+                                      <packing>
+                                        <property name="left_attach">0</property>
+                                        <property name="top_attach">4</property>
+                                      </packing>
+                                    </child>
+                                    <child>
+                                      <object class="GtkLabel" id="label_confirm_hostname">
+                                        <property name="visible">True</property>
+                                        <property name="can_focus">False</property>
+                                        <property name="halign">start</property>
+                                        <property name="wrap">True</property>
+                                      </object>
+                                      <packing>
+                                        <property name="left_attach">1</property>
+                                        <property name="top_attach">4</property>
                                       </packing>
                                     </child>
                                   </object>

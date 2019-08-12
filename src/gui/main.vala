@@ -155,6 +155,8 @@ public class Main : Gtk.ApplicationWindow {
   [GtkChild]
   private Gtk.Label label_confirm_xcomps;
   [GtkChild]
+  private Gtk.Label label_confirm_hostname;
+  [GtkChild]
   private Gtk.Label label_confirm_locale;
   [GtkChild]
   private Gtk.Label label_confirm_admin_username;
@@ -436,8 +438,13 @@ public class Main : Gtk.ApplicationWindow {
       ((Rows.ExtraComponent)xcomps_row.get_child()).get_component_name()
     );
 
+    string hostname = this.entry_recipe_general_hostname.get_text();
     string locale   = this.entry_recipe_general_locale.get_text();
     string username = this.entry_recipe_general_admin_username.get_text();
+
+    this.label_confirm_hostname.set_text(
+      hostname == "" ? "Not set" : hostname
+    );
 
     this.label_confirm_locale.set_text(
       locale == "" ? "Default" : locale
