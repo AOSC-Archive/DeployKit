@@ -393,6 +393,59 @@ public class Main : Gtk.ApplicationWindow {
     this.btn_back.set_visible(true);
     this.btn_network.set_visible(true);
     this.btn_ok.set_visible(true);
+
+    /* Collect recipe and display information for the user to confirm */
+    Gtk.ListBoxRow? variant_row = null;
+    Gtk.ListBoxRow? dest_row = null;
+    Gtk.ListBoxRow? mirror_row = null;
+    Gtk.ListBoxRow? xcomps_row = null;
+
+    if (this.last_page == box_recipe_general) {
+      variant_row = this.listbox_recipe_general_variant.get_selected_row();
+      dest_row    = this.listbox_recipe_general_dest.get_selected_row();
+      mirror_row  = this.listbox_recipe_general_mirror.get_selected_row();
+      xcomps_row  = this.listbox_recipe_general_xcomps.get_selected_row();
+    } else if (this.last_page == box_recipe_expert) {
+      variant_row = this.listbox_recipe_expert_biy.get_selected_row();
+      dest_row    = this.listbox_recipe_expert_dest.get_selected_row();
+      mirror_row  = this.listbox_recipe_expert_mirror.get_selected_row();
+      xcomps_row  = this.listbox_recipe_expert_xcomps.get_selected_row();
+    }
+
+    this.label_confirm_variant.set_text(
+      variant_row == null ?
+      "Not selected" :
+      ((Rows.Variant)variant_row.get_child()).get_variant_name()
+    );
+
+    this.label_confirm_dest.set_text(
+      dest_row == null ?
+      "Not selected" :
+      ((Rows.Destination)dest_row.get_child()).get_destination_path()
+    );
+
+    this.label_confirm_mirror.set_text(
+      mirror_row == null ?
+      "Not selected" :
+      ((Rows.Mirror)mirror_row.get_child()).get_mirror_name()
+    );
+
+    this.label_confirm_xcomps.set_text(
+      xcomps_row == null ?
+      "Not selected" :
+      ((Rows.ExtraComponent)xcomps_row.get_child()).get_component_name()
+    );
+
+    string locale   = this.entry_recipe_general_locale.get_text();
+    string username = this.entry_recipe_general_admin_username.get_text();
+
+    this.label_confirm_locale.set_text(
+      locale == "" ? "Default" : locale
+    );
+
+    this.label_confirm_admin_username.set_text(
+      username == "" ? "Not filled" : username
+    );
   }
 
   /**
