@@ -456,7 +456,7 @@ public class Main : Gtk.ApplicationWindow {
     );
 
     this.label_confirm_admin_username.set_text(
-      (username == null || username == "") ? "Not filled" : username
+      (username == null || username == "") ? "Not set" : username
     );
   }
 
