@@ -199,6 +199,9 @@ public class Main : Gtk.ApplicationWindow {
     var css_provider = new Gtk.CssProvider();
     css_provider.load_from_resource("/io/aosc/DeployKit/ui/gui.css");
     Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
+
+    /* The default locale is the current locale */
+    this.entry_recipe_general_locale.set_placeholder_text(GLib.Intl.setlocale());
   }
 
   /**
@@ -452,7 +455,7 @@ public class Main : Gtk.ApplicationWindow {
     );
 
     this.label_confirm_locale.set_text(
-      (locale == null || locale == "") ? "Default" : locale
+      (locale == null || locale == "") ? @"$(GLib.Intl.setlocale())" : locale
     );
 
     this.label_confirm_admin_username.set_text(
