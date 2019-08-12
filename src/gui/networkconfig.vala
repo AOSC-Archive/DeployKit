@@ -177,7 +177,7 @@ public class NetworkConfig : Gtk.Window {
       case 3:
         type = ProxyType.SOCKS5;
         break;
-      case 0: // fall through
+      case 0: /* fall through */
       default:
         break;
     }
@@ -195,15 +195,15 @@ public class NetworkConfig : Gtk.Window {
     }
 
     if (type != null && (addr == null || port == null)) {
-      // Address and port are required to set up a proxy
+      /* Address and port are required to set up a proxy */
       var dlg = new Gtk.MessageDialog(this, DESTROY_WITH_PARENT | MODAL, ERROR, OK, "Proxy address and proxy port are mandatory.");
       dlg.run();
       dlg.destroy();
     } else {
-      // Pass the filled proxy data back to the caller
+      /* Pass the filled proxy data back to the caller */
       this.callback_save(type, addr, port, username, password);
 
-      // Then close the dialog
+      /* Then close the dialog */
       this.destroy();
     }
   }

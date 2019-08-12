@@ -195,7 +195,7 @@ public class Main : Gtk.ApplicationWindow {
    * Constructor for ``Dk.Gui.Main``.
    */
   public Main() {
-    // Load CSS from resource to override styles of some widgets
+    /* Load CSS from resource to override styles of some widgets */
     var css_provider = new Gtk.CssProvider();
     css_provider.load_from_resource("/io/aosc/DeployKit/ui/gui.css");
     Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION);
@@ -320,7 +320,7 @@ public class Main : Gtk.ApplicationWindow {
       /* Parse the returned content to a recipe */
       var http_content = (string)httpmsg.response_body.data;
 
-      // Once fetched, go back to the main thread to refresh GUI
+      /* Once fetched, go back to the main thread to refresh GUI */
       GLib.Idle.add(() => {
         /*
          * All processes above successfully finished, enter online mode.
@@ -572,7 +572,7 @@ public class Main : Gtk.ApplicationWindow {
         this.proxy_username = username;
         this.proxy_password = password;
 
-        // Highlight the button to indicate that the proxy has been set
+        /* Highlight the button to indicate that the proxy has been set */
         var ctx = this.btn_network.get_style_context();
 
         if (this.proxy_type != ProxyType.DISABLE &&
@@ -588,7 +588,7 @@ public class Main : Gtk.ApplicationWindow {
       }
     );
 
-    // Set modal dialog transient for the main window
+    /* Set modal dialog transient for the main window */
     network_config_dialog.set_transient_for(this);
     network_config_dialog.show_all();
   }
