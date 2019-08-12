@@ -63,7 +63,7 @@ public class ExtraComponent : Gtk.Box {
    */
   public ExtraComponent(string icon_name, string component_name, string description, int64 download_size, int64 installation_size) {
     this.set_icon_name(icon_name);
-    this.set_name(component_name);
+    this.set_component_name(component_name);
     this.set_description(description);
     this.set_download_size(download_size);
     this.set_installation_size(installation_size);
@@ -75,7 +75,7 @@ public class ExtraComponent : Gtk.Box {
     return icon_name;
   }
 
-  public string get_name() {
+  public string get_component_name() {
     return this.component_name.get_text().dup();
   }
 
@@ -103,8 +103,8 @@ public class ExtraComponent : Gtk.Box {
     this.icon.set_from_icon_name(icon_name, icon_size);
   }
 
-  public void set_name(string name) {
-    this.component_name.set_text(name);
+  public void set_component_name(string component_name) {
+    this.component_name.set_text(component_name);
   }
 
   public void set_description(string description) {

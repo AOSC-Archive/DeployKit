@@ -39,7 +39,7 @@ public class Mirror: Gtk.Box {
    */
   public Mirror(string icon_name, string mirror_name, string location) {
     this.set_icon_name(icon_name);
-    this.set_name(mirror_name);
+    this.set_mirror_name(mirror_name);
     this.set_location(location);
   }
 
@@ -49,7 +49,7 @@ public class Mirror: Gtk.Box {
     return icon_name;
   }
 
-  public string get_name() {
+  public string get_mirror_name() {
     return this.mirror_name.get_text().dup();
   }
 
@@ -61,8 +61,8 @@ public class Mirror: Gtk.Box {
     this.icon.set_from_icon_name(icon_name, icon_size);
   }
 
-  public void set_name(string name) {
-    this.mirror_name.set_text(name);
+  public void set_mirror_name(string mirror_name) {
+    this.mirror_name.set_text(mirror_name);
   }
 
   public void set_location(string location) {

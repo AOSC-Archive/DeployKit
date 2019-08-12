@@ -51,7 +51,7 @@ public class Destination: Gtk.Box {
    */
   public Destination(string icon_name, string destination_path, string description, int64 capacity) {
     this.set_icon_name(icon_name);
-    this.set_path(destination_path);
+    this.set_destination_path(destination_path);
     this.set_description(description);
     this.set_capacity(capacity);
   }
@@ -82,8 +82,8 @@ public class Destination: Gtk.Box {
     this.icon.set_from_icon_name(icon_name, icon_size);
   }
 
-  public void set_path(string path) {
-    this.destination_path.set_text(path);
+  public void set_destination_path(string destination_path) {
+    this.destination_path.set_text(destination_path);
   }
 
   public void set_description(string description) {

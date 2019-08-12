@@ -68,7 +68,7 @@ public class Variant: Gtk.Box {
    */
   public Variant(string icon_name, string variant_name, GLib.DateTime release_date, int64 download_size, int64 installation_size) {
     this.set_icon_name(icon_name);
-    this.set_name(variant_name);
+    this.set_variant_name(variant_name);
     this.set_release_date(release_date);
     this.set_download_size(download_size);
     this.set_installation_size(installation_size);
@@ -80,7 +80,7 @@ public class Variant: Gtk.Box {
     return icon_name;
   }
 
-  public string get_name() {
+  public string get_variant_name() {
     return this.variant_name.get_text().dup();
   }
 
@@ -112,8 +112,8 @@ public class Variant: Gtk.Box {
     this.icon.set_from_icon_name(icon_name, icon_size);
   }
 
-  public void set_name(string name) {
-    this.variant_name.set_text(name);
+  public void set_variant_name(string variant_name) {
+    this.variant_name.set_text(variant_name);
   }
 
   public void set_release_date(GLib.DateTime datetime) {
