@@ -62,14 +62,14 @@ public class Variant: Gtk.Box {
    *
    * @param icon_name         Name of the icon to display.
    * @param variant_name      Name of the variant (e.g. "GNOME").
-   * @param release_date      Date of variant release in string.
+   * @param release_date      Date of variant release in ``GLib.DateTime``.
    * @param download_size     Size of the compressed file for user to download.
    * @param installation_size Size of the installed root (/).
    */
-  public Variant(string icon_name, string variant_name, string release_date, int64 download_size, int64 installation_size) {
+  public Variant(string icon_name, string variant_name, GLib.DateTime release_date, int64 download_size, int64 installation_size) {
     this.set_icon_name(icon_name);
     this.set_name(variant_name);
-    this.release_date.set_text(release_date); // TODO
+    this.set_release_date(release_date);
     this.set_download_size(download_size);
     this.set_installation_size(installation_size);
   }
@@ -118,7 +118,7 @@ public class Variant: Gtk.Box {
 
   public void set_release_date(GLib.DateTime datetime) {
     this.release_date_orig = datetime;
-    // TODO
+    Rows.set_label_locale_date(this.release_date, datetime);
   }
 
   public void set_download_size(int64 download_size) {
