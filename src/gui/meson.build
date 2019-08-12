@@ -4,6 +4,7 @@ dk_deps += [
 ]
 
 dk_srcs += files(
+  'rows/common.vala',
   'rows/variant.vala',
   'rows/destination.vala',
   'rows/mirror.vala',
