@@ -634,8 +634,8 @@ public class Main : Gtk.ApplicationWindow {
     if (bulletin.get_bulletin_type() != "unknown" &&
         bulletin.get_bulletin_type() != "none")
     {
-      var title = bulletin.get_title();
-      var body  = bulletin.get_body();
+      var title = bulletin.get_title_l10n(Utils.get_lang()) ?? bulletin.get_title();
+      var body  = bulletin.get_body_l10n(Utils.get_lang()) ?? bulletin.get_body();
 
       if (title != null)
         this.label_bulletin_title.set_text(title);
