@@ -1,7 +1,21 @@
+# Adapted from https://stackoverflow.com/a/25592735
+# Ignoring all binary files (ignoring all files without extensions)
+*
+!*.*
+!*/
+
+# Binary files with extensions
+.DS_Store
 *~
+*.o
+*.out
+*.a
 
-# Glade stuff
-\#*\#
+# Exceptions
+!COPYING
+!Doxyfile
 
-# Build directory
+# Directories
 build/
+docs/html/
+.vscode/
