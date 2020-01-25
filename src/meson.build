@@ -13,6 +13,7 @@ dk_args = []
 
 # Submodules of DeployKit will add their dependencies to dk_deps and their
 # source files to dk_srcs if necessary.
+subdir('dkir')
 subdir('recipe')
 subdir('utils')
 
