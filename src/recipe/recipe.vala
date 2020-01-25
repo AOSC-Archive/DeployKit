@@ -105,9 +105,9 @@ public class Recipe : GLib.Object {
         assert(query_result.get_node_type() == Json.NodeType.ARRAY);
 
         /* There should only be one Variants array. */
-        var array_varaints = query_result.get_array().get_element(0).get_array();
+        var array_variants = query_result.get_array().get_element(0).get_array();
 
-        array_varaints.foreach_element((array, i, node) => {
+        array_variants.foreach_element((array, i, node) => {
           var variant = new Variant();
           variant.from_json_node(node);
           this.variants.add(variant);
