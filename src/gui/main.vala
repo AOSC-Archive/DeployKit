@@ -13,6 +13,14 @@ private errordomain LoadRecipeError {
 }
 
 /**
+ * Errors that may be thrown by ``load_disks``.
+ */
+private errordomain LoadDisksError {
+  /** Connection error (cannot connect to UDisks DBus). */
+  CONNECTION_ERROR,
+}
+
+/**
  * The main application window of DeployKit.
  */
 [GtkTemplate (ui = "/io/aosc/DeployKit/ui/main.ui")]
@@ -272,6 +280,26 @@ public class Main : Gtk.ApplicationWindow {
         GLib.Process.exit(1);
       }
 
+      /* Also load destinations (the list of disks) */
+      try {
+        this.load_disks();
+      } catch (LoadDisksError e) {
+        var dlg = new Gtk.MessageDialog(
+          this,
+          Gtk.DialogFlags.DESTROY_WITH_PARENT
+            | Gtk.DialogFlags.MODAL
+            | Gtk.DialogFlags.USE_HEADER_BAR,
+          Gtk.MessageType.ERROR,
+          Gtk.ButtonsType.OK,
+          "Failed to probe disks on the machine: %s.\n\nPlease report this incident to us.",
+          e.message
+        );
+        dlg.run();
+        dlg.destroy();
+
+        GLib.Process.exit(1);
+      }
+
       /* Switch to the recipe (general) page. */
       this.stack_main.set_visible_child(this.box_recipe_general);
 
@@ -296,6 +324,26 @@ public class Main : Gtk.ApplicationWindow {
       if (status != Soup.Status.OK) {
         GLib.Idle.add(() => {
           /* TODO: Service unavailable, switch to offline mode */
+
+          /* But also load destinations (the list of disks) */
+          try {
+            this.load_disks();
+          } catch (LoadDisksError e) {
+            var dlg = new Gtk.MessageDialog(
+              this,
+              Gtk.DialogFlags.DESTROY_WITH_PARENT
+                | Gtk.DialogFlags.MODAL
+                | Gtk.DialogFlags.USE_HEADER_BAR,
+              Gtk.MessageType.ERROR,
+              Gtk.ButtonsType.OK,
+              "Failed to probe disks on the machine: %s.\n\nPlease report this incident to us.",
+              e.message
+            );
+            dlg.run();
+            dlg.destroy();
+
+            GLib.Process.exit(1);
+          }
 
           /* Switch to the recipe (general) page. */
           this.stack_main.set_visible_child(this.box_recipe_general);
@@ -340,6 +388,26 @@ public class Main : Gtk.ApplicationWindow {
             Gtk.MessageType.ERROR,
             Gtk.ButtonsType.OK,
             "Failed to load the fetched recipe: %s.\n\nPlease report this incident to us.",
+            e.message
+          );
+          dlg.run();
+          dlg.destroy();
+
+          GLib.Process.exit(1);
+        }
+
+        /* Also load destinations (the list of disks) */
+        try {
+          this.load_disks();
+        } catch (LoadDisksError e) {
+          var dlg = new Gtk.MessageDialog(
+            this,
+            Gtk.DialogFlags.DESTROY_WITH_PARENT
+              | Gtk.DialogFlags.MODAL
+              | Gtk.DialogFlags.USE_HEADER_BAR,
+            Gtk.MessageType.ERROR,
+            Gtk.ButtonsType.OK,
+            "Failed to probe disks on the machine: %s.\n\nPlease report this incident to us.",
             e.message
           );
           dlg.run();
@@ -704,6 +772,110 @@ public class Main : Gtk.ApplicationWindow {
     });
 
     /* TODO: Extra Components */
+  }
+
+  /**
+   * Load disk information (i.e. the Destination section) onto the GUI.
+   */
+  private void load_disks() throws LoadDisksError {
+    UDisks.Client? client = null;
+    try {
+      client = new UDisks.Client.sync();
+    } catch (Error e) {
+      throw new LoadDisksError.CONNECTION_ERROR("Cannot connect to the UDisks2 daemon via DBus");
+    }
+
+    /* Retrieve all objects managed by UDisks */
+    List<DBusObject> udobjs = client.get_object_manager().get_objects();
+
+    /* This list from GLib.Drive is for icon retrieval (see below) */
+    List<GLib.Drive> gdrives = GLib.VolumeMonitor.get().get_connected_drives();
+
+    /* These are used for sorting the results before adding onto the GUI */
+    var destrows_general = new List<Rows.Destination>();
+    var destrows_expert = new List<Rows.Destination>();
+
+    /*
+     * We now do the following things:
+     *
+     * - Iterate over the objects managed by UDisks to get partition information.
+     * - For every partition, also gets the icon name from GLib, since UDisks do
+     *   not provide such information (an empty string is returned)...
+     */
+    udobjs.foreach((o) => {
+      UDisks.Object obj = o as UDisks.Object;
+
+      UDisks.Block? block = obj.get_block();
+      UDisks.Partition? part = obj.get_partition();
+
+      if (block == null || part == null)
+        return;
+
+      UDisks.Drive? drive = client.get_drive_for_block(block);
+      if (drive == null)
+        return;
+
+      assert(drive != null);
+
+      string device = block.device;
+      string model = drive.model;
+      string partname = part.name;
+      uint64 partsize = part.size;
+
+      /* Then we also iterate over the GLib.Drive list for icons */
+      gdrives.foreach((gdrive) => {
+        /* They should be the same */
+        if (gdrive.get_name() != model)
+          return;
+
+        var icon = gdrive.get_symbolic_icon() as GLib.ThemedIcon;
+
+        destrows_general.append(
+          new Rows.Destination(
+            icon.get_names()[0],
+            device,
+            "On " + model,
+            (int64)partsize
+          )
+        );
+        destrows_expert.append(
+          new Rows.Destination(
+            icon.get_names()[0],
+            device,
+            "On " + model,
+            (int64)partsize
+          )
+        );
+      });
+    });
+
+    /* Sort the results according to the device names */
+    destrows_general.sort((a, b) => {
+      string a_dev = a.get_destination_path();
+      string b_dev = b.get_destination_path();
+
+      if (a_dev > b_dev)
+        return 1;
+      else if (a_dev < b_dev)
+        return -1;
+      else
+        return 0;
+    });
+    destrows_expert.sort((a, b) => {
+      string a_dev = a.get_destination_path();
+      string b_dev = b.get_destination_path();
+
+      if (a_dev > b_dev)
+        return 1;
+      else if (a_dev < b_dev)
+        return -1;
+      else
+        return 0;
+    });
+
+    /* Then add them onto the GUI */
+    destrows_general.foreach((row) => this.listbox_recipe_general_dest.add(row));
+    destrows_expert.foreach((row) => this.listbox_recipe_expert_dest.add(row));
   }
 
   /**
