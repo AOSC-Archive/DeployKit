@@ -169,6 +169,8 @@ public class Main : Gtk.ApplicationWindow {
   [GtkChild]
   private Gtk.Label label_installation_step_curr;
   [GtkChild]
+  private Gtk.Label label_installation_step_of;
+  [GtkChild]
   private Gtk.Label label_installation_step_max;
   [GtkChild]
   private Gtk.Label label_installation_step_desc;
@@ -190,6 +192,8 @@ public class Main : Gtk.ApplicationWindow {
 
   private GLib.File? local_recipe;
   private string root_url = "https://repo.aosc.io";
+
+  private uint? progressbar_installation_event_source_id;
 
   /**
    * Constructor for ``Dk.Gui.Main``.
@@ -700,6 +704,73 @@ public class Main : Gtk.ApplicationWindow {
     });
 
     /* TODO: Extra Components */
+  }
+
+  /**
+   * Set the current step number and description in the installation page.
+   *
+   * @param step The current step number.
+   * @param desc A description describing the current step.
+   */
+  private void step(int step, string desc) {
+    this.label_installation_step_curr.set_text(@"$step");
+    this.label_installation_step_desc.set_text(desc);
+  }
+
+  /**
+   * Set the maximum step number in the installation page.
+   *
+   * Note that this does not prevent the current step number from exceeding this
+   * maximum number; this is only for updating the GUI.
+   *
+   * @param max_steps The maximum step number.
+   */
+  private void set_max_steps(int max_steps) {
+    this.label_installation_step_max.set_text(@"$max_steps");
+  }
+
+  /**
+   * Show "of Y" in "Step X in Y" on the installation page.
+   */
+  private void show_max_steps() {
+    this.label_installation_step_of.set_visible(true);
+    this.label_installation_step_max.set_visible(true);
+  }
+
+  /**
+   * Hide "of Y" in "Step X in Y" on the installation page.
+   *
+   * This is useful when the maximum step is unknown.
+   */
+  private void hide_max_steps() {
+    this.label_installation_step_of.set_visible(false);
+    this.label_installation_step_max.set_visible(false);
+  }
+
+  /**
+   * Set the progress bar on the installation page.
+   *
+   * @param percent The percent of the progress bar (between 0 and 100). The
+   *                special value -1 pulses the progress bar.
+   */
+  private void progress(int percent)
+    requires (percent >= -1 && percent <= 100)
+  {
+    if (this.progressbar_installation_event_source_id != null) {
+      GLib.Source.remove(this.progressbar_installation_event_source_id);
+      this.progressbar_installation_event_source_id = null;
+    }
+
+    if (percent >= 0) {
+      this.progressbar_installation.set_text(null);
+      this.progressbar_installation.set_fraction(percent / 100.0);
+    } else {
+      this.progressbar_installation.set_text("Skating…");
+      this.progressbar_installation_event_source_id = GLib.Timeout.add(300, () => {
+        this.progressbar_installation.pulse();
+        return true;
+      });
+    }
   }
 
   public GLib.File get_local_recipe() {
