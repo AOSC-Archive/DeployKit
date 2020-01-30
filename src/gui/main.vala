@@ -168,6 +168,8 @@ public class Main : Gtk.ApplicationWindow {
   private Gtk.Label label_confirm_locale;
   [GtkChild]
   private Gtk.Label label_confirm_admin_username;
+  [GtkChild]
+  private Gtk.Label label_confirm_info_missing_prompt;
 
   /* ========== Widgets in Page 5 (Installation) ========== */
   [GtkChild]
@@ -467,6 +469,25 @@ public class Main : Gtk.ApplicationWindow {
     this.label_confirm_admin_username.set_text(
       (username == null || username == "") ? "Not set" : username
     );
+
+    /* Some fields are mandatory; disable the OK button if they are not set */
+    if (variant_row == null) {
+      this.label_confirm_info_missing_prompt.set_visible(true);
+      this.btn_ok.set_sensitive(false);
+    } else if (dest_row == null) {
+      this.label_confirm_info_missing_prompt.set_visible(true);
+      this.btn_ok.set_sensitive(false);
+    } else if (hostname == null || hostname == "") {
+      this.label_confirm_info_missing_prompt.set_visible(true);
+      this.btn_ok.set_sensitive(false);
+    } else if (username == null || username == "") {
+      this.label_confirm_info_missing_prompt.set_visible(true);
+      this.btn_ok.set_sensitive(false);
+    } else {
+      /* Otherwise */
+      this.label_confirm_info_missing_prompt.set_visible(false);
+      this.btn_ok.set_sensitive(true);
+    }
   }
 
   /**
@@ -523,6 +544,12 @@ public class Main : Gtk.ApplicationWindow {
   private void btn_back_clicked_cb() {
     if (this.last_page != null)
       this.stack_main.set_visible_child(this.last_page);
+
+    /*
+     * And since box_confirm_map_cb will set btn_ok to insensitive we revert
+     * it here
+     */
+    this.btn_ok.set_sensitive(true);
   }
 
   /**
