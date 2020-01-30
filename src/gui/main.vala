@@ -819,7 +819,6 @@ public class Main : Gtk.ApplicationWindow {
 
       string device = block.device;
       string model = drive.model;
-      string partname = part.name;
       uint64 partsize = part.size;
 
       /* Then we also iterate over the GLib.Drive list for icons */
