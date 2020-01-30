@@ -879,6 +879,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="visibility">False</property>
+                                            <property name="input_purpose">password</property>
                                           </object>
                                           <packing>
                                             <property name="left_attach">1</property>
@@ -900,6 +901,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="visibility">False</property>
+                                            <property name="input_purpose">password</property>
                                           </object>
                                           <packing>
                                             <property name="left_attach">1</property>
@@ -911,6 +913,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="visibility">False</property>
+                                            <property name="input_purpose">password</property>
                                           </object>
                                           <packing>
                                             <property name="left_attach">1</property>
@@ -1601,6 +1604,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="visibility">False</property>
+                                            <property name="input_purpose">password</property>
                                           </object>
                                           <packing>
                                             <property name="left_attach">1</property>
@@ -1622,6 +1626,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="visibility">False</property>
+                                            <property name="input_purpose">password</property>
                                           </object>
                                           <packing>
                                             <property name="left_attach">1</property>
@@ -1633,6 +1638,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
                                             <property name="visibility">False</property>
+                                            <property name="input_purpose">password</property>
                                           </object>
                                           <packing>
                                             <property name="left_attach">1</property>
