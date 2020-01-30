@@ -252,7 +252,7 @@ public class Main : Gtk.ApplicationWindow {
         this.load_recipe((string)file_content);
       } catch (LoadRecipeError e) {
         this.dialog(
-          "Failed to load the specified recipe at %s: %s.\n\nPlease check again if the content of file is valid.",
+          "Failed to load the specified recipe at %s: %s\n\nPlease check again if the content of file is valid.",
           this.local_recipe.get_parse_name(),
           e.message
         );
@@ -264,7 +264,7 @@ public class Main : Gtk.ApplicationWindow {
         this.load_disks();
       } catch (LoadDisksError e) {
         this.dialog(
-          "Failed to probe disks on the machine: %s.\n\nPlease report this incident to us.",
+          "Failed to probe disks on the machine: %s\n\nPlease report this incident to us.",
           e.message
         );
         GLib.Process.exit(1);
@@ -300,7 +300,7 @@ public class Main : Gtk.ApplicationWindow {
             this.load_disks();
           } catch (LoadDisksError e) {
             this.dialog(
-              "Failed to probe disks on the machine: %s.\n\nPlease report this incident to us.",
+              "Failed to probe disks on the machine: %s\n\nPlease report this incident to us.",
               e.message
             );
             GLib.Process.exit(1);
@@ -333,7 +333,7 @@ public class Main : Gtk.ApplicationWindow {
           this.load_recipe(http_content);
         } catch (LoadRecipeError e) {
           this.dialog(
-            "Failed to load the fetched recipe: %s.\n\nPlease report this incident to us.",
+            "Failed to load the fetched recipe: %s\n\nPlease report this incident to us.",
             e.message
           );
           GLib.Process.exit(1);
@@ -344,7 +344,7 @@ public class Main : Gtk.ApplicationWindow {
           this.load_disks();
         } catch (LoadDisksError e) {
           this.dialog(
-            "Failed to probe disks on the machine: %s.\n\nPlease report this incident to us.",
+            "Failed to probe disks on the machine: %s\n\nPlease report this incident to us.",
             e.message
           );
           GLib.Process.exit(1);
@@ -629,11 +629,11 @@ public class Main : Gtk.ApplicationWindow {
     var recipe = new Dk.Recipe.Recipe();
     bool r = recipe.from_json_string(recipe_str);
     if (!r)
-      throw new LoadRecipeError.PARSE_ERROR("The recipe is invalid and cannot be parsed");
+      throw new LoadRecipeError.PARSE_ERROR("The recipe is invalid and cannot be parsed.");
 
     /* NOTE: Parsing version 0 recipe. */
     if (recipe.get_version() != 0)
-      throw new LoadRecipeError.UNKNOWN_VERSION("Recipe version %d is not supported", recipe.get_version());
+      throw new LoadRecipeError.UNKNOWN_VERSION("Recipe version %d is not supported.", recipe.get_version());
 
     /* Bulletin */
     var bulletin = recipe.get_bulletin();
@@ -716,7 +716,7 @@ public class Main : Gtk.ApplicationWindow {
     try {
       client = new UDisks.Client.sync();
     } catch (Error e) {
-      throw new LoadDisksError.CONNECTION_ERROR("Cannot connect to the UDisks2 daemon via DBus");
+      throw new LoadDisksError.CONNECTION_ERROR("Cannot connect to the UDisks2 daemon via DBus.");
     }
 
     /* Retrieve all objects managed by UDisks */
