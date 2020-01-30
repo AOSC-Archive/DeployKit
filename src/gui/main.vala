@@ -501,25 +501,25 @@ public class Main : Gtk.ApplicationWindow {
     this.label_confirm_variant.set_text(
       variant_row == null ?
       "Not selected" :
-      ((Rows.Variant)variant_row.get_child()).get_variant_name()
+      (variant_row.get_child() as Rows.Variant).get_variant_name()
     );
 
     this.label_confirm_dest.set_text(
       dest_row == null ?
       "Not selected" :
-      ((Rows.Destination)dest_row.get_child()).get_destination_path()
+      (dest_row.get_child() as Rows.Destination).get_destination_path()
     );
 
     this.label_confirm_mirror.set_text(
       mirror_row == null ?
       "Not selected" :
-      ((Rows.Mirror)mirror_row.get_child()).get_mirror_name()
+      (mirror_row.get_child() as Rows.Mirror).get_mirror_name()
     );
 
     this.label_confirm_xcomps.set_text(
       xcomps_row == null ?
       "Not selected" :
-      ((Rows.ExtraComponent)xcomps_row.get_child()).get_component_name()
+      (xcomps_row.get_child() as Rows.ExtraComponent).get_component_name()
     );
 
     this.label_confirm_hostname.set_text(
