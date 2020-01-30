@@ -2,3 +2,8 @@
 .dk-listbox {
   background-color: rgba(0, 0, 0, 0);
 }
+
+/* Change the background of entry to red to indicate a password mismatch */
+.dk-invalid-password {
+  background-color: red;
+}

@@ -902,6 +902,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                             <property name="can_focus">True</property>
                                             <property name="visibility">False</property>
                                             <property name="input_purpose">password</property>
+                                            <signal name="changed" handler="entry_recipe_x_admin_passwords_changed_cb" swapped="no"/>
                                           </object>
                                           <packing>
                                             <property name="left_attach">1</property>
@@ -914,6 +915,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                             <property name="can_focus">True</property>
                                             <property name="visibility">False</property>
                                             <property name="input_purpose">password</property>
+                                            <signal name="changed" handler="entry_recipe_x_admin_passwords_changed_cb" swapped="no"/>
                                           </object>
                                           <packing>
                                             <property name="left_attach">1</property>
@@ -1627,6 +1629,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                             <property name="can_focus">True</property>
                                             <property name="visibility">False</property>
                                             <property name="input_purpose">password</property>
+                                            <signal name="changed" handler="entry_recipe_x_admin_passwords_changed_cb" swapped="no"/>
                                           </object>
                                           <packing>
                                             <property name="left_attach">1</property>
@@ -1639,6 +1642,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                             <property name="can_focus">True</property>
                                             <property name="visibility">False</property>
                                             <property name="input_purpose">password</property>
+                                            <signal name="changed" handler="entry_recipe_x_admin_passwords_changed_cb" swapped="no"/>
                                           </object>
                                           <packing>
                                             <property name="left_attach">1</property>

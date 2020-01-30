@@ -648,6 +648,41 @@ public class Main : Gtk.ApplicationWindow {
   }
 
   /**
+   * Check if the administrator password entry on the current page match with
+   * the retyped one.
+   */
+  [GtkCallback]
+  private void entry_recipe_x_admin_passwords_changed_cb() {
+    string? admin_password_a = null;
+    string? admin_password_b = null;
+    Gtk.StyleContext? ctx = null;
+
+    if (this.stack_main.get_visible_child() == this.box_recipe_general) {
+      admin_password_a = this.entry_recipe_general_admin_password.get_text();
+      admin_password_b = this.entry_recipe_general_admin_password_retype.get_text();
+      ctx = this.entry_recipe_general_admin_password_retype.get_style_context();
+    } else if (this.stack_main.get_visible_child() == this.box_recipe_expert) {
+      admin_password_a = this.entry_recipe_expert_admin_password.get_text();
+      admin_password_b = this.entry_recipe_expert_admin_password_retype.get_text();
+      ctx = this.entry_recipe_expert_admin_password_retype.get_style_context();
+    } else {
+      /* Something happened */
+      return;
+    }
+
+    if (admin_password_a != admin_password_b) {
+      /* Set the entry to red and prevent the user from proceeding */
+      ctx.add_class("dk-invalid-password");
+      this.btn_ok.set_sensitive(false);
+    } else {
+      if (ctx.has_class("dk-invalid-password")) {
+        ctx.remove_class("dk-invalid-password");
+      }
+      this.btn_ok.set_sensitive(true);
+    }
+  }
+
+  /**
    * Load a recipe.json string into GUI.
    *
    * @param recipe_str A JSON string representing a recipe object.
