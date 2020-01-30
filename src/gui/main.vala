@@ -527,7 +527,7 @@ public class Main : Gtk.ApplicationWindow {
     );
 
     this.label_confirm_locale.set_text(
-      (locale == null || locale == "") ? @"$(GLib.Intl.setlocale())" : locale
+      (locale == null || locale == "") ? GLib.Intl.setlocale() : locale
     );
 
     this.label_confirm_admin_username.set_text(
