@@ -14,6 +14,7 @@
 # Exceptions
 !COPYING
 !Doxyfile
+!LINGUAS
 
 # Directories
 build/
