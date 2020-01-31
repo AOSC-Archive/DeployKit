@@ -1847,7 +1847,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="halign">end</property>
-                                        <property name="label" translatable="yes">Variant:</property>
+                                        <property name="label" translatable="yes">Variant</property>
                                         <property name="ellipsize">start</property>
                                         <attributes>
                                           <attribute name="weight" value="bold"/>
@@ -1863,7 +1863,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="halign">end</property>
-                                        <property name="label" translatable="yes">Destination:</property>
+                                        <property name="label" translatable="yes">Destination</property>
                                         <property name="ellipsize">start</property>
                                         <attributes>
                                           <attribute name="weight" value="bold"/>
@@ -1879,7 +1879,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="halign">end</property>
-                                        <property name="label" translatable="yes">Mirror:</property>
+                                        <property name="label" translatable="yes">Mirror</property>
                                         <property name="ellipsize">start</property>
                                         <attributes>
                                           <attribute name="weight" value="bold"/>
@@ -1931,7 +1931,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="halign">end</property>
-                                        <property name="label" translatable="yes">Extra Components:</property>
+                                        <property name="label" translatable="yes">Extra Components</property>
                                         <property name="ellipsize">start</property>
                                         <attributes>
                                           <attribute name="weight" value="bold"/>
@@ -1971,7 +1971,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="halign">end</property>
-                                        <property name="label" translatable="yes">Locale:</property>
+                                        <property name="label" translatable="yes">Locale</property>
                                         <property name="ellipsize">start</property>
                                         <attributes>
                                           <attribute name="weight" value="bold"/>
@@ -1987,7 +1987,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="halign">end</property>
-                                        <property name="label" translatable="yes">Administrator Username:</property>
+                                        <property name="label" translatable="yes">Administrator Username</property>
                                         <property name="ellipsize">start</property>
                                         <attributes>
                                           <attribute name="weight" value="bold"/>
@@ -2015,7 +2015,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="halign">end</property>
-                                        <property name="label" translatable="yes">Hostname:</property>
+                                        <property name="label" translatable="yes">Hostname</property>
                                         <property name="ellipsize">start</property>
                                         <attributes>
                                           <attribute name="weight" value="bold"/>
