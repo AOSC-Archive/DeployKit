@@ -2,7 +2,7 @@
 
 The new installation and recovery utility for AOSC OS.
 
-This repository contains the reference implementation of DeployKit frontend. The backend of DeployKit is at [AOSC-Dev/libaoscdeploykit](https://github.com/AOSC-Dev/libaoscdeploykit).
+This repository contains the reference implementation of DeployKit frontend. The backend of DeployKit is at [AOSC-Dev/libaoscdk](https://github.com/AOSC-Dev/libaoscdk).
 
 ## Dependencies
 
@@ -20,6 +20,7 @@ The following libraries are required both during compile-time and run-time:
 - **LibGee** 0.8+ (`libgee-0.8`): The GObject-based data structure library for Vala
 - **JSON-GLib** 1.x (`json-glib-1.0`): The GObject-based JSON parsing and generating library
 - **LibSoup** 2.4+ (`libsoup-2.4`): The GObject-based HTTP(S) client / server
+- **LibUDisks** 2.x (`udisks2`): The GObject-based library for accessing the UDisks storage manager
 - **GTK** 3.20+ (`gtk+-3.0`): The famous toolkit for building nice graphical user interfaces
 
 ## Build
