@@ -514,6 +514,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="halign">end</property>
+                                        <signal name="clicked" handler="btn_recipe_x_dest_partition_clicked_cb" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -1333,6 +1334,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                         <property name="can_focus">True</property>
                                         <property name="receives_default">True</property>
                                         <property name="halign">end</property>
+                                        <signal name="clicked" handler="btn_recipe_x_dest_partition_clicked_cb" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>

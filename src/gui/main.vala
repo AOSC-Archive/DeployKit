@@ -693,6 +693,19 @@ public class Main : Gtk.ApplicationWindow {
     }
   }
 
+  [GtkCallback]
+  private void btn_recipe_x_dest_partition_clicked_cb() {
+    try {
+      /* We don't care the status of GParted */
+      new Subprocess(SubprocessFlags.NONE, "gparted", null);
+    } catch (Error e) {
+      this.dialog(
+        "Failed to execute GParted: %s.\n\nPlease check if GParted is installed correctly on your computer. If you believe that you have done nothing wrong, please report this incident to us.",
+        e.message
+      );
+    }
+  }
+
   /**
    * Check if the administrator password entry on the current page match with
    * the retyped one.
