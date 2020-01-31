@@ -1053,6 +1053,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                         <property name="receives_default">True</property>
                                         <property name="image">icon_btn_recipe_expert_biy_custom</property>
                                         <property name="relief">none</property>
+                                        <signal name="clicked" handler="btn_recipe_expert_biy_add_clicked_cb" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>

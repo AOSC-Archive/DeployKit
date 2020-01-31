@@ -706,6 +706,50 @@ public class Main : Gtk.ApplicationWindow {
     }
   }
 
+  [GtkCallback]
+  private void btn_recipe_expert_biy_add_clicked_cb() {
+    var chooser = new Gtk.FileChooserNative("Select a Custom Tarball", this, Gtk.FileChooserAction.OPEN, null, null);
+    chooser.set_modal(true);
+    int r = chooser.run();
+
+    if (r != Gtk.ResponseType.ACCEPT)
+      return;
+
+    File tarball = chooser.get_file();
+    FileInfo? info = null;
+    try {
+      info = tarball.query_info(
+        "standard::symbolic-icon,standard::display-name,standard::size,time::modified",
+        FileQueryInfoFlags.NONE
+      );
+    } catch (Error e) {
+      this.dialog(
+        "Cannot retrieve information about the file you chose: %s.\n\nYou may not add this file as your custom variant.",
+        e.message
+      );
+
+      return;
+    }
+
+    Icon icon = info.get_symbolic_icon();
+    string? icon_name = (icon is ThemedIcon) ? (icon as ThemedIcon).get_names()[0] : null;
+    string file_name = info.get_display_name();
+    int64 size = info.get_size();
+    DateTime? modtime = info.get_modification_date_time();
+
+    this.listbox_recipe_expert_biy.add(
+      new Rows.Variant(
+        icon_name ?? "package-x-generic-symbolic",
+        file_name,
+        modtime ?? new DateTime.now_local(),
+        size,
+        -1 /* Unknown */
+      )
+    );
+
+    chooser.destroy();
+  }
+
   /**
    * Check if the administrator password entry on the current page match with
    * the retyped one.
