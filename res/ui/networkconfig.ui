@@ -48,7 +48,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
         <property name="subtitle" translatable="yes">AOSC DeployKit</property>
         <property name="show_close_button">True</property>
         <child>
-          <object class="GtkButton" id="btn_done">
+          <object class="GtkButton">
             <property name="label" translatable="yes">Done</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>

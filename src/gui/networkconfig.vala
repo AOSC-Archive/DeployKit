@@ -41,12 +41,6 @@ public delegate void NetworkConfigSaveCb(ProxyType? proxy_type, string? proxy_ad
 [GtkTemplate (ui = "/io/aosc/DeployKit/ui/networkconfig.ui")]
 public class NetworkConfig : Gtk.Window {
   /**
-   * The "Done" button for the user to save the form.
-   */
-  [GtkChild (name = "btn_done")]
-  private Gtk.Button done;
-
-  /**
    * The drop down for user to select the type of proxy.
    */
   [GtkChild (name = "combobox_type")]

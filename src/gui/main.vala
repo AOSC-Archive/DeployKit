@@ -41,8 +41,6 @@ public class Main : Gtk.ApplicationWindow {
   [GtkChild]
   private Gtk.Revealer revealer_bulletin;
   [GtkChild]
-  private Gtk.InfoBar infobar_bulletin;
-  [GtkChild]
   private Gtk.Label label_bulletin_title;
   [GtkChild]
   private Gtk.Label label_bulletin_body;
