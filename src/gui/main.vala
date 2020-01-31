@@ -216,6 +216,7 @@ public class Main : Gtk.ApplicationWindow {
 
     /* The default locale is the current locale */
     this.entry_recipe_general_locale.set_placeholder_text(GLib.Intl.setlocale());
+    this.entry_recipe_expert_locale.set_placeholder_text(GLib.Intl.setlocale());
   }
 
   /**

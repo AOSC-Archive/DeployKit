@@ -867,7 +867,6 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                           <object class="GtkEntry" id="entry_recipe_general_locale">
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
-                                            <property name="placeholder_text" translatable="yes">en_US.utf8</property>
                                           </object>
                                           <packing>
                                             <property name="left_attach">1</property>
@@ -1594,7 +1593,6 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                           <object class="GtkEntry" id="entry_recipe_expert_locale">
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
-                                            <property name="placeholder_text" translatable="yes">C.utf8</property>
                                           </object>
                                           <packing>
                                             <property name="left_attach">1</property>
