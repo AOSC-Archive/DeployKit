@@ -681,6 +681,18 @@ public class Main : Gtk.ApplicationWindow {
     this.listbox_recipe_expert_mirror.unselect_all();
   }
 
+  [GtkCallback]
+  private void btn_recipe_x_dest_refresh_clicked_cb() {
+    try {
+      this.load_disks();
+    } catch (LoadDisksError e) {
+      this.dialog(
+        "Failed to probe disks on the machine: %s\n\nPlease report this incident to us.",
+        e.message
+      );
+    }
+  }
+
   /**
    * Check if the administrator password entry on the current page match with
    * the retyped one.
@@ -811,6 +823,10 @@ public class Main : Gtk.ApplicationWindow {
       throw new LoadDisksError.CONNECTION_ERROR("Cannot connect to the UDisks2 daemon via DBus.");
     }
 
+    /* Clear list boxes (I find it very efficient) */
+    this.listbox_recipe_general_dest.bind_model(null, null);
+    this.listbox_recipe_expert_dest.bind_model(null, null);
+
     /* Retrieve all objects managed by UDisks */
     List<DBusObject> udobjs = client.get_object_manager().get_objects();
 
@@ -849,8 +865,8 @@ public class Main : Gtk.ApplicationWindow {
 
       /* Then we also iterate over the GLib.Drive list for icons */
       gdrives.foreach((gdrive) => {
-        /* They should be the same */
-        if (gdrive.get_name() != model)
+        /* XXX: is this correct? */
+        if (!device.has_prefix(gdrive.get_identifier(GLib.DRIVE_IDENTIFIER_KIND_UNIX_DEVICE)))
           return;
 
         var icon = gdrive.get_symbolic_icon() as GLib.ThemedIcon;
