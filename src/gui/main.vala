@@ -89,6 +89,8 @@ public class Main : Gtk.ApplicationWindow {
   [GtkChild]
   private Gtk.Entry entry_recipe_general_locale;
   [GtkChild]
+  private Gtk.Entry entry_recipe_general_root_password_retype;
+  [GtkChild]
   private Gtk.Entry entry_recipe_general_admin_password_retype;
 
   /* ========== Widgets in Page 3 (Recipe (Expert)) ========== */
@@ -130,6 +132,8 @@ public class Main : Gtk.ApplicationWindow {
   /* System Configuration (See Shared Widgets) */
   [GtkChild]
   private Gtk.Entry entry_recipe_expert_locale;
+  [GtkChild]
+  private Gtk.Entry entry_recipe_expert_root_password_retype;
   [GtkChild]
   private Gtk.Entry entry_recipe_expert_admin_password_retype;
 
@@ -180,6 +184,8 @@ public class Main : Gtk.ApplicationWindow {
   private Gtk.EntryBuffer entrybuffer_locale;
   [GtkChild]
   private Gtk.EntryBuffer entrybuffer_root_password;
+  [GtkChild]
+  private Gtk.EntryBuffer entrybuffer_root_password_retype;
   [GtkChild]
   private Gtk.EntryBuffer entrybuffer_admin_username;
   [GtkChild]
@@ -746,6 +752,37 @@ public class Main : Gtk.ApplicationWindow {
     );
 
     chooser.destroy();
+  }
+
+  /**
+   * Check if the root password entry on the current page match with the retyped
+   * one.
+   */
+  [GtkCallback]
+  private void entry_recipe_x_root_passwords_changed_cb() {
+    string root_password_a = this.entrybuffer_root_password.get_text();
+    string root_password_b = this.entrybuffer_root_password_retype.get_text();
+    Gtk.StyleContext? ctx = null;
+
+    if (this.stack_main.get_visible_child() == this.box_recipe_general) {
+      ctx = this.entry_recipe_general_root_password_retype.get_style_context();
+    } else if (this.stack_main.get_visible_child() == this.box_recipe_expert) {
+      ctx = this.entry_recipe_expert_root_password_retype.get_style_context();
+    } else {
+      /* Something happened */
+      return;
+    }
+
+    if (root_password_a != root_password_b) {
+      /* Set the entry to red and prevent the user from proceeding */
+      ctx.add_class("dk-invalid-password");
+      this.btn_ok.set_sensitive(false);
+    } else {
+      if (ctx.has_class("dk-invalid-password")) {
+        ctx.remove_class("dk-invalid-password");
+      }
+      this.btn_ok.set_sensitive(true);
+    }
   }
 
   /**

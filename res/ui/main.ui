@@ -40,6 +40,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
   <object class="GtkEntryBuffer" id="entrybuffer_hostname"/>
   <object class="GtkEntryBuffer" id="entrybuffer_locale"/>
   <object class="GtkEntryBuffer" id="entrybuffer_root_password"/>
+  <object class="GtkEntryBuffer" id="entrybuffer_root_password_retype"/>
   <object class="GtkImage" id="icon_btn_recipe_expert_biy_custom">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -837,7 +838,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                           </object>
                                           <packing>
                                             <property name="left_attach">0</property>
-                                            <property name="top_attach">3</property>
+                                            <property name="top_attach">4</property>
                                           </packing>
                                         </child>
                                         <child>
@@ -849,7 +850,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                           </object>
                                           <packing>
                                             <property name="left_attach">0</property>
-                                            <property name="top_attach">4</property>
+                                            <property name="top_attach">5</property>
                                           </packing>
                                         </child>
                                         <child>
@@ -861,7 +862,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                           </object>
                                           <packing>
                                             <property name="left_attach">0</property>
-                                            <property name="top_attach">5</property>
+                                            <property name="top_attach">6</property>
                                           </packing>
                                         </child>
                                         <child>
@@ -894,6 +895,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                             <property name="buffer">entrybuffer_root_password</property>
                                             <property name="visibility">False</property>
                                             <property name="input_purpose">password</property>
+                                            <signal name="changed" handler="entry_recipe_x_root_passwords_changed_cb" swapped="no"/>
                                           </object>
                                           <packing>
                                             <property name="left_attach">1</property>
@@ -908,7 +910,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                           </object>
                                           <packing>
                                             <property name="left_attach">1</property>
-                                            <property name="top_attach">3</property>
+                                            <property name="top_attach">4</property>
                                           </packing>
                                         </child>
                                         <child>
@@ -922,7 +924,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                           </object>
                                           <packing>
                                             <property name="left_attach">1</property>
-                                            <property name="top_attach">4</property>
+                                            <property name="top_attach">5</property>
                                           </packing>
                                         </child>
                                         <child>
@@ -936,7 +938,33 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                           </object>
                                           <packing>
                                             <property name="left_attach">1</property>
-                                            <property name="top_attach">5</property>
+                                            <property name="top_attach">6</property>
+                                          </packing>
+                                        </child>
+                                        <child>
+                                          <object class="GtkLabel">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">False</property>
+                                            <property name="halign">end</property>
+                                            <property name="label" translatable="yes">Retype Root Password</property>
+                                          </object>
+                                          <packing>
+                                            <property name="left_attach">0</property>
+                                            <property name="top_attach">3</property>
+                                          </packing>
+                                        </child>
+                                        <child>
+                                          <object class="GtkEntry" id="entry_recipe_general_root_password_retype">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">True</property>
+                                            <property name="buffer">entrybuffer_root_password_retype</property>
+                                            <property name="visibility">False</property>
+                                            <property name="input_purpose">password</property>
+                                            <signal name="changed" handler="entry_recipe_x_root_passwords_changed_cb" swapped="no"/>
+                                          </object>
+                                          <packing>
+                                            <property name="left_attach">1</property>
+                                            <property name="top_attach">3</property>
                                           </packing>
                                         </child>
                                       </object>
@@ -1576,7 +1604,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                           </object>
                                           <packing>
                                             <property name="left_attach">0</property>
-                                            <property name="top_attach">3</property>
+                                            <property name="top_attach">4</property>
                                           </packing>
                                         </child>
                                         <child>
@@ -1588,7 +1616,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                           </object>
                                           <packing>
                                             <property name="left_attach">0</property>
-                                            <property name="top_attach">4</property>
+                                            <property name="top_attach">5</property>
                                           </packing>
                                         </child>
                                         <child>
@@ -1600,7 +1628,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                           </object>
                                           <packing>
                                             <property name="left_attach">0</property>
-                                            <property name="top_attach">5</property>
+                                            <property name="top_attach">6</property>
                                           </packing>
                                         </child>
                                         <child>
@@ -1633,6 +1661,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                             <property name="buffer">entrybuffer_root_password</property>
                                             <property name="visibility">False</property>
                                             <property name="input_purpose">password</property>
+                                            <signal name="changed" handler="entry_recipe_x_root_passwords_changed_cb" swapped="no"/>
                                           </object>
                                           <packing>
                                             <property name="left_attach">1</property>
@@ -1647,7 +1676,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                           </object>
                                           <packing>
                                             <property name="left_attach">1</property>
-                                            <property name="top_attach">3</property>
+                                            <property name="top_attach">4</property>
                                           </packing>
                                         </child>
                                         <child>
@@ -1661,7 +1690,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                           </object>
                                           <packing>
                                             <property name="left_attach">1</property>
-                                            <property name="top_attach">4</property>
+                                            <property name="top_attach">5</property>
                                           </packing>
                                         </child>
                                         <child>
@@ -1675,7 +1704,33 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                           </object>
                                           <packing>
                                             <property name="left_attach">1</property>
-                                            <property name="top_attach">5</property>
+                                            <property name="top_attach">6</property>
+                                          </packing>
+                                        </child>
+                                        <child>
+                                          <object class="GtkLabel">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">False</property>
+                                            <property name="halign">end</property>
+                                            <property name="label" translatable="yes">Retype Root Password</property>
+                                          </object>
+                                          <packing>
+                                            <property name="left_attach">0</property>
+                                            <property name="top_attach">3</property>
+                                          </packing>
+                                        </child>
+                                        <child>
+                                          <object class="GtkEntry" id="entry_recipe_expert_root_password_retype">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">True</property>
+                                            <property name="buffer">entrybuffer_root_password_retype</property>
+                                            <property name="visibility">False</property>
+                                            <property name="input_purpose">password</property>
+                                            <signal name="changed" handler="entry_recipe_x_root_passwords_changed_cb" swapped="no"/>
+                                          </object>
+                                          <packing>
+                                            <property name="left_attach">1</property>
+                                            <property name="top_attach">3</property>
                                           </packing>
                                         </child>
                                       </object>
