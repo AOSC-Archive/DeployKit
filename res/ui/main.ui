@@ -330,6 +330,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                         <property name="receives_default">True</property>
                                         <property name="relief">none</property>
                                         <property name="use_stock">True</property>
+                                        <signal name="clicked" handler="btn_recipe_general_variant_clear_clicked_cb" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -427,6 +428,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                         <property name="receives_default">True</property>
                                         <property name="relief">none</property>
                                         <property name="use_stock">True</property>
+                                        <signal name="clicked" handler="btn_recipe_general_dest_clear_clicked_cb" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -566,6 +568,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                         <property name="receives_default">True</property>
                                         <property name="relief">none</property>
                                         <property name="use_stock">True</property>
+                                        <signal name="clicked" handler="btn_recipe_general_mirror_clear_clicked_cb" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -663,6 +666,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                         <property name="receives_default">True</property>
                                         <property name="relief">none</property>
                                         <property name="use_stock">True</property>
+                                        <signal name="clicked" handler="btn_recipe_general_xcomps_clear_clicked_cb" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -1030,6 +1034,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                         <property name="receives_default">True</property>
                                         <property name="relief">none</property>
                                         <property name="use_stock">True</property>
+                                        <signal name="clicked" handler="btn_recipe_expert_biy_clear_clicked_cb" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -1143,6 +1148,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                         <property name="receives_default">True</property>
                                         <property name="relief">none</property>
                                         <property name="use_stock">True</property>
+                                        <signal name="clicked" handler="btn_recipe_expert_xcomps_clear_clicked_cb" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -1240,6 +1246,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                         <property name="receives_default">True</property>
                                         <property name="relief">none</property>
                                         <property name="use_stock">True</property>
+                                        <signal name="clicked" handler="btn_recipe_expert_dest_clear_clicked_cb" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>
@@ -1379,6 +1386,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                         <property name="receives_default">True</property>
                                         <property name="relief">none</property>
                                         <property name="use_stock">True</property>
+                                        <signal name="clicked" handler="btn_recipe_expert_mirror_clear_clicked_cb" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>

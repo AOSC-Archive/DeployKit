@@ -641,6 +641,46 @@ public class Main : Gtk.ApplicationWindow {
     }
   }
 
+  [GtkCallback]
+  private void btn_recipe_general_variant_clear_clicked_cb() {
+    this.listbox_recipe_general_variant.unselect_all();
+  }
+
+  [GtkCallback]
+  private void btn_recipe_general_dest_clear_clicked_cb() {
+    this.listbox_recipe_general_dest.unselect_all();
+  }
+
+  [GtkCallback]
+  private void btn_recipe_general_mirror_clear_clicked_cb() {
+    this.listbox_recipe_general_mirror.unselect_all();
+  }
+
+  [GtkCallback]
+  private void btn_recipe_general_xcomps_clear_clicked_cb() {
+    this.listbox_recipe_general_xcomps.unselect_all();
+  }
+
+  [GtkCallback]
+  private void btn_recipe_expert_biy_clear_clicked_cb() {
+    this.listbox_recipe_expert_biy.unselect_all();
+  }
+
+  [GtkCallback]
+  private void btn_recipe_expert_xcomps_clear_clicked_cb() {
+    this.listbox_recipe_expert_xcomps.unselect_all();
+  }
+
+  [GtkCallback]
+  private void btn_recipe_expert_dest_clear_clicked_cb() {
+    this.listbox_recipe_expert_dest.unselect_all();
+  }
+
+  [GtkCallback]
+  private void btn_recipe_expert_mirror_clear_clicked_cb() {
+    this.listbox_recipe_expert_mirror.unselect_all();
+  }
+
   /**
    * Check if the administrator password entry on the current page match with
    * the retyped one.
