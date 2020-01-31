@@ -87,17 +87,9 @@ public class Main : Gtk.ApplicationWindow {
   [GtkChild]
   private Gtk.ListBox listbox_recipe_general_xcomps;
 
-  /* System Configuration */
-  [GtkChild]
-  private Gtk.Entry entry_recipe_general_hostname;
+  /* System Configuration (See Shared Widgets) */
   [GtkChild]
   private Gtk.Entry entry_recipe_general_locale;
-  [GtkChild]
-  private Gtk.Entry entry_recipe_general_root_password;
-  [GtkChild]
-  private Gtk.Entry entry_recipe_general_admin_username;
-  [GtkChild]
-  private Gtk.Entry entry_recipe_general_admin_password;
   [GtkChild]
   private Gtk.Entry entry_recipe_general_admin_password_retype;
 
@@ -137,17 +129,9 @@ public class Main : Gtk.ApplicationWindow {
   [GtkChild]
   private Gtk.ListBox listbox_recipe_expert_mirror;
 
-  /* System Configuration */
-  [GtkChild]
-  private Gtk.Entry entry_recipe_expert_hostname;
+  /* System Configuration (See Shared Widgets) */
   [GtkChild]
   private Gtk.Entry entry_recipe_expert_locale;
-  [GtkChild]
-  private Gtk.Entry entry_recipe_expert_root_password;
-  [GtkChild]
-  private Gtk.Entry entry_recipe_expert_admin_username;
-  [GtkChild]
-  private Gtk.Entry entry_recipe_expert_admin_password;
   [GtkChild]
   private Gtk.Entry entry_recipe_expert_admin_password_retype;
 
@@ -190,6 +174,20 @@ public class Main : Gtk.ApplicationWindow {
   /* ========== Widgets in Page 6 (Done) ========== */
   [GtkChild]
   private Gtk.Box box_done;
+
+  /* ========== Shared Widgets ========== */
+  [GtkChild]
+  private Gtk.EntryBuffer entrybuffer_hostname;
+  [GtkChild]
+  private Gtk.EntryBuffer entrybuffer_locale;
+  [GtkChild]
+  private Gtk.EntryBuffer entrybuffer_root_password;
+  [GtkChild]
+  private Gtk.EntryBuffer entrybuffer_admin_username;
+  [GtkChild]
+  private Gtk.EntryBuffer entrybuffer_admin_password;
+  [GtkChild]
+  private Gtk.EntryBuffer entrybuffer_admin_password_retype;
 
   /* ========== Variables to Use ========== */
   private Gtk.Widget? last_page;
@@ -413,27 +411,22 @@ public class Main : Gtk.ApplicationWindow {
     Gtk.ListBoxRow? dest_row = null;
     Gtk.ListBoxRow? mirror_row = null;
     Gtk.ListBoxRow? xcomps_row = null;
-    string? hostname = null;
-    string? locale   = null;
-    string? username = null;
 
     if (this.last_page == box_recipe_general) {
       variant_row = this.listbox_recipe_general_variant.get_selected_row();
       dest_row    = this.listbox_recipe_general_dest.get_selected_row();
       mirror_row  = this.listbox_recipe_general_mirror.get_selected_row();
       xcomps_row  = this.listbox_recipe_general_xcomps.get_selected_row();
-      hostname    = this.entry_recipe_general_hostname.get_text();
-      locale      = this.entry_recipe_general_locale.get_text();
-      username    = this.entry_recipe_general_admin_username.get_text();
     } else if (this.last_page == box_recipe_expert) {
       variant_row = this.listbox_recipe_expert_biy.get_selected_row();
       dest_row    = this.listbox_recipe_expert_dest.get_selected_row();
       mirror_row  = this.listbox_recipe_expert_mirror.get_selected_row();
       xcomps_row  = this.listbox_recipe_expert_xcomps.get_selected_row();
-      hostname    = this.entry_recipe_expert_hostname.get_text();
-      locale      = this.entry_recipe_expert_locale.get_text();
-      username    = this.entry_recipe_expert_admin_username.get_text();
     }
+
+    string hostname = this.entrybuffer_hostname.get_text();
+    string locale   = this.entrybuffer_locale.get_text();
+    string username = this.entrybuffer_admin_username.get_text();
 
     this.label_confirm_variant.set_text(
       variant_row == null ?
@@ -654,17 +647,13 @@ public class Main : Gtk.ApplicationWindow {
    */
   [GtkCallback]
   private void entry_recipe_x_admin_passwords_changed_cb() {
-    string? admin_password_a = null;
-    string? admin_password_b = null;
+    string admin_password_a = this.entrybuffer_admin_password.get_text();
+    string admin_password_b = this.entrybuffer_admin_password_retype.get_text();
     Gtk.StyleContext? ctx = null;
 
     if (this.stack_main.get_visible_child() == this.box_recipe_general) {
-      admin_password_a = this.entry_recipe_general_admin_password.get_text();
-      admin_password_b = this.entry_recipe_general_admin_password_retype.get_text();
       ctx = this.entry_recipe_general_admin_password_retype.get_style_context();
     } else if (this.stack_main.get_visible_child() == this.box_recipe_expert) {
-      admin_password_a = this.entry_recipe_expert_admin_password.get_text();
-      admin_password_b = this.entry_recipe_expert_admin_password_retype.get_text();
       ctx = this.entry_recipe_expert_admin_password_retype.get_style_context();
     } else {
       /* Something happened */

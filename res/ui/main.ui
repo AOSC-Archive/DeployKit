@@ -34,6 +34,12 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
   <!-- interface-description AOSC OS Installer and Rescue Toolbox -->
   <!-- interface-copyright 2019 Anthon Open Source Community -->
   <!-- interface-authors Junde Yhi <lmy441900@aosc.xyz> -->
+  <object class="GtkEntryBuffer" id="entrybuffer_admin_password"/>
+  <object class="GtkEntryBuffer" id="entrybuffer_admin_password_retype"/>
+  <object class="GtkEntryBuffer" id="entrybuffer_admin_username"/>
+  <object class="GtkEntryBuffer" id="entrybuffer_hostname"/>
+  <object class="GtkEntryBuffer" id="entrybuffer_locale"/>
+  <object class="GtkEntryBuffer" id="entrybuffer_root_password"/>
   <object class="GtkImage" id="icon_btn_recipe_expert_biy_custom">
     <property name="visible">True</property>
     <property name="can_focus">False</property>
@@ -853,9 +859,10 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkEntry" id="entry_recipe_general_hostname">
+                                          <object class="GtkEntry">
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
+                                            <property name="buffer">entrybuffer_hostname</property>
                                             <property name="truncate_multiline">True</property>
                                           </object>
                                           <packing>
@@ -867,6 +874,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                           <object class="GtkEntry" id="entry_recipe_general_locale">
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
+                                            <property name="buffer">entrybuffer_locale</property>
                                           </object>
                                           <packing>
                                             <property name="left_attach">1</property>
@@ -874,9 +882,10 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkEntry" id="entry_recipe_general_root_password">
+                                          <object class="GtkEntry">
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
+                                            <property name="buffer">entrybuffer_root_password</property>
                                             <property name="visibility">False</property>
                                             <property name="input_purpose">password</property>
                                           </object>
@@ -886,9 +895,10 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkEntry" id="entry_recipe_general_admin_username">
+                                          <object class="GtkEntry">
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
+                                            <property name="buffer">entrybuffer_admin_username</property>
                                           </object>
                                           <packing>
                                             <property name="left_attach">1</property>
@@ -896,9 +906,10 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkEntry" id="entry_recipe_general_admin_password">
+                                          <object class="GtkEntry">
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
+                                            <property name="buffer">entrybuffer_admin_password</property>
                                             <property name="visibility">False</property>
                                             <property name="input_purpose">password</property>
                                             <signal name="changed" handler="entry_recipe_x_admin_passwords_changed_cb" swapped="no"/>
@@ -912,6 +923,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                           <object class="GtkEntry" id="entry_recipe_general_admin_password_retype">
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
+                                            <property name="buffer">entrybuffer_admin_password_retype</property>
                                             <property name="visibility">False</property>
                                             <property name="input_purpose">password</property>
                                             <signal name="changed" handler="entry_recipe_x_admin_passwords_changed_cb" swapped="no"/>
@@ -1579,9 +1591,10 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkEntry" id="entry_recipe_expert_hostname">
+                                          <object class="GtkEntry">
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
+                                            <property name="buffer">entrybuffer_hostname</property>
                                             <property name="truncate_multiline">True</property>
                                           </object>
                                           <packing>
@@ -1593,6 +1606,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                           <object class="GtkEntry" id="entry_recipe_expert_locale">
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
+                                            <property name="buffer">entrybuffer_locale</property>
                                           </object>
                                           <packing>
                                             <property name="left_attach">1</property>
@@ -1600,9 +1614,10 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkEntry" id="entry_recipe_expert_root_password">
+                                          <object class="GtkEntry">
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
+                                            <property name="buffer">entrybuffer_root_password</property>
                                             <property name="visibility">False</property>
                                             <property name="input_purpose">password</property>
                                           </object>
@@ -1612,9 +1627,10 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkEntry" id="entry_recipe_expert_admin_username">
+                                          <object class="GtkEntry">
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
+                                            <property name="buffer">entrybuffer_admin_username</property>
                                           </object>
                                           <packing>
                                             <property name="left_attach">1</property>
@@ -1622,9 +1638,10 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                           </packing>
                                         </child>
                                         <child>
-                                          <object class="GtkEntry" id="entry_recipe_expert_admin_password">
+                                          <object class="GtkEntry">
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
+                                            <property name="buffer">entrybuffer_admin_password</property>
                                             <property name="visibility">False</property>
                                             <property name="input_purpose">password</property>
                                             <signal name="changed" handler="entry_recipe_x_admin_passwords_changed_cb" swapped="no"/>
@@ -1638,6 +1655,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                           <object class="GtkEntry" id="entry_recipe_expert_admin_password_retype">
                                             <property name="visible">True</property>
                                             <property name="can_focus">True</property>
+                                            <property name="buffer">entrybuffer_admin_password_retype</property>
                                             <property name="visibility">False</property>
                                             <property name="input_purpose">password</property>
                                             <signal name="changed" handler="entry_recipe_x_admin_passwords_changed_cb" swapped="no"/>
