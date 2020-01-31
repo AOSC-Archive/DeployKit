@@ -25,6 +25,10 @@ public class App : GLib.Application {
       flags: GLib.ApplicationFlags.HANDLES_OPEN
     );
 
+    /* Initialize i18n */
+    Intl.setlocale(LocaleCategory.ALL, "");
+    Intl.bind_textdomain_codeset(Dk.Utils.GETTEXT_PACKAGE, "UTF-8");
+
     this.set_option_context_summary("AOSC OS Installer and Recovery Utility");
     this.add_main_option_entries(options);
   }

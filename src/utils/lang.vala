@@ -19,5 +19,13 @@ public static string get_lang() {
   return locale.split(".")[0].down().replace("_", "-");
 }
 
+/**
+ * The package name for Gettext to find internationalization (i18n) strings.
+ *
+ * Note that this string is only for Vala, and the macro for C sources is
+ * defined in the build system in /po/meson.build.
+ */
+public static const string GETTEXT_PACKAGE = "aosc-dk";
+
 } /* namespace Utils */
 } /* namespace Dk */
