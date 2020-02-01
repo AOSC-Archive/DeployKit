@@ -190,7 +190,7 @@ public class NetworkConfig : Gtk.Window {
 
     if (type != null && (addr == null || port == null)) {
       /* Address and port are required to set up a proxy */
-      var dlg = new Gtk.MessageDialog(this, DESTROY_WITH_PARENT | MODAL, ERROR, OK, "Proxy address and proxy port are mandatory.");
+      var dlg = new Gtk.MessageDialog(this, DESTROY_WITH_PARENT | MODAL, ERROR, OK, _("Proxy address and proxy port are mandatory."));
       dlg.run();
       dlg.destroy();
     } else {

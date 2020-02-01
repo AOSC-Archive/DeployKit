@@ -43,11 +43,11 @@ public class Tarball : GLib.Object {
    * states. Use ``from_json`` to fill the object with valid data.
    */
   public Tarball() {
-    this.arch = "Generic";
+    this.arch = _("Generic");
     this.date = new GLib.DateTime.from_unix_utc(0);
     this.download_size = -1;
     this.installation_size = -1;
-    this.path = "Unknown";
+    this.path = _("Unknown");
   }
 
   /**

@@ -37,9 +37,9 @@ public class Mirror : GLib.Object {
    * states. Use the from_json method to fill the object with valid data.
    */
   public Mirror() {
-    this.name = "Unknown";
-    this.loc = "Unknown";
-    this.url = "Unknown";
+    this.name = _("Unknown");
+    this.loc = _("Unknown");
+    this.url = _("Unknown");
     this.name_l10n = new Gee.HashMap<string, string>();
     this.loc_l10n = new Gee.HashMap<string, string>();
   }

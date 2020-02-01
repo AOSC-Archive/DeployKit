@@ -11,7 +11,7 @@ public class App : GLib.Application {
   private static bool print_version = false;
 
   private const GLib.OptionEntry[] options = {
-    {"version", 'v', GLib.OptionFlags.NONE, GLib.OptionArg.NONE, ref print_version, "Show version information", null},
+    {"version", 'v', GLib.OptionFlags.NONE, GLib.OptionArg.NONE, ref print_version, N_("Show version information"), null},
   };
 
   /**
@@ -29,7 +29,7 @@ public class App : GLib.Application {
     Intl.setlocale(LocaleCategory.ALL, "");
     Intl.bind_textdomain_codeset(Dk.Utils.GETTEXT_PACKAGE, "UTF-8");
 
-    this.set_option_context_summary("AOSC OS Installer and Recovery Utility");
+    this.set_option_context_summary(_("AOSC OS Installer and Recovery Utility"));
     this.add_main_option_entries(options);
   }
 
@@ -87,7 +87,7 @@ public class App : GLib.Application {
     var gui = new Dk.Gui.Main();
 
     if (files.length > 1)
-      GLib.message("more than one local recipe are given, only the first one will be processed.");
+      GLib.message(_("more than one local recipe are given, only the first one will be processed."));
 
     gui.set_local_recipe(files[0]);
 

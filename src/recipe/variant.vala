@@ -27,7 +27,7 @@ public class Variant : GLib.Object {
    * states. Use the from_json method to fill the object with valid data.
    */
   public Variant() {
-    this.name = "Unknown";
+    this.name = _("Unknown");
     this.tarballs = new Gee.ArrayList<Tarball>();
     this.name_l10n = new Gee.HashMap<string, string>();
   }

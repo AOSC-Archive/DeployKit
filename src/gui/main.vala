@@ -229,7 +229,7 @@ public class Main : Gtk.ApplicationWindow {
    */
   [GtkCallback]
   private void box_prepare_map_cb() {
-    this.headerbar_main.set_title("Preparing");
+    this.headerbar_main.set_title(_("Preparing"));
     this.togglebtn_expert.set_visible(false);
     this.btn_back.set_visible(false);
     this.btn_network.set_visible(true);
@@ -240,13 +240,13 @@ public class Main : Gtk.ApplicationWindow {
      * Internet. This is useful for debugging.
      */
     if (this.local_recipe != null) {
-      GLib.message("You are using a local recipe. This is only for debugging and advanced users' use; DO NOT USE IT if you don't know what you are doing!");
+      GLib.message(_("You are using a local recipe. This is only for debugging and advanced users' use; DO NOT USE IT if you don't know what you are doing!"));
 
       uint8[] file_content;
       try {
         this.local_recipe.load_contents(null, out file_content, null);
       } catch (Error e) {
-        this.dialog("%s.\n\nPlease check again if the file is accessible.", e.message);
+        this.dialog(_("%s.\n\nPlease check again if the file is accessible."), e.message);
         GLib.Process.exit(2);
       }
 
@@ -257,7 +257,7 @@ public class Main : Gtk.ApplicationWindow {
         this.load_recipe((string)file_content);
       } catch (LoadRecipeError e) {
         this.dialog(
-          "Failed to load the specified recipe at %s: %s\n\nPlease check again if the content of file is valid.",
+          _("Failed to load the specified recipe at %s: %s\n\nPlease check again if the content of file is valid."),
           this.local_recipe.get_parse_name(),
           e.message
         );
@@ -269,7 +269,7 @@ public class Main : Gtk.ApplicationWindow {
         this.load_disks();
       } catch (LoadDisksError e) {
         this.dialog(
-          "Failed to probe disks on the machine: %s\n\nPlease report this incident to us.",
+          _("Failed to probe disks on the machine: %s\n\nPlease report this incident to us."),
           e.message
         );
         GLib.Process.exit(1);
@@ -305,7 +305,7 @@ public class Main : Gtk.ApplicationWindow {
             this.load_disks();
           } catch (LoadDisksError e) {
             this.dialog(
-              "Failed to probe disks on the machine: %s\n\nPlease report this incident to us.",
+              _("Failed to probe disks on the machine: %s\n\nPlease report this incident to us."),
               e.message
             );
             GLib.Process.exit(1);
@@ -316,7 +316,7 @@ public class Main : Gtk.ApplicationWindow {
 
           /* Give a message to the user about what happened */
           this.dialog(
-            "You are now in offline mode because it looks like the service is temporary unavailable (error code %u).\n\nPlease check your network connection. If necessary, use the provided network settings, and try again. If you believe that your network connection has nothing wrong, then we might get something wrong. Please report to us.",
+            _("You are now in offline mode because it looks like the service is temporary unavailable (error code %u).\n\nPlease check your network connection. If necessary, use the provided network settings, and try again. If you believe that your network connection has nothing wrong, then we might get something wrong. Please report to us."),
             status
           );
           return false;
@@ -338,7 +338,7 @@ public class Main : Gtk.ApplicationWindow {
           this.load_recipe(http_content);
         } catch (LoadRecipeError e) {
           this.dialog(
-            "Failed to load the fetched recipe: %s\n\nPlease report this incident to us.",
+            _("Failed to load the fetched recipe: %s\n\nPlease report this incident to us."),
             e.message
           );
           GLib.Process.exit(1);
@@ -349,7 +349,7 @@ public class Main : Gtk.ApplicationWindow {
           this.load_disks();
         } catch (LoadDisksError e) {
           this.dialog(
-            "Failed to probe disks on the machine: %s\n\nPlease report this incident to us.",
+            _("Failed to probe disks on the machine: %s\n\nPlease report this incident to us."),
             e.message
           );
           GLib.Process.exit(1);
@@ -374,7 +374,7 @@ public class Main : Gtk.ApplicationWindow {
    */
   [GtkCallback]
   private void box_recipe_general_map_cb() {
-    this.headerbar_main.set_title("Recipe");
+    this.headerbar_main.set_title(_("Recipe"));
     this.togglebtn_expert.set_visible(true);
     this.btn_back.set_visible(false);
     this.btn_network.set_visible(true);
@@ -389,7 +389,7 @@ public class Main : Gtk.ApplicationWindow {
    */
   [GtkCallback]
   private void box_recipe_expert_map_cb() {
-    this.headerbar_main.set_title("Recipe");
+    this.headerbar_main.set_title(_("Recipe"));
     this.togglebtn_expert.set_visible(true);
     this.btn_back.set_visible(false);
     this.btn_network.set_visible(true);
@@ -404,7 +404,7 @@ public class Main : Gtk.ApplicationWindow {
    */
   [GtkCallback]
   private void box_confirm_map_cb() {
-    this.headerbar_main.set_title("Confirm");
+    this.headerbar_main.set_title(_("Confirm"));
     this.togglebtn_expert.set_visible(false);
     this.btn_back.set_visible(true);
     this.btn_network.set_visible(true);
@@ -434,30 +434,30 @@ public class Main : Gtk.ApplicationWindow {
 
     this.label_confirm_variant.set_text(
       variant_row == null ?
-      "Not selected" :
+      _("Not selected") :
       (variant_row.get_child() as Rows.Variant).get_variant_name()
     );
 
     this.label_confirm_dest.set_text(
       dest_row == null ?
-      "Not selected" :
+      _("Not selected") :
       (dest_row.get_child() as Rows.Destination).get_destination_path()
     );
 
     this.label_confirm_mirror.set_text(
       mirror_row == null ?
-      "Not selected" :
+      _("Not selected") :
       (mirror_row.get_child() as Rows.Mirror).get_mirror_name()
     );
 
     this.label_confirm_xcomps.set_text(
       xcomps_row == null ?
-      "Not selected" :
+      _("Not selected") :
       (xcomps_row.get_child() as Rows.ExtraComponent).get_component_name()
     );
 
     this.label_confirm_hostname.set_text(
-      (hostname == null || hostname == "") ? "Not set" : hostname
+      (hostname == null || hostname == "") ? _("Not set") : hostname
     );
 
     this.label_confirm_locale.set_text(
@@ -465,7 +465,7 @@ public class Main : Gtk.ApplicationWindow {
     );
 
     this.label_confirm_admin_username.set_text(
-      (username == null || username == "") ? "Not set" : username
+      (username == null || username == "") ? _("Not set") : username
     );
 
     /* Some fields are mandatory; disable the OK button if they are not set */
@@ -496,7 +496,7 @@ public class Main : Gtk.ApplicationWindow {
    */
   [GtkCallback]
   private void box_install_map_cb() {
-    this.headerbar_main.set_title("Installing");
+    this.headerbar_main.set_title(_("Installing"));
     this.togglebtn_expert.set_visible(false);
     this.btn_back.set_visible(false);
     this.btn_network.set_visible(false);
@@ -511,7 +511,7 @@ public class Main : Gtk.ApplicationWindow {
    */
   [GtkCallback]
   private void box_done_map_cb() {
-    this.headerbar_main.set_title("Done");
+    this.headerbar_main.set_title(_("Installing"));
     this.togglebtn_expert.set_visible(false);
     this.btn_back.set_visible(false);
     this.btn_network.set_visible(false);
@@ -691,7 +691,7 @@ public class Main : Gtk.ApplicationWindow {
       this.load_disks();
     } catch (LoadDisksError e) {
       this.dialog(
-        "Failed to probe disks on the machine: %s\n\nPlease report this incident to us.",
+        _("Failed to probe disks on the machine: %s\n\nPlease report this incident to us."),
         e.message
       );
     }
@@ -704,7 +704,7 @@ public class Main : Gtk.ApplicationWindow {
       new Subprocess(SubprocessFlags.NONE, "gparted", null);
     } catch (Error e) {
       this.dialog(
-        "Failed to execute GParted: %s.\n\nPlease check if GParted is installed correctly on your computer. If you believe that you have done nothing wrong, please report this incident to us.",
+        _("Failed to execute GParted: %s.\n\nPlease check if GParted is installed correctly on your computer. If you believe that you have done nothing wrong, please report this incident to us."),
         e.message
       );
     }
@@ -712,7 +712,7 @@ public class Main : Gtk.ApplicationWindow {
 
   [GtkCallback]
   private void btn_recipe_expert_biy_add_clicked_cb() {
-    var chooser = new Gtk.FileChooserNative("Select a Custom Tarball", this, Gtk.FileChooserAction.OPEN, null, null);
+    var chooser = new Gtk.FileChooserNative(_("Select a Custom Tarball"), this, Gtk.FileChooserAction.OPEN, null, null);
     chooser.set_modal(true);
     int r = chooser.run();
 
@@ -728,7 +728,7 @@ public class Main : Gtk.ApplicationWindow {
       );
     } catch (Error e) {
       this.dialog(
-        "Cannot retrieve information about the file you chose: %s.\n\nYou may not add this file as your custom variant.",
+        _("Cannot retrieve information about the file you chose: %s.\n\nYou may not add this file as your custom variant."),
         e.message
       );
 
@@ -825,11 +825,11 @@ public class Main : Gtk.ApplicationWindow {
     var recipe = new Dk.Recipe.Recipe();
     bool r = recipe.from_json_string(recipe_str);
     if (!r)
-      throw new LoadRecipeError.PARSE_ERROR("The recipe is invalid and cannot be parsed.");
+      throw new LoadRecipeError.PARSE_ERROR(_("The recipe is invalid and cannot be parsed."));
 
     /* NOTE: Parsing version 0 recipe. */
     if (recipe.get_version() != 0)
-      throw new LoadRecipeError.UNKNOWN_VERSION("Recipe version %d is not supported.", recipe.get_version());
+      throw new LoadRecipeError.UNKNOWN_VERSION(_("Recipe version %d is not supported."), recipe.get_version());
 
     /* Bulletin */
     var bulletin = recipe.get_bulletin();
@@ -912,7 +912,7 @@ public class Main : Gtk.ApplicationWindow {
     try {
       client = new UDisks.Client.sync();
     } catch (Error e) {
-      throw new LoadDisksError.CONNECTION_ERROR("Cannot connect to the UDisks2 daemon via DBus.");
+      throw new LoadDisksError.CONNECTION_ERROR(_("Cannot connect to the UDisks2 daemon via DBus."));
     }
 
     /* Clear list boxes (I find it very efficient) */
@@ -967,7 +967,7 @@ public class Main : Gtk.ApplicationWindow {
           new Rows.Destination(
             icon.get_names()[0],
             device,
-            "On " + model,
+            _("On ") + model,
             (int64)partsize
           )
         );
@@ -975,7 +975,7 @@ public class Main : Gtk.ApplicationWindow {
           new Rows.Destination(
             icon.get_names()[0],
             device,
-            "On " + model,
+            _("On ") + model,
             (int64)partsize
           )
         );
@@ -1070,7 +1070,7 @@ public class Main : Gtk.ApplicationWindow {
       this.progressbar_installation.set_text(null);
       this.progressbar_installation.set_fraction(percent / 100.0);
     } else {
-      this.progressbar_installation.set_text("Skating…");
+      this.progressbar_installation.set_text(_("Skating…"));
       this.progressbar_installation_event_source_id = GLib.Timeout.add(300, () => {
         this.progressbar_installation.pulse();
         return true;

@@ -10,7 +10,7 @@ namespace Rows {
  */
 private static void set_label_human_readable_size(Gtk.Label label, int64 size) {
   if (size < 0)
-    label.set_text("Unknown");
+    label.set_text(_("Unknown"));
   else
     label.set_text(GLib.format_size(size, GLib.FormatSizeFlags.IEC_UNITS));
 }
