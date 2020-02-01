@@ -25,7 +25,7 @@ public static string get_lang() {
  * Note that this string is only for Vala, and the macro for C sources is
  * defined in the build system in /po/meson.build.
  */
-public static const string GETTEXT_PACKAGE = "aosc-dk";
+public const string GETTEXT_PACKAGE = "aosc-dk";
 
 } /* namespace Utils */
 } /* namespace Dk */
