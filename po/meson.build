@@ -4,4 +4,4 @@ i18n = import('i18n')
 # Note that Vala sources have this defined in Dk.Utils.
 add_project_arguments(['-D', 'GETTEXT_PACKAGE="aosc-dk"'], language:'c')
 
-i18n.gettext('aosc-dk')
+i18n.gettext('aosc-dk', args:['--from-code=UTF-8'])
