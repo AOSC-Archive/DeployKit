@@ -2153,8 +2153,8 @@ During installation, you may want to go around and get a feeling for AOSC OS!</p
                             <property name="justify">center</property>
                           </object>
                           <packing>
-                            <property name="name">page0</property>
-                            <property name="title" translatable="yes">page0</property>
+                            <property name="name">ad_page_wait</property>
+                            <property name="title" translatable="yes">Please Wait…</property>
                           </packing>
                         </child>
                       </object>
