@@ -170,6 +170,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                         <property name="can_focus">False</property>
                         <property name="halign">start</property>
                         <property name="wrap">True</property>
+                        <property name="wrap_mode">word-char</property>
                         <property name="max_width_chars">50</property>
                         <attributes>
                           <attribute name="weight" value="bold"/>
@@ -178,7 +179,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                       </object>
                       <packing>
                         <property name="expand">False</property>
-                        <property name="fill">True</property>
+                        <property name="fill">False</property>
                         <property name="position">0</property>
                       </packing>
                     </child>
@@ -188,11 +189,12 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                         <property name="can_focus">False</property>
                         <property name="halign">start</property>
                         <property name="wrap">True</property>
+                        <property name="wrap_mode">word-char</property>
                         <property name="max_width_chars">70</property>
                       </object>
                       <packing>
                         <property name="expand">False</property>
-                        <property name="fill">True</property>
+                        <property name="fill">False</property>
                         <property name="position">1</property>
                       </packing>
                     </child>
@@ -359,6 +361,8 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                       <object class="GtkLabel">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
+                                        <property name="halign">start</property>
+                                        <property name="label" translatable="yes">AOSC OS comes in a slew of flavors. From your modern Plasma Desktop and GNOME, timelessly designed MATE Desktop, to your non-graphical Base systems, there is surely one that suits your taste.</property>
                                         <property name="wrap">True</property>
                                       </object>
                                       <packing>
@@ -474,6 +478,9 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                       <object class="GtkLabel">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
+                                        <property name="halign">start</property>
+                                        <property name="label" translatable="yes">Please select a partition to which you would like to install AOSC OS onto. If you would like to make changes to your partitions, please click on "Open GParted."</property>
+                                        <property name="use_markup">True</property>
                                         <property name="wrap">True</property>
                                       </object>
                                       <packing>
@@ -494,18 +501,6 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                         <property name="expand">False</property>
                                         <property name="fill">True</property>
                                         <property name="position">1</property>
-                                      </packing>
-                                    </child>
-                                    <child>
-                                      <object class="GtkLabel">
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">False</property>
-                                        <property name="wrap">True</property>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">True</property>
-                                        <property name="position">2</property>
                                       </packing>
                                     </child>
                                     <child>
@@ -599,6 +594,9 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                       <object class="GtkLabel">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
+                                        <property name="halign">start</property>
+                                        <property name="label" translatable="yes">British Sci-Fi author Simon R. Green once said, &lt;i&gt;"Never go anywhere without condiments. Condiments are our friends."&lt;/i&gt; What would you like with your order of AOSC OS? Let us know.</property>
+                                        <property name="use_markup">True</property>
                                         <property name="wrap">True</property>
                                       </object>
                                       <packing>
@@ -697,6 +695,9 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                       <object class="GtkLabel">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
+                                        <property name="halign">start</property>
+                                        <property name="label" translatable="yes">Please select a mirror from which you would like to download AOSC OS and the extra components you specified. Generally, a mirror closest to you geographically would be the best bet for download speeds.</property>
+                                        <property name="use_markup">True</property>
                                         <property name="wrap">True</property>
                                       </object>
                                       <packing>
@@ -778,6 +779,9 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                       <object class="GtkLabel">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
+                                        <property name="halign">start</property>
+                                        <property name="label" translatable="yes">Just some final touches, and we'll be on our way.</property>
+                                        <property name="use_markup">True</property>
                                         <property name="wrap">True</property>
                                       </object>
                                       <packing>
@@ -1109,6 +1113,9 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                       <object class="GtkLabel">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
+                                        <property name="halign">start</property>
+                                        <property name="label" translatable="yes">&lt;i&gt;You&lt;/i&gt;, make &lt;i&gt;me&lt;/i&gt; a sandwich! Start with a standard flavor, or bring your own recipe. Whatever floats your boat, see you in a minute...</property>
+                                        <property name="use_markup">True</property>
                                         <property name="wrap">True</property>
                                       </object>
                                       <packing>
@@ -1207,6 +1214,9 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                       <object class="GtkLabel">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
+                                        <property name="halign">start</property>
+                                        <property name="label" translatable="yes">British Sci-Fi author Simon R. Green once said, &lt;i&gt;"Never go anywhere without condiments. Condiments are our friends."&lt;/i&gt; What would you like with your order of AOSC OS? Let us know.</property>
+                                        <property name="use_markup">True</property>
                                         <property name="wrap">True</property>
                                       </object>
                                       <packing>
@@ -1322,6 +1332,9 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                       <object class="GtkLabel">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
+                                        <property name="halign">start</property>
+                                        <property name="label" translatable="yes">Please select a partition to which you would like to install AOSC OS onto. If you would like to make changes to your partitions, please click on "Open GParted."</property>
+                                        <property name="use_markup">True</property>
                                         <property name="wrap">True</property>
                                       </object>
                                       <packing>
@@ -1342,18 +1355,6 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                         <property name="expand">False</property>
                                         <property name="fill">True</property>
                                         <property name="position">1</property>
-                                      </packing>
-                                    </child>
-                                    <child>
-                                      <object class="GtkLabel">
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">False</property>
-                                        <property name="wrap">True</property>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">False</property>
-                                        <property name="fill">True</property>
-                                        <property name="position">2</property>
                                       </packing>
                                     </child>
                                     <child>
@@ -1463,6 +1464,8 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                       <object class="GtkLabel">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
+                                        <property name="halign">start</property>
+                                        <property name="label" translatable="yes">Please select a mirror from which you would like to download AOSC OS and the extra components you specified. Generally, a mirror closest to you geographically would be the best bet for download speeds.</property>
                                         <property name="wrap">True</property>
                                       </object>
                                       <packing>
@@ -1544,6 +1547,9 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                       <object class="GtkLabel">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
+                                        <property name="halign">start</property>
+                                        <property name="label" translatable="yes">Just some final touches, and we'll be on our way.</property>
+                                        <property name="use_markup">True</property>
                                         <property name="wrap">True</property>
                                       </object>
                                       <packing>
@@ -1822,7 +1828,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="halign">start</property>
-                                    <property name="label" translatable="yes">Is Your Order An AOSC OS?</property>
+                                    <property name="label" translatable="yes">Did We Get Your Order Right?</property>
                                     <attributes>
                                       <attribute name="weight" value="bold"/>
                                       <attribute name="scale" value="1.75"/>
@@ -2050,6 +2056,8 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="label" translatable="yes">Some mandatory information is missing. Please go back and check your recipe.</property>
+                                    <property name="justify">center</property>
+                                    <property name="wrap">True</property>
                                   </object>
                                   <packing>
                                     <property name="expand">False</property>
@@ -2091,6 +2099,13 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                   <object class="GtkLabel">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
+                                    <property name="halign">start</property>
+                                    <property name="label" translatable="yes">&lt;i&gt;AOSC OS comes with ABSOLUTELY NO WARRANTY, to the extent permitted by applicable law...&lt;/i&gt;
+
+*Yawn*
+
+TL;DR: We strive for a bug-free experience, but please &lt;a href="https://github.com/AOSC-Dev/aosc-os-abbs/issues/new/choose"&gt;let us know&lt;/a&gt; in case you run into one.</property>
+                                    <property name="use_markup">True</property>
                                     <property name="wrap">True</property>
                                   </object>
                                   <packing>
