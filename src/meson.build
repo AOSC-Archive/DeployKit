@@ -23,4 +23,4 @@ if get_option('build_gui')
   subdir('gui')
 endif
 
-executable('aosc-dk', dk_srcs + dk_res, dependencies: dk_deps, gui_app: true)
+executable('aosc-dk', dk_srcs + dk_res, dependencies: dk_deps, install: true, gui_app: true)
