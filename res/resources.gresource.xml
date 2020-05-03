@@ -3,6 +3,7 @@
   <gresource prefix="/io/aosc/DeployKit">
     <file compressed="true" preprocess="xml-stripblanks">ui/rows/variant.ui</file>
     <file compressed="true" preprocess="xml-stripblanks">ui/rows/mirror.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks">ui/rows/mirrorcustom.ui</file>
     <file compressed="true" preprocess="xml-stripblanks">ui/rows/destination.ui</file>
     <file compressed="true" preprocess="xml-stripblanks">ui/rows/extracomponent.ui</file>
     <file compressed="true" preprocess="xml-stripblanks">ui/networkconfig.ui</file>

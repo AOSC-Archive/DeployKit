@@ -1437,6 +1437,7 @@ Author: Junde Yhi <lmy441900@aosc.xyz>
                                         <property name="receives_default">True</property>
                                         <property name="relief">none</property>
                                         <property name="use_stock">True</property>
+                                        <signal name="clicked" handler="btn_recipe_expert_mirror_add_clicked_cb" swapped="no"/>
                                       </object>
                                       <packing>
                                         <property name="expand">False</property>

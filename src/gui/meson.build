@@ -9,6 +9,7 @@ dk_srcs += files(
   'rows/variant.vala',
   'rows/destination.vala',
   'rows/mirror.vala',
+  'rows/mirrorcustom.vala',
   'rows/extracomponent.vala',
 
   'networkconfig.vala',

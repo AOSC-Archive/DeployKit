@@ -754,6 +754,12 @@ public class Main : Gtk.ApplicationWindow {
     chooser.destroy();
   }
 
+  [GtkCallback]
+  private void btn_recipe_expert_mirror_add_clicked_cb() {
+    /* Insert a custom mirror row into the mirror list */
+    this.listbox_recipe_expert_mirror.add(new Rows.MirrorCustom());
+  }
+
   /**
    * Check if the root password entry on the current page match with the retyped
    * one.
@@ -887,14 +893,16 @@ public class Main : Gtk.ApplicationWindow {
         new Rows.Mirror(
           "package-x-generic-symbolic",
           m.get_name_l10n(Dk.Utils.get_lang()) ?? m.get_name(),
-          m.get_location_l10n(Dk.Utils.get_lang()) ?? m.get_location()
+          m.get_location_l10n(Dk.Utils.get_lang()) ?? m.get_location(),
+          m.get_url()
         )
       );
       this.listbox_recipe_expert_mirror.add(
         new Rows.Mirror(
           "package-x-generic-symbolic",
           m.get_name_l10n(Dk.Utils.get_lang()) ?? m.get_name(),
-          m.get_location_l10n(Dk.Utils.get_lang()) ?? m.get_location()
+          m.get_location_l10n(Dk.Utils.get_lang()) ?? m.get_location(),
+          m.get_url()
         )
       );
 
