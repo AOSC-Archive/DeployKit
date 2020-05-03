@@ -1,0 +1,477 @@
+# Chinese translations for DeployKit package
+# DeployKit 软件包的简体中文翻译.
+# Copyright (C) 2020 Anthon Open Source Community
+# This file is distributed under the same license as the DeployKit package.
+# Junde Yhi <lmy441900@aosc.xyz>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: DeployKit 0.1\n"
+"Report-Msgid-Bugs-To: https://github.com/AOSC-Dev/DeployKit/issues\n"
+"POT-Creation-Date: 2020-05-03 22:52+0800\n"
+"PO-Revision-Date: 2020-05-03 21:20+0800\n"
+"Last-Translator: Junde Yhi <lmy441900@aosc.xyz>\n"
+"Language-Team: none\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.4\n"
+
+#: res/ui/main.ui:58
+msgid "AOSC OS DeployKit"
+msgstr "AOSC OS DeployKit"
+
+#: res/ui/main.ui:63
+msgid "Expert"
+msgstr "专家"
+
+#: res/ui/main.ui:244
+msgid "Please wait while we are retrieving necessary information..."
+msgstr "正在获取必要信息，请稍等……"
+
+#: res/ui/main.ui:275
+msgid "Prepare"
+msgstr "准备"
+
+#: res/ui/main.ui:316
+msgid "Flavor"
+msgstr "风味"
+
+#: res/ui/main.ui:365
+msgid ""
+"AOSC OS comes in a slew of flavors. From your modern Plasma Desktop and "
+"GNOME, timelessly designed MATE Desktop, to your non-graphical Base systems, "
+"there is surely one that suits your taste."
+msgstr ""
+"AOSC OS 以多种风味提供。无论是现代的 Plasma 桌面、GNOME，传承经典的 MATE 桌"
+"面，还是无图形界面的 Base 系统，总有一款适合你。"
+
+#: res/ui/main.ui:416 res/ui/main.ui:1270 res/ui/main.ui:1873
+msgid "Destination"
+msgstr "目标"
+
+#: res/ui/main.ui:482 res/ui/main.ui:1336
+msgid ""
+"Please select a partition to which you would like to install AOSC OS onto. "
+"If you would like to make changes to your partitions, please click on \"Open "
+"GParted.\""
+msgstr ""
+"请选择你想要将 AOSC OS 安装到的分区。如果你想要修改分区，请点击“打开 "
+"GParted”。"
+
+#: res/ui/main.ui:508 res/ui/main.ui:1362
+msgid "Open GParted"
+msgstr "打开 GParted"
+
+#: res/ui/main.ui:549 res/ui/main.ui:1169 res/ui/main.ui:1941
+msgid "Extra Components"
+msgstr "附加组件"
+
+#: res/ui/main.ui:598 res/ui/main.ui:1218
+msgid ""
+"British Sci-Fi author Simon R. Green once said, <i>\"Never go anywhere "
+"without condiments. Condiments are our friends.\"</i> What would you like "
+"with your order of AOSC OS? Let us know."
+msgstr ""
+"英国科幻作家西蒙・R・格林曾说：“没有调味品就别去哪了。调味品是我们的朋友。”你"
+"想要点什么样的 AOSC OS？请告诉我们。"
+
+#: res/ui/main.ui:650 res/ui/main.ui:1403 res/ui/main.ui:1889
+msgid "Mirror"
+msgstr "镜像源"
+
+#: res/ui/main.ui:699 res/ui/main.ui:1469
+msgid ""
+"Please select a mirror from which you would like to download AOSC OS and the "
+"extra components you specified. Generally, a mirror closest to you "
+"geographically would be the best bet for download speeds."
+msgstr ""
+"请选择一个镜像源；AOSC OS 和附加组件都将从此处下载。一般来说，地理上最靠近你"
+"的地方就是最快的选择。"
+
+#: res/ui/main.ui:751 res/ui/main.ui:1520
+msgid "System Configuration"
+msgstr "系统配置"
+
+#: res/ui/main.ui:783 res/ui/main.ui:1552
+msgid "Just some final touches, and we'll be on our way."
+msgstr "最后再做一些调整，我们马上开始。"
+
+#: res/ui/main.ui:805 res/ui/main.ui:1574 res/ui/main.ui:2025
+msgid "Hostname"
+msgstr "主机名"
+
+#: res/ui/main.ui:817 res/ui/main.ui:1586 res/ui/main.ui:1981
+msgid "Locale"
+msgstr "区域"
+
+#: res/ui/main.ui:829 res/ui/main.ui:1598
+msgid "Root Password"
+msgstr "超级用户 (Root) 密码"
+
+#: res/ui/main.ui:841 res/ui/main.ui:1610 res/ui/main.ui:1997
+msgid "Administrator Username"
+msgstr "管理员用户名"
+
+#: res/ui/main.ui:853 res/ui/main.ui:1622
+msgid "Administrator Password"
+msgstr "管理员密码"
+
+#: res/ui/main.ui:865 res/ui/main.ui:1634
+msgid "Retype Administrator Password"
+msgstr "再输一次管理员密码"
+
+#: res/ui/main.ui:953 res/ui/main.ui:1722
+msgid "Retype Root Password"
+msgstr "再输一次超级用户 (Root) 密码"
+
+#: res/ui/main.ui:1009
+msgid "Recipe (General)"
+msgstr "菜单（常规）"
+
+#: res/ui/main.ui:1051
+msgid "Build-It-Yourself!"
+msgstr "自己动手，丰衣足食！"
+
+#: res/ui/main.ui:1082
+msgid "Custom"
+msgstr "自定义"
+
+#: res/ui/main.ui:1117
+msgid ""
+"<i>You</i>, make <i>me</i> a sandwich! Start with a standard flavor, or "
+"bring your own recipe. Whatever floats your boat, see you in a minute..."
+msgstr ""
+"你，给我爪巴！选一个标准风味打底，或者把你的菜单拿来。随便你怎么做，一会儿"
+"见……"
+
+#: res/ui/main.ui:1778
+msgid "Recipe (Expert)"
+msgstr "菜单（专家）"
+
+#: res/ui/main.ui:1811
+msgid ""
+"Please check the information below. Once it's ready to proceed, press the "
+"\"OK\" button on the right of header bar."
+msgstr "请检查下列信息。一旦准备就绪，就可以点击标题栏右边的“OK”按钮。"
+
+#: res/ui/main.ui:1832
+msgid "Did We Get Your Order Right?"
+msgstr "你的单子对头吗？"
+
+#: res/ui/main.ui:1857
+msgid "Variant"
+msgstr "变种"
+
+#: res/ui/main.ui:2059
+msgid ""
+"Some mandatory information is missing. Please go back and check your recipe."
+msgstr "一些必要的信息缺失。请返回检查你的菜单。"
+
+#: res/ui/main.ui:2087
+msgid "Disclaimer"
+msgstr "免责声明"
+
+#: res/ui/main.ui:2104
+msgid ""
+"<i>AOSC OS comes with ABSOLUTELY NO WARRANTY, to the extent permitted by "
+"applicable law...</i>\n"
+"\n"
+"*Yawn*\n"
+"\n"
+"TL;DR: We strive for a bug-free experience, but please <a href=\"https://"
+"github.com/AOSC-Dev/aosc-os-abbs/issues/new/choose\">let us know</a> in case "
+"you run into one."
+msgstr ""
+"AOSC OS 在适用法律范围内不提供品质担保……\n"
+"\n"
+"* 哈欠 *\n"
+"\n"
+"长话短说：我们争取做到无缺陷 (Bug) 的体验，但如果你发现了缺陷，请务必<a href="
+"\"https://github.com/AOSC-Dev/aosc-os-abbs/issues/new/choose\">告诉我们</a>。"
+
+#: res/ui/main.ui:2139 src/gui/main.vala:415
+msgid "Confirm"
+msgstr "确定"
+
+#: res/ui/main.ui:2167
+msgid ""
+"Please wait while the installation is taking place.\n"
+"During installation, you may want to go around and get a feeling for AOSC OS!"
+msgstr ""
+"安装正在进行，请稍等片刻。\n"
+"在这个过程中，你可以到处转转，感受一下 AOSC OS！"
+
+#: res/ui/main.ui:2173
+msgid "Please Wait…"
+msgstr "请稍等……"
+
+# Nobody knows more about my program than I do.
+#: res/ui/main.ui:2192
+msgid "Step"
+msgstr "第"
+
+#: res/ui/main.ui:2217
+msgid "of"
+msgstr "步，共"
+
+#: res/ui/main.ui:2241
+msgid ":"
+msgstr "步："
+
+#: res/ui/main.ui:2290
+msgid "Installation"
+msgstr "安装"
+
+#: res/ui/main.ui:2314
+msgid "All done!"
+msgstr "搞定！"
+
+#: res/ui/main.ui:2328
+msgid "Reboot"
+msgstr "重启"
+
+#: res/ui/main.ui:2347
+msgid "You can continue playing by just closing the window."
+msgstr "关掉窗口的话，还可以继续玩玩。"
+
+#: res/ui/main.ui:2365 res/ui/networkconfig.ui:52
+msgid "Done"
+msgstr "完成"
+
+#: res/ui/networkconfig.ui:47
+msgid "Network Configuration"
+msgstr "网络配置"
+
+#: res/ui/networkconfig.ui:48
+msgid "AOSC DeployKit"
+msgstr "AOSC DeployKit"
+
+#: res/ui/networkconfig.ui:75
+msgid ""
+"If you are experiencing issues with obtaining system release information or "
+"slow download speeds, please consider configuring a network proxy. This is "
+"likely to help in regions and locations with limited Internet availability.\n"
+"\n"
+"Please note a reliable Internet connection is essential for security, bug "
+"fix, and feature updates after installation.\n"
+"\n"
+"<i>AOSC OS comes with OpenConnect, OpenVPN, PPTP, Shadowsocks, V2Ray, VPNC, "
+"and WireGuard support as standard.</i>"
+msgstr ""
+"如果你在获取系统发行信息的时候遇到了问题（或者网速太慢），请考虑配置网络代"
+"理。这会对一些位置和地区的有限网络可用状况有帮助。\n"
+"\n"
+"请注意，要在安装后获取安全更新、缺陷修复和功能更新，可靠的互联网连接是必要"
+"的。\n"
+"\n"
+"<i>AOSC OS 标配 OpenConnect、OpenVPN、PPTP、影梭 (Shadowsocks)、V2Ray、VPNC "
+"和 WireGuard。</i>"
+
+#: res/ui/networkconfig.ui:102
+msgid "Type"
+msgstr "类型"
+
+#: res/ui/networkconfig.ui:114
+msgid "Address"
+msgstr "地址"
+
+#: res/ui/networkconfig.ui:126
+msgid "Username"
+msgstr "用户名"
+
+#: res/ui/networkconfig.ui:138
+msgid "Password"
+msgstr "密码"
+
+#: res/ui/networkconfig.ui:164 res/ui/networkconfig.ui:178
+msgid "Optional"
+msgstr "可选"
+
+#: res/ui/networkconfig.ui:192
+msgid "Disable"
+msgstr "禁用"
+
+#: res/ui/networkconfig.ui:193
+msgid "HTTP"
+msgstr "HTTP"
+
+#: res/ui/networkconfig.ui:194
+msgid "HTTPS"
+msgstr "HTTPS"
+
+#: res/ui/networkconfig.ui:195
+msgid "SOCKS5"
+msgstr "SOCKS5"
+
+#: res/ui/networkconfig.ui:209
+msgid "Port"
+msgstr "端口"
+
+#: src/app.vala:14
+msgid "Show version information"
+msgstr "显示版本信息"
+
+#: src/app.vala:35
+msgid "AOSC OS Installer and Recovery Utility"
+msgstr "AOSC OS 安装和还原工具"
+
+#: src/app.vala:93
+msgid ""
+"more than one local recipe are given, only the first one will be processed."
+msgstr "有多于一个本地菜单，仅第一个会被处理。"
+
+#: src/mirrors/aosc-api-mirror.vala:12 src/mirrors/aosc-api-mirror.vala:13
+#: src/mirrors/aosc-api-mirror.vala:14 src/gui/rows/common.vala:13
+#: src/recipe/variant.vala:30 src/recipe/tarball.vala:50
+#: src/recipe/mirror.vala:40 src/recipe/mirror.vala:41
+#: src/recipe/mirror.vala:42
+msgid "Unknown"
+msgstr "未知"
+
+#: src/gui/networkconfig.vala:193
+msgid "Proxy address and proxy port are mandatory."
+msgstr "代理地址和代理端口是必要的。"
+
+#: src/gui/main.vala:240
+msgid "Preparing"
+msgstr "准备中"
+
+#: src/gui/main.vala:251
+msgid ""
+"You are using a local recipe. This is only for debugging and advanced users' "
+"use; DO NOT USE IT if you don't know what you are doing!"
+msgstr ""
+"你正在使用本地菜单。这仅用于调试及供高级用户使用；如果你不知道在做什么，不要"
+"这样做！"
+
+#: src/gui/main.vala:257
+#, c-format
+msgid ""
+"%s.\n"
+"\n"
+"Please check again if the file is accessible."
+msgstr ""
+"%s.\n"
+"\n"
+"请再三检查文件是否可以被访问。"
+
+#: src/gui/main.vala:268
+#, c-format
+msgid ""
+"Failed to load the specified recipe at %s: %s\n"
+"\n"
+"Please check again if the content of file is valid."
+msgstr ""
+"无法加载指定的位于 %s 的菜单：%s\n"
+"\n"
+"请再三检查文件内容是否合法。"
+
+#: src/gui/main.vala:280 src/gui/main.vala:316 src/gui/main.vala:360
+#: src/gui/main.vala:761
+#, c-format
+msgid ""
+"Failed to probe disks on the machine: %s\n"
+"\n"
+"Please report this incident to us."
+msgstr ""
+"无法探测机器上的硬盘：%s\n"
+"\n"
+"请将这次事件报告给我们。"
+
+#: src/gui/main.vala:327
+#, c-format
+msgid ""
+"You are now in offline mode because it looks like the service is temporary "
+"unavailable (error code %u).\n"
+"\n"
+"Please check your network connection. If necessary, use the provided network "
+"settings, and try again. If you believe that your network connection has "
+"nothing wrong, then we might get something wrong. Please report to us."
+msgstr ""
+"你目前处于离线模式，因为看起来服务不可用（错误代码 %u）。\n"
+"\n"
+"请检查你的网络连接。如果必要，请使用提供的网络设置，然后再试一次。如果你相信"
+"你的网络连接没有问题，那么我们可能搞出了什么问题。请向我们报告。"
+
+#: src/gui/main.vala:349
+#, c-format
+msgid ""
+"Failed to load the fetched recipe: %s\n"
+"\n"
+"Please report this incident to us."
+msgstr ""
+"无法加载获取的菜单：%s\n"
+"\n"
+"请将这次事件报告给我们。"
+
+#: src/gui/main.vala:385 src/gui/main.vala:400
+msgid "Recipe"
+msgstr "菜单"
+
+#: src/gui/main.vala:445 src/gui/main.vala:451 src/gui/main.vala:457
+#: src/gui/main.vala:463
+msgid "Not selected"
+msgstr "未选择"
+
+#: src/gui/main.vala:468 src/gui/main.vala:476
+msgid "Not set"
+msgstr "未设置"
+
+#: src/gui/main.vala:507 src/gui/main.vala:522
+msgid "Installing"
+msgstr "安装中"
+
+#: src/gui/main.vala:774
+#, c-format
+msgid ""
+"Failed to execute GParted: %s.\n"
+"\n"
+"Please check if GParted is installed correctly on your computer. If you "
+"believe that you have done nothing wrong, please report this incident to us."
+msgstr ""
+"无法执行 GParted：%s\n"
+"\n"
+"请检查 GParted 是否已经正确地安装在了你的电脑上。如果你相信你没有搞错什么，请"
+"将这次事件报告给我们。"
+
+#: src/gui/main.vala:782
+msgid "Select a Custom Tarball"
+msgstr "选择自定义 Tarball"
+
+#: src/gui/main.vala:798
+#, c-format
+msgid ""
+"Cannot retrieve information about the file you chose: %s.\n"
+"\n"
+"You may not add this file as your custom variant."
+msgstr ""
+"无法对你选择的文件获取信息：%s。\n"
+"\n"
+"你不能将这个文件添加为自定义变种。"
+
+#: src/gui/main.vala:901
+msgid "The recipe is invalid and cannot be parsed."
+msgstr "菜单非法，无法解析。"
+
+#: src/gui/main.vala:905
+#, c-format
+msgid "Recipe version %d is not supported."
+msgstr "版本 %d 的菜单不受支持。"
+
+#: src/gui/main.vala:1021
+msgid "Cannot connect to the UDisks2 daemon via DBus."
+msgstr "无法从 DBus 上连接 UDisks2 守护进程。"
+
+#: src/gui/main.vala:1076 src/gui/main.vala:1084
+msgid "On "
+msgstr "位于 "
+
+#: src/gui/main.vala:1179
+msgid "Skating…"
+msgstr "溜冰中……"
+
+#: src/recipe/tarball.vala:46
+msgid "Generic"
+msgstr "通用"
