@@ -31,16 +31,23 @@ public class Mirror: Gtk.Box {
   private Gtk.Label location;
 
   /**
+   * URL to the mirror.
+   */
+  private string url;
+
+  /**
    * Constructor for row ``Mirror``.
    *
    * @param icon_name   Name of the icon to display.
    * @param mirror_name Name of the mirror (e.g. "LUG@USTC").
    * @param location    Location of the mirror (e.g. "Hefei, Anhui, China").
+   * @param url         URL to the mirror.
    */
-  public Mirror(string icon_name, string mirror_name, string location) {
+  public Mirror(string icon_name, string mirror_name, string location, string url) {
     this.set_icon_name(icon_name);
     this.set_mirror_name(mirror_name);
     this.set_location(location);
+    this.set_url(url);
   }
 
   public string get_icon_name() {
@@ -57,6 +64,10 @@ public class Mirror: Gtk.Box {
     return this.location.get_text().dup();
   }
 
+  public string get_url() {
+    return this.url;
+  }
+
   public void set_icon_name(string icon_name) {
     this.icon.set_from_icon_name(icon_name, icon_size);
   }
@@ -67,6 +78,10 @@ public class Mirror: Gtk.Box {
 
   public void set_location(string location) {
     this.location.set_text(location);
+  }
+
+  public void set_url(string url) {
+    this.url = url;
   }
 }
 
