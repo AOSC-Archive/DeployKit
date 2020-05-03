@@ -1,27 +1,14 @@
 # UI definition
 res/ui/main.ui
+res/ui/networkconfig.ui
 
 # Source files
-src/dkir/configinfo.vala
-src/dkir/ir.vala
-src/dkir/overrideinfo.vala
-src/dkir/extractinfo.vala
-src/dkir/bootloaderinfo.vala
-src/dkir/partitioninfo.vala
-src/dkir/userinfo.vala
+# Update the list with `egrep -r '_\(.*\)' src/ | cut -d ':' -f 1 | uniq`
 src/app.vala
+src/mirrors/aosc-api-mirror.vala
 src/gui/networkconfig.vala
-src/gui/rows/destination.vala
-src/gui/rows/variant.vala
-src/gui/rows/extracomponent.vala
 src/gui/rows/common.vala
-src/gui/rows/mirror.vala
 src/gui/main.vala
-src/utils/lang.vala
-src/main.vala
-src/dkrpc/client.vala
-src/recipe/recipe.vala
 src/recipe/variant.vala
 src/recipe/tarball.vala
 src/recipe/mirror.vala
-src/recipe/bulletin.vala
