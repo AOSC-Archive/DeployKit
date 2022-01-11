@@ -1,3 +1,5 @@
+THIS PROJECT IS DEPRECATED AND REPLACED BY [aoscdk-rs](https://github.com/AOSC-Dev/aoscdk-rs/).
+
 # AOSC OS DeployKit
 
 The new installation and recovery utility for AOSC OS.
